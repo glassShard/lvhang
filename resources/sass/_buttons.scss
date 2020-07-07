@@ -1,0 +1,59 @@
+.lv-btn {
+    @extend %transition;
+    font-family: $gothic-regular;
+    font-weight: unset;
+    border-radius: 0;
+    outline: none;
+    padding: $button-vertical-padding $button-horizontal-padding;
+
+    &:focus, &:active {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+    }
+    
+    &:not(:disabled):not(.disabled):active:focus {
+        box-shadow: none;
+    }
+}
+
+.btn-skeleton {
+    border: 1px solid $btn-skeleton-border;
+    background-color: transparent;
+    color: $text-color;
+
+    &:hover {
+        border: 1px solid $btn-skeleton-border;
+        background-color: $btn-hover-color;
+        color: $text-color;
+    }
+
+    &:disabled {
+        color: $btn-disabled-text;
+    }
+}
+
+.btn-normal {
+    border: 1px solid $btn-color;
+    background-color: $btn-color;
+    color: $text-color;
+
+    &:hover {
+        border: 1px solid $btn-hover-color;
+        background-color: $btn-hover-color;
+    }
+
+    &:disabled {
+        color: $btn-disabled-text;
+        background-color: $btn-disabled-bg;
+    }
+
+    &:not(:disabled):not(.disabled):active {
+        border: 1px solid $btn-hover-color;
+        background-color: $btn-hover-color;
+    }
+}
+
+
+
+

@@ -1,0 +1,105 @@
+@include css3-font-face($gothic-regular, $gothic-regular);
+@include css3-font-face($gothic-italic, $gothic-italic);
+@include css3-font-face($gothic-italic-bold, $gothic-italic-bold);
+@include css3-font-face($gothic-bold, $gothic-bold);
+@include css3-font-face($fontello, $fontello);
+
+h1 {
+    font-size: $h1;
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;
+}
+
+h4 {
+    font-size: $h4;
+}
+
+h5 {
+    font-size: $h5;
+}
+
+a {
+    color: $link-color;
+}
+
+p {
+    @include media(lg) {
+        font-size: $p-font-size-lg;
+    }
+
+    @include media(md) {
+        font-size: $p-font-size-md;
+    }
+
+    @include media(sm) {
+        font-size: $p-font-size-sm;
+    }
+
+    @include media(xs) {
+        font-size: $p-font-size-xs;
+    } 
+}
+
+.lv-display-1 {
+    @include media(lg) {
+        font-size: 60px;
+    }
+
+    @include media(md) {
+        font-size: 50px;
+    }
+
+    @include media(sm) {
+        font-size: 36px;
+    }
+
+    @include media(xs) {
+        font-size: 30px;
+    }
+}
+
+.lv-display-2 {
+    @include media(lg) {
+        font-size: 40px;
+    }
+
+    @include media(md) {
+        font-size: 40px;
+    }
+
+    @include media(sm) {
+        font-size: 30px;
+    }
+
+    @include media(xs) {
+        font-size: 20px;
+    }
+}
+
+.normal-size {
+    font-size: 22px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    font-family: $gothic-regular, $fallback-sans;
+    color: $text-color;
+}
+
+/* NAVBAR */
+
+nav {
+    font-family: $gothic-regular, $fallback-sans;
+    font-size: $navlist-font-size;
+}
+

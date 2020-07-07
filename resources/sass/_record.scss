@@ -1,0 +1,59 @@
+.half {
+
+
+  @include media(lg) {
+    width: 50%;
+  };
+
+  @include media(md) {
+    width: 100%;
+  };
+
+  @include media(sm) {
+    width: 100%;
+  };
+
+  @include media(xs) {
+    width: 100%;
+  };
+
+  .blabla {
+    @include media(lg) {
+      margin-right: 100px;
+    };
+  
+    @include media(md) {
+      margin-right: 0px;
+      
+    };
+  
+    @include media(sm) {
+      margin-right: 0px;
+    };
+  
+    @include media(xs) {
+      margin-right: 0px;
+    };
+  }
+  
+  .cover {
+    @include media(lg) {
+      margin-left: 100px;
+    };
+  
+    @include media(md) {
+      margin-left: 0px;
+      margin-top: 50px;
+    };
+  
+    @include media(sm) {
+      margin-left: 0px;
+      margin-top: 50px;
+    };
+  
+    @include media(xs) {
+      margin-left: 0px;
+      margin-top: 50px;
+    };
+  }
+}

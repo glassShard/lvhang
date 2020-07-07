@@ -1,0 +1,57 @@
+/* FONTELLO */
+
+%fontello {
+    font-family: $fontello;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="fontello-"]:before, [class*=" fontello-"]:before {
+    @extend %fontello;
+}
+
+.fontello-pencil:before { content: '\e800'; } /* '' */
+.fontello-phone-outline:before { content: '\e801'; } /* '' */
+.fontello-pencil-1:before { content: '\e802'; } /* '' */
+.fontello-mail:before { content: '\e803'; } /* '' */
+.fontello-phone:before { content: '\e804'; } /* '' */
+.fontello-trash-1:before { content: '\e805'; } /* '' */
+.fontello-doc-new:before { content: '\e806'; } /* '' */
+.fontello-right-dir:before { content: '\e807'; } /* '' */
+.fontello-left-dir:before { content: '\e808'; } /* '' */
+.fontello-up-dir:before { content: '\e809'; } /* '' */
+.fontello-down-dir:before { content: '\e80a'; } /* '' */
+.fontello-home:before { content: '\e857'; } /* '' */
+.fontello-pause:before { content: '\f00e'; } /* '' */
+.fontello-play:before { content: '\f00f'; } /* '' */
+.fontello-to-end:before { content: '\f010'; } /* '' */
+.fontello-to-start:before { content: '\f011'; } /* '' */
+.fontello-fast-forward:before { content: '\f012'; } /* '' */
+.fontello-fast-backward:before { content: '\f013'; } /* '' */
+.fontello-stop:before { content: '\f080'; } /* '' */
+.fontello-trash:before { content: '\f083'; } /* '' */
+.fontello-youtube-play:before { content: '\f16a'; } /* '' */
+.fontello-facebook-squared:before { content: '\f30e'; } /* '' */

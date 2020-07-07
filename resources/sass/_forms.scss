@@ -1,0 +1,34 @@
+.lv-form {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid grey;
+  color: $text-color;
+
+  &:focus {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid $purple;
+    box-shadow: 0 0 0 0.2rem $purple-fade;
+    color: $text-color;
+  }
+}
+
+.light .lv-form {
+  color: $dark-text-color;
+}
+
+
+/************************************************************/
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: green!important;
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 255, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: #C8FFC8; 
+}
+/************************************************************/
+

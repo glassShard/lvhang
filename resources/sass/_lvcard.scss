@@ -1,0 +1,96 @@
+.lv-card-deck {
+  justify-content: center;
+  
+  .lv-card {
+    background-color: $background-color;
+    border: 1px solid white;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    overflow: hidden;
+
+    @media (min-width: 576px) and (max-width: 1199.98px) {
+      flex: 0 0 0%;
+      min-width: 420px;
+      margin-bottom: 30px;
+    }
+
+    .lv-card-img-box {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+    }
+
+    .lv-card-image-link {
+      @extend %transition;
+      color: $text-color;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+        color: $text-color;
+      }
+    }
+
+    .lv-card-title-row {
+      @extend %background;
+      @extend %flex;
+      position: relative;
+      width: 100%;
+
+      .lv-card-logo,
+      .lv-card-title {
+        width: 35%;
+        padding: 30px;
+
+        .lv-card-logo-img {
+          max-height: 250px;
+        }
+      }
+
+      .lv-card-title {
+        width: 65%;
+        padding: 30px 30px 30px 0;
+
+        .display {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .lv-card-body {
+      background: $background-color;
+      z-index: 1;
+    }
+
+    .lv-card-footer {
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.record-card-wrapper {
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .record {
+    width: 250px;
+    margin: 5px;
+    background: transparent;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.record-card-body {
+  color: $dark-text-color;
+
+  &:hover {
+    color: $dark-text-color;
+  }
+}
+
+

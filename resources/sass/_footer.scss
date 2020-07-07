@@ -1,0 +1,31 @@
+.footer {
+  @extend %background;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/speaker-grid.jpg');
+  padding: 50px 80px;
+
+
+  .social {
+    @extend %flex;
+    // justify-content: flex-end;
+    font-size: $middle-font-size;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+
+    a {
+      &:hover {
+        color: white;
+      }
+    }
+
+    .simple {
+      @extend %flex;
+      flex-direction: column;
+      padding-bottom: 10px;
+
+      p {
+        font-size: $small-font-size;
+        margin: 0 10px;
+      }
+    }
+  }
+}

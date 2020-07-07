@@ -1,0 +1,152 @@
+.light {
+  background-color: #fcf3e6;
+  color: #231f20;
+
+  a {
+    color: #a33331;
+
+    &.btn {
+      color: $text-color;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.feet-intro {
+
+  .feet-intro-bg {
+    /*@extend %flex;
+    justify-content: space-between;
+    align-items: flex-start;*/
+
+    @include media(lg) {
+
+    }
+
+    @include media(md) {
+
+    }
+
+    @include media(sm) {
+
+    }
+
+    @include media(xs) {
+
+    }
+
+    .logo {
+      float: left;
+
+      @include media(lg) {
+        width: 13%;
+        margin-right: 80px;
+        margin-bottom: 80px;
+      }
+  
+      @include media(md) {
+        width: 13%;
+        margin-right: 50px;
+        margin-bottom: 50px;
+      }
+  
+      @include media(sm) {
+        width: 13%;
+        margin-right: 30px;
+        margin-bottom: 30px;
+      }
+  
+      @include media(xs) {
+        width: 13%;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+    };
+
+    .image {
+      float: right;
+
+      @include media(lg) {
+        width: 30%;
+        margin-left: 80px;
+        margin-bottom: 80px;
+      }
+  
+      @include media(md) {
+        width: 30%;
+        margin-left: 50px;
+        margin-bottom: 50px;
+      }
+  
+      @include media(sm) {
+        width: 30%;
+        margin-left: 30px;
+        margin-bottom: 30px;
+      }
+  
+      @include media(xs) {
+        width: 30%;
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+    };
+  }
+
+  .list {
+    //@extend %flex;
+    max-width: 1000px;
+  }
+
+  .text1 {
+    
+    margin-bottom: 2px;
+
+    @include media(lg) {
+      padding: 0;
+    }
+
+    @include media(md) {
+      padding: 0;
+    }
+
+    @include media(sm) {
+
+    }
+
+    @include media(xs) {
+
+    }
+  }
+
+  .text2 {
+    color: #231f20;
+    margin-bottom: 2px;
+
+    @include media(lg) {
+      padding: 80px;
+    }
+
+    @include media(md) {
+      padding: 60px;
+    }
+
+    @include media(sm) {
+      padding: 40px;
+    }
+
+    @include media(xs) {
+      padding: 30px;
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+}
