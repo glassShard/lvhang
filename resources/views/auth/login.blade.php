@@ -40,7 +40,7 @@
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="remember" value="{{ old('remember' ? 'checked' : '') }}">
 
-                <label for="remember" class="form-check-label">Emlékezzen rám</label>
+                <label for="remember" class="form-check-label">Emlékezz rám</label>
               </div>
 
             <br>

@@ -360,6 +360,14 @@ nav {
   min-height: 100vh;
 }
 
+.body .main-content {
+  min-height: 100vh;
+}
+
+.body main {
+  flex: 2;
+}
+
 .body ul {
   list-style-type: none;
   margin: 0;
@@ -1371,6 +1379,36 @@ nav {
 }
 
 /************************************************************/
+
+@media (min-width: 1200px) {
+  .lv-inline {
+    width: 500px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .lv-inline {
+    width: 400px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .lv-inline {
+    width: 350px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .lv-inline {
+    width: 250px;
+  }
+}
+
+.lv-form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
 
 @media (min-width: 1200px) {
   .half {

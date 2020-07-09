@@ -19,7 +19,7 @@
           <div class="content-overlay"></div>
           <ul class="intro-list">
             <li class="intro-list-item">
-              <a class="intro-link" href="{{ route('live') }}">
+              <a class="intro-link" href="{{ route('live.index') }}">
                 <div class="intro-text">
                   RENDEZVÉNY SZERVEZÉS
                 </div>
@@ -29,7 +29,7 @@
               </a>
             </li>
             <li class="intro-list-item">
-              <a class="intro-link" href="{{ route('live') }}">
+              <a class="intro-link" href="{{ route('live.index') }}">
                 <div class="intro-text">
                   RENDEZVÉNY KIVITELEZÉS  
                   <span class="subtitle">(HANG-, FÉNY-, SZÍNPADTECHNIKA)</span>

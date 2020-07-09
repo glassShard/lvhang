@@ -13,9 +13,12 @@
 
     <main>
       <section class="section light">
+
+        @include('includes.adminButton')
+
         <h1>Új kiadvány</h1>
         <br>
-        <form id="quill-form" action="{{ route('records.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('records.store') }}" method="POST" enctype="multipart/form-data">
           @csrf  
 
           @include('records._form')

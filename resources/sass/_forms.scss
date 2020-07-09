@@ -32,3 +32,26 @@
 }
 /************************************************************/
 
+.lv-inline {
+  @include media(lg) {
+    width: 500px;
+  };
+
+  @include media(md) {
+    width: 400px;
+  };
+
+  @include media(sm) {
+    width: 350px;
+  };
+  
+  @include media(xs) {
+    width: 250px;
+  };
+}
+
+.lv-form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}

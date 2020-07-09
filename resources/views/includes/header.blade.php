@@ -15,7 +15,7 @@
       <nav class="nav-bar closed-nav-bar">
         <ul class="nav-bar-list">
           <li class="nav-item"><a href="{{ route('home') }}">KEZDŐLAP</a></li>
-          <li class="nav-item"><a href="{{ route('live') }}">ÉLŐ</a></li>
+          <li class="nav-item"><a href="{{ route('live.index') }}">ÉLŐ</a></li>
           <li class="nav-item"><a href="{{ route('studio') }}">STÚDIÓ</a></li>
           <li class="nav-item"><a href="{{ route('records.index') }}">KIADÓ</a></li>
           <li class="nav-item"><a href="{{ route('news') }}">HÍREK</a></li>

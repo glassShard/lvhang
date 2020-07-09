@@ -13,9 +13,12 @@
 
     <main>
       <section class="section light">
+
+        @include('includes.adminButton')
+
         <h1>{{ $record->title }} módosítása</h1>
         <br>
-        <form id="quill-form" action="{{ route('records.update', ['record' => $record->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('records.update', ['record' => $record->id]) }}" method="POST" enctype="multipart/form-data">
           
           @csrf
           @method('PUT')  

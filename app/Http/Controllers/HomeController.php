@@ -14,14 +14,6 @@ class HomeController extends Controller
     public function contact() {
         return view('contact');
     }
-
-    public function record($id) {
-        $albums = [
-            1 => ['title' => 'hello from album 1'],
-            2 => ['title' => 'hello from album 2']
-        ];
-        return view('record', ['data' => $albums[$id]]);
-    }
 }
 
         

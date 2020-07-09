@@ -13,8 +13,8 @@
     <main>
       <section class="section feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <a class="btn btn-lg btn-primary btn-normal" href="{{ route('records.create') }}">Új kiadvány</a>
-
+          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('records.create') }}">Új kiadvány</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('live-ref-places.index') }}">Élő referencia helyszínek</a>
         </div>
       </section>
     </main>

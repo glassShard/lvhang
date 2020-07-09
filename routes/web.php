@@ -7,7 +7,7 @@ Route::get('/', 'HomeController@home')->name('home');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
 
-Route::view('/live', 'live')->name('live');
+Route::resource('/live', 'LiveController')->only('index');
 
 Route::view('/studio', 'studio')->name('studio');
 
@@ -18,5 +18,13 @@ Route::view('/news', 'news')->name('news');
 Auth::routes();
 
 Route::view('/admin', 'admin')->name('admin')->middleware('auth');
+
+Route::resource('/live-ref-places', 'LiveRefPlaceController')->except('show');
+
+Route::resource('/live-refs', 'LiveRefController')->only(['store', 'update', 'destroy']);
+
+Route::get('/live-ref-list/{id}', 'LiveRefController@liveRefList')->name('live-ref-list');
+
+
 
 
