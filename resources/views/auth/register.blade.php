@@ -57,7 +57,7 @@
           <br>
           <br>
 
-          <button type="submit" class="btn btn-lg btn-primary btn-normal">Regisztrálok</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-normal lv-btn">Regisztrálok</button>
         </form>
       </section>
     </main>

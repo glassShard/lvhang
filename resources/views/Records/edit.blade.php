@@ -14,8 +14,6 @@
     <main>
       <section class="section light">
 
-        @include('includes.adminButton')
-
         <h1>{{ $record->title }} módosítása</h1>
         <br>
         <form action="{{ route('records.update', ['record' => $record->id]) }}" method="POST" enctype="multipart/form-data">
@@ -24,8 +22,8 @@
           @method('PUT')  
           
           @include('records._form')
-
-          <button type="submit" class="btn btn-lg btn-primary btn-normal">Mehet</button>
+          
+          <button type="submit" class="btn btn-lg btn-success lv-btn"><i class="fontello-floppy"></i></button>
         </form>
       </section>
     </main>

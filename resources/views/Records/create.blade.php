@@ -14,8 +14,6 @@
     <main>
       <section class="section light">
 
-        @include('includes.adminButton')
-
         <h1>Új kiadvány</h1>
         <br>
         <form action="{{ route('records.store') }}" method="POST" enctype="multipart/form-data">
@@ -23,7 +21,7 @@
 
           @include('records._form')
 
-          <button type="submit" class="btn btn-lg btn-primary btn-normal">Mehet</button>
+          <button type="submit" class="btn btn-lg btn-success lv-btn"><i class="fontello-floppy"></i></button>
         </form>
       </section>
     </main>

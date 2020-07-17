@@ -5,8 +5,9 @@ namespace App\Classes;
 class ImageProcess
 {
 	public static function image_process($file_path, $extension, $dst_w, $dst_h) {
-		$file = storage_path().'/app/public/'.$file_path;
-		
+		$file = $file_path;
+		$extension = strtolower($extension);
+
 		// Megszerzi a kép adatait
 		$dimensions   = GetImageSize($file);
 		$src_w        = $dimensions[0];
@@ -17,6 +18,15 @@ class ImageProcess
 		
 		if ($dst_w === 'auto') {
 			$dst_w = $dst_h * $src_w / $src_h;
+		}
+
+		if ($dst_w === 'max') {
+			if ($src_w >=$src_h) {
+				$dst_w = $dst_h;
+				$dst_h = $src_h * $dst_w / $src_w;
+			} else {
+				$dst_w = $src_w * $dst_h / $src_w;
+			}
 		}
 
 		// Forrás szélesség / magasság > cél sz / m
@@ -42,13 +52,16 @@ class ImageProcess
 	
 		$dst_image = imagecreatetruecolor($dst_w, $dst_h);
 	
-		ini_set('memory_limit', '256M');
+		ini_set('memory_limit', '512M');
+
+/* 		dump($extension);
+		dump($file); */
 		
 		switch ($extension) {
-			case '.png':
+			case 'png':
 				$src_image = @ImageCreateFromPng($file); // original image
 			break;
-			case '.gif':
+			case 'gif':
 				$src_image = @ImageCreateFromGif($file); // original image
 			break;
 			default:
@@ -56,8 +69,8 @@ class ImageProcess
 				ImageInterlace($dst_image, true); // Enable interlancing (progressive JPG, smaller size file)
 			break;
 		}
-			
-		if($extension=='.png'){
+	
+		if($extension=='png'){
 			imagealphablending($dst_image, false);
 			imagesavealpha($dst_image,true);
 			$transparent = imagecolorallocatealpha($dst_image, 255, 255, 255, 127);
@@ -67,9 +80,9 @@ class ImageProcess
 		imagecopyresampled($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
 		
 		// Kiolvassa az exif adatokat
-		if ($extension == '.jpg') {
-			
-			$exif = exif_read_data($file);
+		if ($extension === 'jpg') {
+
+			$exif = @exif_read_data($file);
 
 			// Automatikus forgatás exif alapján
 			if (!empty($exif['Orientation'])) {
@@ -90,10 +103,10 @@ class ImageProcess
 		ImageDestroy($src_image);
 
 		switch ($extension) {
-			case '.png':
+			case 'png':
 				$gotSaved = ImagePng($dst_image, $file);
 			break;
-			case '.gif':
+			case 'gif':
 				$gotSaved = ImageGif($dst_image, $file);
 			break;
 			default:
@@ -107,10 +120,5 @@ class ImageProcess
 		}
 	}
 }
-
-
-
-
-
 
 ?>

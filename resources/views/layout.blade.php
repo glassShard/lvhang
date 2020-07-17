@@ -38,6 +38,8 @@
 
 	@include('includes.footer')
 
+	@include('includes.adminButton')
+
 	<script src="{{ mix('js/app.js') }}"></script>
 </body>
 

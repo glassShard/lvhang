@@ -1,3 +1,5 @@
-<div class="mb-4">
-  <a href="{{ route('admin') }}" class="btn btn-lg btn-primary btn-normal lv-btn mb-1">Adminra</a>
-</div>
+@auth
+  <div>
+    <a href="{{ route('admin') }}" class="btn btn-lg btn-info lv-btn adminButton">Adminra</a>
+  </div>
+@endauth

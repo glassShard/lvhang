@@ -40,7 +40,7 @@
               </a>
             </li>
             <li class="intro-list-item">
-              <a class="intro-link" href="{{ route('studio') }}">
+              <a class="intro-link" href="{{ route('studio.index') }}">
                 <div class="intro-text">
                   KONCERT FELVÉTEL KÉSZÍTÉS
                 </div>
@@ -50,7 +50,7 @@
               </a>
             </li>
             <li class="intro-list-item">
-              <a class="intro-link" href="{{ route('studio') }}">
+              <a class="intro-link" href="{{ route('studio.index') }}">
                 <div class="intro-text">
                   HANGFELVÉTEL KÉSZÍTÉS
                 </div>
@@ -60,7 +60,7 @@
               </a>
             </li>
             <li class="intro-list-item">
-              <a class="intro-link" href="{{ route('studio') }}">
+              <a class="intro-link" href="{{ route('studio.index') }}">
                 <div class="intro-text">
                   HANGUTÓMUNKA
                 </div>
@@ -90,12 +90,12 @@
           <div class="card-deck lv-card-deck">
             
             <div class="card lv-card">
-              <a href="#" class="lv-card-image-link">
+              <a href="{{ route('live.index') }}" class="lv-card-image-link">
                 <div class="lv-card-title-row" style="background-image:linear-gradient(
                   rgba(0,0,0,0.7), 
-                  rgba(0,0,0,0.7)),url('images/IMG_3886.jpg')">
+                  rgba(0,0,0,0.7)),url('static-images/IMG_3886.jpg')">
                   <div class="lv-card-logo">
-                    <img src="images/LV LIVE_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV LIVE_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Élő</h5>
@@ -108,17 +108,17 @@
               </div>
               
               <div class="card-footer lv-card-footer">
-                <a href="#" class="btn btn-lg btn-primary btn-normal">Tovább az élőre</a>
+                <a href="{{ route('live.index') }}" class="btn btn-lg btn-primary btn-normal lv-btn">Tovább az élőre</a>
               </div>
             </div>
             
             <div class="card lv-card">
-              <a href="#" class="lv-card-image-link">
+              <a href="{{ route('studio.index') }}" class="lv-card-image-link">
                 <div class="lv-card-title-row" style="background-image:linear-gradient(
                 rgba(0,0,0,0.7), 
-                rgba(0,0,0,0.7)),url('images/IMG_20200615_165554.jpg')">
+                rgba(0,0,0,0.7)),url('static-images/IMG_20200615_165554.jpg')">
                   <div class="lv-card-logo">
-                    <img src="images/LV_STUDIO_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV_STUDIO_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Stúdió</h5>
@@ -131,17 +131,17 @@
               </div>
               
               <div class="card-footer lv-card-footer">
-                <a href="#" class="btn btn-lg btn-primary btn-normal">Tovább a stúdióra</a>
+                <a href="{{ route('studio.index') }}" class="btn btn-lg btn-primary btn-normal lv-btn">Tovább a stúdióra</a>
               </div>
             </div>
   
             <div class="card lv-card">
-              <a href="#" class="lv-card-image-link">
+              <a href="{{ route('records.index') }}" class="lv-card-image-link">
                 <div class="lv-card-title-row" style="background-image:linear-gradient(
                   rgba(0,0,0,0.7), 
-                  rgba(0,0,0,0.7)),url('images/kiado.jpg')">
+                  rgba(0,0,0,0.7)),url('static-images/kiado.jpg')">
                   <div class="lv-card-logo">
-                    <img src="images/LV _REC_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV _REC_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
                   </div>
                   <div class="lv-card-title">
                   <h5 class="card-title display">Kiadó</h5>
@@ -154,7 +154,7 @@
                 
               </div>
               <div class="card-footer lv-card-footer">
-                <a href="#" class="btn btn-lg btn-primary btn-normal">Tovább a kiadóra</a>
+                <a href="{{ route('records.index') }}" class="btn btn-lg btn-primary btn-normal lv-btn">Tovább a kiadóra</a>
               </div>
             </div>
   

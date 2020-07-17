@@ -22,4 +22,5 @@
   </a>
   <p class="text-center mt-3 small text-muted">Design: <a href="https://behance.net/markopudvaec8c"
       target="_blank">Válik Bernát</a></p>
+  <p class="text-center"><a href="{{ route('login') }}"><i class="fontello-login-1"></i></a></p>
 </footer>

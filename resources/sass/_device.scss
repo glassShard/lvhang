@@ -1,0 +1,96 @@
+.deviceType {
+  background-color: rgba(0,0,0,0.03);
+  margin: 30px 0;
+
+  .deviceImageWrapper {
+    @extend %background;
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    margin-bottom: 60px;
+    
+    @include media(lg) {
+      height: 200px;
+    };
+  
+    @include media(md) {
+      height: 180px;
+    };
+  
+    @include media(sm) {
+      height: 140px;
+    };
+  
+    @include media(xs) {
+      height: 120px;
+    };
+
+    .deviceImageOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(252,243,230,0.5);
+    }
+
+    .deviceTypeTitle {
+      position: absolute;
+      bottom: -30px;
+      left: 30px;
+      background-color: rgba(0,0,0,0.7);
+      color: $text-color;
+
+      @include media(lg) {
+        padding: 30px 50px;
+      };
+    
+      @include media(md) {
+        padding: 24px 40px;
+      };
+    
+      @include media(sm) {
+        padding: 20px 30px;
+      };
+    
+      @include media(xs) {
+        padding: 15px 26px;
+      };
+    }
+  }
+
+  .deviceTextWrapper {
+    padding: 30px;
+
+
+    .deviceList {
+/*       list-style-type: disc;
+      list-style-position: inside; */
+
+      & ul > li {
+        margin-left: 30px;
+      }
+      
+      & p {
+        display: inline-block;
+      }
+
+      .deviceSubList {
+/*         list-style-type: circle;
+        list-style-position: inside; */
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul.formDeviceList {
+  margin-left: 30px;
+}
+
+.light input:disabled {
+  background-color: rgba(0,0,0,0.2);
+}

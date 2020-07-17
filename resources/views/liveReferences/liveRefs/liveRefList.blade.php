@@ -14,8 +14,6 @@
     <main>
       <section class="section light">
 
-        @include('includes.adminButton')
-
         @if(session()->has('status'))
           <p style="color: green">{{ session()->get('status') }}</p>
         @endif
@@ -36,7 +34,7 @@
 
                 <input type="text" class="form-control lv-form lv-inline mb-1" id="performer" name="performer" placeholder="Előadó (referencia) neve..." value="{{ $liveRef->performer }}">
               
-                <button type="submit" class="btn btn-lg btn-primary lv-btn btn-success mb-1 ml-4 mr-1 d-inline-block"><i class="fontello-trash-1"></i></button>
+                <button type="submit" class="btn btn-lg btn-primary lv-btn btn-success mb-1 ml-4 mr-1 d-inline-block"><i class="fontello-floppy"></i></button>
 
               </form>
               <form action="{{ route('live-refs.destroy', ['live_ref' => $liveRef->id]) }}" class="" method="POST">
@@ -61,7 +59,7 @@
 
           <input type="hidden" id="liveRefPlace" name="liveRefPlace" value="{{ $liveRefPlace->id }}">
         
-          <button type="submit" class="btn btn-lg btn-primary lv-btn btn-success mb-1 ml-4 mr-1 d-inline-block"><i class="fontello-trash-1"></i></button>
+          <button type="submit" class="btn btn-lg btn-primary lv-btn btn-success mb-1 ml-4 mr-1 d-inline-block"><i class="fontello-floppy"></i></button>
 
         </form>
 

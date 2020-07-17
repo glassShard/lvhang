@@ -15,6 +15,8 @@
         <div class="feet-intro-bg content">
           <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('records.create') }}">Új kiadvány</a>
           <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('live-ref-places.index') }}">Élő referencia helyszínek</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('galleries.index') }}">Képgalériák</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('devices.index') }}">Eszközlisták</a>
         </div>
       </section>
     </main>

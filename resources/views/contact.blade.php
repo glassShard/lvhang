@@ -13,7 +13,7 @@
     <main>
       <section class="section feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="image" src="./images/lv_telefon1.png" alt="">
+          <img class="image" src="./static-images/lv_telefon1.png" alt="">
           <div class="text1">
             
             <br>

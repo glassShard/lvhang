@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Device;
+use App\Gallery;
 use App\LiveRefPlace;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,15 @@ class LiveController extends Controller
     {
         $liveRefPlaces = LiveRefPlace::with('liveRefs')->get();
 
-        return view('live', ['liveRefPlaces' => $liveRefPlaces]);
+        $galleries = Gallery::where('foot', 'live')->inRandomOrder()->limit(4)->get();
+
+        $parentDevices = Device::where('id', 1)->with('subDevice')->get();
+
+        return view('live', [
+            'liveRefPlaces' => $liveRefPlaces,
+            'galleries' => $galleries,
+            'parentDevices' => $parentDevices
+        ]);
     }
 
     /**

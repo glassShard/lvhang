@@ -25,6 +25,20 @@ Route::resource('/live-refs', 'LiveRefController')->only(['store', 'update', 'de
 
 Route::get('/live-ref-list/{id}', 'LiveRefController@liveRefList')->name('live-ref-list');
 
+Route::resource('/galleries', 'GalleryController');
 
+Route::post('/gallery-images/save-images/{id}', 'GalleryController@saveImages')->name('gallery-images.save-images');
+
+Route::delete('gallery-images/delete/{id}', 'GalleryController@deleteImages')->name('gallery-images.delete');
+
+Route::resource('/studio', 'StudioController')->only('index');
+
+Route::get('/galleries/type/{type}', 'GalleryController@galleriesByType')->name('galleries.type');
+
+Route::resource('/devices', 'DeviceController')->only('index', 'update', 'destroy', 'edit');
+
+Route::get('devices/create-to-parent/{parent}', 'DeviceController@createToParent')->name('devices.create-to-parent');
+
+Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent')->name('devices.store-to-parent');
 
 

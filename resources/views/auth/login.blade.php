@@ -46,7 +46,7 @@
             <br>
             <br>
 
-            <button type="submit" class="btn btn-lg btn-primary btn-normal">Login</button>
+            <button type="submit" class="btn btn-lg btn-primary btn-normal lv-btn">Login</button>
 
         </form>
       </section>

@@ -12,7 +12,7 @@ class RecordController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except(['index', 'show']);
     }
     
     /**
@@ -22,7 +22,7 @@ class RecordController extends Controller
      */
     public function index()
     {
-        return view('records.index', ['records' => Record::all()]);
+        return view('records.index', ['records' => Record::all()->sortByDesc('year')]);
     }
 
     /**
@@ -55,16 +55,15 @@ class RecordController extends Controller
             $name_thumbnail = $file->store('records/thumbnail');
             $name_image = $file->store('records/image');
 
-            $thumb = ImageProcess::image_process($name_thumbnail, $file->getClientOriginalExtension(), 250, 250);
-
-            $image = ImageProcess::image_process($name_image, $file->getClientOriginalExtension(), 1000, 1000);
-                
             $record->thumbnail = $name_thumbnail;
             $record->image = $name_image;
+
+            $thumb = ImageProcess::image_process(Storage::path($record->thumbnail), $file->getClientOriginalExtension(), 250, 250);
+
+            $image = ImageProcess::image_process(Storage::path($record->image), $file->getClientOriginalExtension(), 1000, 1000);
         }
 
         $record->save();
-       
 
         $request->session()->flash('status', 'Új kiadvány mentve!');
         
@@ -117,15 +116,15 @@ class RecordController extends Controller
             $name_thumbnail = $file->store('records/thumbnail');
             $name_image = $file->store('records/image');
 
-            $thumb = ImageProcess::image_process($name_thumbnail, $file->getClientOriginalExtension(), 250, 250);
-
-            $image = ImageProcess::image_process($name_image, $file->getClientOriginalExtension(), 1000, 1000);
-            
             Storage::delete($record->thumbnail);
-            storage::delete($record->image);             
-            
+            storage::delete($record->image);
+
             $record->thumbnail = $name_thumbnail;
             $record->image = $name_image;
+
+            $thumb = ImageProcess::image_process(Storage::path($record->thumbnail), $file->getClientOriginalExtension(), 250, 250);
+
+            $image = ImageProcess::image_process(Storage::path($record->image), $file->getClientOriginalExtension(), 1000, 1000);
         }
 
         $record->save();

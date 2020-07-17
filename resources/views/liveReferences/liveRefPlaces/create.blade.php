@@ -14,8 +14,6 @@
     <main>
       <section class="section light">
 
-        @include('includes.adminButton')
-
         <h1>Új élő referenciacsoport</h1>
         <br>
         <h2>Meglévő csoportok:</h2>
@@ -35,7 +33,8 @@
 
           @include('liveReferences.liveRefPlaces._form')
 
-          <button type="submit" class="btn btn-lg btn-primary btn-normal">Mehet</button>
+          <button type="submit" class="btn btn-lg btn-success lv-btn"><i class="fontello-floppy"></i></button>
+          
         </form>
       </section>
     </main>

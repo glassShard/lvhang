@@ -1,12 +1,17 @@
 'use strict';
 
+import {renderImages} from "./renderImages";
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
+
 const root = "http://localhost/lvhang-sitebuild/";
 
 let scrollTimer;
 let lastScrollFireTime;
 
-
 window.onload = function () {
+
+	renderImages();
 
 	// kell a scrollozáskor logo összanyomáshoz
 	const logoHolder = document.querySelector('.logo-holder');
@@ -100,5 +105,51 @@ window.onload = function () {
 	hamburger.addEventListener('click', openHamburger);
 	bodyOverlay.addEventListener('click', openHamburger);
 
+	/* képgalériánál ha képre kattintok */
+	const swiperContainer = document.querySelector('.mySwiper');
+	const clickableImages = document.querySelectorAll('.clickableImage');
+	clickableImages.forEach((clickableImage, index) => {
+		
+		clickableImage.addEventListener('click', (event) => {
 
+			const swiper = new Swiper('.swiper-container', {
+				// Optional parameters
+				loop: true,
+				lazy: true,
+				initialSlide: index,
+				init: false,
+			
+				// If we need pagination
+				pagination: {
+					el: '.swiper-pagination',
+					dynamicBullets: true
+				},
+			
+				// Navigation arrows
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+
+			function initSwiper() {
+				swiper.init();
+				swiperContainer.removeEventListener('transitionend', initSwiper);
+			}
+		
+			swiperContainer.addEventListener('transitionend', initSwiper);
+
+			function destroySwiper() {
+				swiper.destroy();
+				swiperContainer.removeEventListener('transitionend', destroySwiper);
+			}
+			
+			document.querySelector('.galleryExit').addEventListener('click', () => {
+				swiperContainer.addEventListener('transitionend', destroySwiper);
+				swiperContainer.classList.remove('active');
+			});
+			swiperContainer.classList.add('active');
+
+		})
+	});
 }    

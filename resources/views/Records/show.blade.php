@@ -24,7 +24,7 @@
               <div class="blabla">
                 @auth
 
-                  <a href="{{ route('records.edit', ['record' => $record->id]) }}" class="btn btn-lg btn-primary btn-normal lv-btn"><i class="fontello-pencil"></i></a>
+                  <a href="{{ route('records.edit', ['record' => $record->id]) }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-pencil"></i></a>
 
                   <form action="{{ route('records.destroy', ['record' => $record->id]) }}" class="d-inline-block" method="POST">
                   
@@ -54,7 +54,7 @@
                 @if ($record->image)
                   <img src="{{ $record->url('image') }}" class="card-img-top" alt="...">	
                 @else
-                  <img src="{{ Request::root() }}/images/no_image.png" class="card-img-top" alt="...">	
+                  <img src="{{ Request::root() }}/static-images/no_image.png" class="card-img-top" alt="...">	
                 @endif
               </div>
               
