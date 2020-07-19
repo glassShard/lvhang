@@ -13,8 +13,8 @@
     <main>
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="logo" src="../static-images/LV_STUDIO_LOGO-01-dark.svg" alt="">
-          <img class="image" src="../static-images/lv_tape_piros.png" alt="">
+          <img class="logo" src="./static-images/LV_STUDIO_LOGO-01-dark.svg" alt="">
+          <img class="image" src="./static-images/lv_tape_piros.png" alt="">
           <div class="text1">
             <h1 class="lv-display-1">L.V. Hang Studio</h1>
             <p class=>Stúdiónk három üveggel elválasztott feljátszó helyiségből, kontroll-szobából,

@@ -13,8 +13,8 @@
     <main>
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="logo" src="../static-images/LV LIVE_LOGO-01-dark.svg" alt="">
-          <img class="image" src="../static-images/VTX1.png" alt="">
+          <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="">
+          <img class="image" src="./static-images/VTX1.png" alt="">
           <div class="text1">
             <h1 class="lv-display-1">Rendezvények</h1>
             <p>Az L.V. Hangtechnikai Bt-t 1993-ban azzal az alapvető céllal alapítottuk, hogy rendezvényszervező ügyfeleink részére megbízható, rugalmas technikai hátteret biztosítsunk.</p>

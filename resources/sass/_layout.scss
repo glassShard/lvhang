@@ -4,6 +4,22 @@
   background-color: $background-color;
   min-height: 100vh;
 
+  @include media(lg) {
+    font-size: $p-font-size-lg;
+  };
+
+  @include media(md) {
+    font-size: $p-font-size-md;
+  };
+
+  @include media(sm) {
+    font-size: $p-font-size-sm;
+  };
+
+  @include media(xs) {
+    font-size: $p-font-size-xs;
+  };
+
   .main-content {
     min-height: 100vh;
   }
@@ -11,8 +27,6 @@
   main {
     flex: 2;
   }
-
-  
   
   ul {
     list-style-type: none;
@@ -88,6 +102,7 @@
       @extend %flex;
       font-family: $gothic-bold;
       background-image: url('../img/main-image.jpg');
+      /* background-image: url('http://lvhang.hu/test/images/main-image.jpg'); */
       @extend %background;
       flex-grow: 1;
       width: 100%;
@@ -131,7 +146,8 @@
           left: -20px;
           right: -20px;
           border: 1px solid red;
-          background-image: url('../img/main-image.jpg');;
+          background-image: url('../img/main-image.jpg');
+          /* background-image: url('http://lvhang.hu/test/images/main-image.jpg'); */
           @extend %background;
           background-attachment: fixed;
           filter: blur(4px);
@@ -262,21 +278,25 @@
     
     @include media(lg) {
       background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('../img/speaker-grid.jpg');
+      /* background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
       height: $header-lg-height;
     };
     
     @include media(md) {
       background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('../img/speaker-grid.jpg');
+      /* background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
       height: $header-md-height;
     };
 
     @include media(sm) {
       background-image: url('../img/speaker-grid.jpg');
+      /* background-image: url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
       height: $header-sm-height;
     };
 
     @include media(xs) {
       background-image: url('../img/speaker-grid.jpg');
+      /* background-image: url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
       height: $header-xs-height;
     };
   }
