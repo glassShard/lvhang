@@ -10,7 +10,7 @@
 
 
   &.mySwiper {
-
+    z-index: 17;
     position: fixed;
   }
 
@@ -47,7 +47,7 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
 
 }
 

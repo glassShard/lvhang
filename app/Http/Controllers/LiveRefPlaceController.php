@@ -40,8 +40,12 @@ class LiveRefPlaceController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required | max:255'
+        ]);
+        
         $liveRefPlace = new LiveRefPlace();
-        $liveRefPlace->name = $request->input('name');
+        $liveRefPlace->name = $data['name'];
         $liveRefPlace->save();
 
         $request->session()->flash('status', 'Helyszín rögzítve!');
@@ -82,9 +86,12 @@ class LiveRefPlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->validate([
+            'name' => 'required | max:255'
+        ]);
         $liveRefPlace = LiveRefPlace::findOrFail($id);
 
-        $liveRefPlace->name = $request->input('name');
+        $liveRefPlace->name = $data['name'];
         
         $liveRefPlace->save();
 

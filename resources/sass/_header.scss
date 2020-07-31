@@ -42,19 +42,31 @@
 }
 
 .open-nav-bar {
-  
   @media (max-width: 767.98px) {
     transform: translateX(0);
     opacity: 1;
+    
   }
 }
 
 .closed-nav-bar {
-  
-  @media (max-width: 767.98px) {
-    transform: translateX(200px);
+  @include media(sm) {
+    transform: translateX(800px);
     opacity: 0;
   }
+
+  @include media(xs) {
+    transform: translateX(550px);
+    opacity: 0;
+  }
+}
+
+.blockDisplay {
+  display: block;
+}
+
+.noneDisplay {
+  display: none;
 }
 
 .nav-bar {
@@ -75,7 +87,7 @@
   }
 
   @media (min-width: 576px) and (max-width: 767.98px) {
-    display: block;
+    
     border: 1px solid white;
     position: fixed;
     top: 20px;
@@ -86,7 +98,7 @@
   }
 
   @media (max-width: 575.98px) {
-    display: block;
+    
     border: 1px solid white;
     position: fixed;
     top: 20px;

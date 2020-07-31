@@ -82,6 +82,25 @@ p {
     }
 }
 
+.lv-display-3 {
+    @include media(lg) {
+        font-size: 36px;
+    }
+
+    @include media(md) {
+        font-size: 36px;
+    }
+
+    @include media(sm) {
+        font-size: 26px;
+    }
+
+    @include media(xs) {
+        font-size: 18px;
+        font-family: 'Gothic-Bold';
+    }
+}
+
 .normal-size {
     font-size: 22px;
 }
@@ -101,5 +120,9 @@ body {
 nav {
     font-family: $gothic-regular, $fallback-sans;
     font-size: $navlist-font-size;
+}
+
+.text-italic {
+    font-family: $gothic-italic;
 }
 

@@ -2,6 +2,9 @@
 
   @section('head')
     <title name="L.V. Hang - Képgalériák"></title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Az L.V. Hang képgalériái">
+    <meta name="keywords" content="képek">
   @endsection
 
   @section('content')
@@ -21,7 +24,7 @@
 
           <h1>Képgalériák
             @auth
-              <a href="{{ route('galleries.create') }}" class="btn btn-lg btn-info lv-btn ml-4"><i class="fontello-doc-new"></i></a>
+              <a href="{{ route('galleries.create', ['studio' => 0]) }}" class="btn btn-lg btn-info lv-btn ml-4"><i class="fontello-doc-new"></i></a>
             @endauth
           </h1>
 

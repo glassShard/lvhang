@@ -1,7 +1,17 @@
 @extends('layout')
 
   @section('head')
-  <title>LV Hang - Kezdőlap</title>
+  <title>L.V. Hang - Kezdőlap</title>
+  <meta name="description" content="L.V. Hang bemutatkozása, tevékenységek leírása">
+  <meta name="keywords" content="hangtechnika, hangfelvétel, mastering, fénytechnika, színpadtechnika, rendezvények, rendezvények kivitelezése">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="L.V. Hang" />
+  <meta property="og:description" content="Hang-, fény-, színpadtechnika, stúdió munkák." />
+  <meta property="og:image" content="{{ Request::root() }}/images/home.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="robots" content="index, follow">
   @endsection
 
   @section('content')
@@ -95,7 +105,7 @@
                   rgba(0,0,0,0.7), 
                   rgba(0,0,0,0.7)),url('static-images/IMG_3886.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV LIVE_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV LIVE_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. hang élő logo">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Élő</h5>
@@ -118,7 +128,7 @@
                 rgba(0,0,0,0.7), 
                 rgba(0,0,0,0.7)),url('static-images/IMG_20200615_165554.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV_STUDIO_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV_STUDIO_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. hang studio logo">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Stúdió</h5>
@@ -141,7 +151,7 @@
                   rgba(0,0,0,0.7), 
                   rgba(0,0,0,0.7)),url('static-images/kiado.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV _REC_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="...">
+                    <img src="static-images/LV _REC_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. records logo">
                   </div>
                   <div class="lv-card-title">
                   <h5 class="card-title display">Kiadó</h5>

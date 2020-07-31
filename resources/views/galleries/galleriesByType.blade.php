@@ -2,6 +2,9 @@
 
   @section('head')
     <title name="L.V. Hang - Képgalériák"></title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Az L.V. Hang képgalériáiból: {{ $type }}">
+    <meta name="keywords" content="képek, {{ $type }}">
   @endsection
 
   @section('content')

@@ -62,14 +62,14 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Nincs store method, mert több fő eszközt nem lehet felvenni. Több fő eszköz megjelenítéséhez nincs is hely.
     }
 
     public function storeToParent(Request $request, $parentId)
     {
     
         $data = $request->validate([
-            'name' => 'required|max:500',
+            'name' => 'required|min:1|max:500',
             'image' => 'image|mimes:jpg,jpeg,png,gif|max:15360'
         ]);
 
@@ -146,7 +146,7 @@ class DeviceController extends Controller
         $device = Device::findOrFail($id);
     
         $data = $request->validate([
-            'name' => 'required|max:500',
+            'name' => 'required|min:1|max:500',
             'image' => 'image|mimes:jpg,jpeg,png,gif|max:15360'
         ]);
 

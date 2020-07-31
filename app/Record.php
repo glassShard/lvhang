@@ -12,9 +12,22 @@ class Record extends Model
 
     protected $guarded = [];
     
-    protected $fillable = ['title', 'performer', 'type', 'year', 'thumbnail', 'image', 'record-trixFields'];
+    protected $fillable = ['title', 'performer', 'type', 'year', 'thumbnail', 'image', 'record-trixFields', 'fbShareImage', 'keywords'];
 
     public function url($type) {
         return Storage::url($this->$type);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function(Record $record) {
+            if ($record->thumbnail) {
+                Storage::delete($record->thumbnail);
+                Storage::delete($record->image);
+                Storage::delete($record->fbShareImage);
+            }
+        });
     }
 }

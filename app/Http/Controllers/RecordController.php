@@ -54,13 +54,17 @@ class RecordController extends Controller
 
             $name_thumbnail = $file->store('records/thumbnail');
             $name_image = $file->store('records/image');
+            $name_fbShareImage = $file->store('records/fbShareImage');
 
             $record->thumbnail = $name_thumbnail;
             $record->image = $name_image;
+            $record->fbShareImage = $name_fbShareImage;
 
             $thumb = ImageProcess::image_process(Storage::path($record->thumbnail), $file->getClientOriginalExtension(), 250, 250);
 
             $image = ImageProcess::image_process(Storage::path($record->image), $file->getClientOriginalExtension(), 1000, 1000);
+
+            $fbShareImage = ImageProcess::image_process(Storage::path($record->fbShareImage), $file->getClientOriginalExtension(), 1200, 630, true);
         }
 
         $record->save();
@@ -115,16 +119,21 @@ class RecordController extends Controller
 
             $name_thumbnail = $file->store('records/thumbnail');
             $name_image = $file->store('records/image');
+            $name_fbShareImage = $file->store('records/fbShareImage');
 
             Storage::delete($record->thumbnail);
-            storage::delete($record->image);
+            Storage::delete($record->image);
+            Storage::delete($record->fbShareImage);
 
             $record->thumbnail = $name_thumbnail;
             $record->image = $name_image;
+            $record->fbShareImage = $name_fbShareImage;
 
             $thumb = ImageProcess::image_process(Storage::path($record->thumbnail), $file->getClientOriginalExtension(), 250, 250);
 
             $image = ImageProcess::image_process(Storage::path($record->image), $file->getClientOriginalExtension(), 1000, 1000);
+
+            $fbShareImage = ImageProcess::image_process(Storage::path($record->fbShareImage), $file->getClientOriginalExtension(), 1200, 630, true);
         }
 
         $record->save();
@@ -142,11 +151,6 @@ class RecordController extends Controller
     public function destroy(Request $request, $id)
     {
         $record = Record::findOrFail($id);
-
-        if ($record->thumbnail) {
-            Storage::delete($record->thumbnail);
-            storage::delete($record->image);
-        }
 
         $record->delete();
 

@@ -1,7 +1,19 @@
 <?php
 
+use Facade\FlareClient\Stacktrace\File;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+/* Route::get('/foo', function() {
+  dump(Artisan::call('storage:link'));
+  dump(Artisan::call('route:list'));
+  dump(base_path());
+  dump(realpath(base_path()));
+  dump(public_path('storage'));
+  dump(storage_path('app/public'));
+
+}); */
 
 Route::get('/', 'HomeController@home')->name('home');
 
@@ -25,7 +37,9 @@ Route::resource('/live-refs', 'LiveRefController')->only(['store', 'update', 'de
 
 Route::get('/live-ref-list/{id}', 'LiveRefController@liveRefList')->name('live-ref-list');
 
-Route::resource('/galleries', 'GalleryController');
+Route::resource('/galleries', 'GalleryController')->except('create');
+
+Route::get('/galleries/create/{studio}', 'GalleryController@create')->name('galleries.create');;
 
 Route::post('/gallery-images/save-images/{id}', 'GalleryController@saveImages')->name('gallery-images.save-images');
 
@@ -40,5 +54,7 @@ Route::resource('/devices', 'DeviceController')->only('index', 'update', 'destro
 Route::get('devices/create-to-parent/{parent}', 'DeviceController@createToParent')->name('devices.create-to-parent');
 
 Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent')->name('devices.store-to-parent');
+
+Route::resource('/news', 'NewsController');
 
 

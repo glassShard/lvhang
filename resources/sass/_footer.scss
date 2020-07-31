@@ -1,7 +1,7 @@
 .footer {
   @extend %background;
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/speaker-grid.jpg');
-/*   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
+  /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/speaker-grid.jpg'); */
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('http://lvhang.hu/images/speaker-grid.jpg');
   padding: 50px 80px;
 
 

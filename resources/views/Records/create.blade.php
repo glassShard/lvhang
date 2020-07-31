@@ -2,6 +2,7 @@
 
   @section('head')
     <title name="L.V. Hang - Új kiadvány hozzáadása"></title>
+    <meta name="robots" content="noindex, nofollow">
     @trixassets
   @endsection
 

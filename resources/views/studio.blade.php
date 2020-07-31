@@ -2,6 +2,16 @@
 
   @section('head')
     <title>L.V. Hang - Studio</title>
+    <meta name="description" content="L.V. Hang Studio bemutatása, eszközeinek listája, referenciák">
+    <meta name="keywords" content="hangfelvételek készítése, keverés, mastering, hangutómunka, koncerfelvételek">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="L.V. Hang Studio" />
+    <meta property="og:description" content="Hangfelvételek, koncerfelvételek készítése, keverés, mastering, hangutómunka." />
+    <meta property="og:image" content="{{ Request::root() }}/images/studio.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow">
   @endsection
 
   @section('content')
@@ -13,8 +23,8 @@
     <main>
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="logo" src="./static-images/LV_STUDIO_LOGO-01-dark.svg" alt="">
-          <img class="image" src="./static-images/lv_tape_piros.png" alt="">
+          <img class="logo" src="./static-images/LV_STUDIO_LOGO-01-dark.svg" alt="l.v. hang studio logo">
+          <img class="image" src="./static-images/lv_tape_piros.png" alt="magnószalag">
           <div class="text1">
             <h1 class="lv-display-1">L.V. Hang Studio</h1>
             <p class=>Stúdiónk három üveggel elválasztott feljátszó helyiségből, kontroll-szobából,
@@ -36,7 +46,7 @@
         <div class="content">
           <h2 class="lv-display-2">Fotó, video:
             @auth
-              <a href="{{ route('galleries.create') }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-doc-new"></i></a>
+              <a href="{{ route('galleries.create', ['studio' => 1]) }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-doc-new"></i></a>
             @endauth
           </h2>
           <hr>
@@ -56,32 +66,18 @@
       <section class="section light foot-intro text1">
         <div class="content">
           <h2 class="lv-display-2 d-inline-block">Referenciák:
-           {{--  @auth
-              <a href="{{ route('live-ref-places.index') }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-doc-new"></i></a>
-            @endauth --}}
           </h2>
 
           <hr>
+          <div class="galleriesWrapper">
+             
+            @forelse ($referenceGalleries as $gallery)   
+                @include('galleries._gallery_cover')
+            @empty
+              <p>Még nincs fényképalbum</p>
+            @endforelse
 
-          <h2>Felvétel, keverés, mastering</h2>
-          <h2>Felvétel</h2>
-          <h2>Keverés, mastering</h2>
-
-{{--           @forelse ($liveRefPlaces as $liveRefPlace)
-            <ul>
-              <li>
-                <h2>{{ $liveRefPlace->name }}<h2>
-                <p>
-                  @foreach($liveRefPlace->liveRefs as $liveRef)
-                    <span class="liveRef">{{$liveRef->performer}}</span>
-                  @endforeach
-                </p>                
-              </li>
-            </ul>
-            
-          @empty
-            <p>Még nincs referencia</p>
-          @endforelse --}}
+          </div>
 
         </div>
 

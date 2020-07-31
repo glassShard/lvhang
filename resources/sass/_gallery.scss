@@ -64,8 +64,8 @@
   .galleryCoverTitle {
     @extend %flex;
     @extend %transition;
-    background-color: rgba(0,0,0,0.7);
-    color: $text-color;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: $dark-text-color;
     position: absolute;
     right: 0;
     cursor: pointer;
@@ -103,7 +103,7 @@
     };
 
     &:hover {
-      background-color: rgba(0,0,0,0.85);
+      background-color: rgba(255, 255, 255, 0.85)
     }
 
     p {
@@ -154,4 +154,13 @@
   flex-wrap: wrap;
 }
 
+.light .galleryCoverTitle {
+  background-color: rgba(0,0,0,0.7);
+  color: $text-color;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.85);
+  }
+
+}
 

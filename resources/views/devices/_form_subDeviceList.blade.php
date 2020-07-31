@@ -5,7 +5,7 @@
       @if($subDevice->parent_id === 2 | $subDevice->parent_id === 1)
         <form class="lv-form-inline">
           <input type="text" class="form-control lv-form lv-inline mb-1" name="name" placeholder="Eszköz vagy kategória neve..." value="{{ $subDevice->name }}" disabled>
-        </form>  
+        </form> 
         
         <a href="{{ route('devices.edit', ['device' => $subDevice->id]) }}" class="btn btn-lg btn-primary lv-btn btn-info mb-1 ml-4 mr-1"><i class="fontello-pencil"></i></a>
       @else

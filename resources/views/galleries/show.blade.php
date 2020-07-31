@@ -2,9 +2,21 @@
 
   @section('head')
     <title name="L.V. Hang - {{ $gallery->title }}"></title>
+    <link rel="stylesheet" href="{{ Request::root() }}/css/swiper-bundle.min.css">
+    <meta property="og:title" content="{{ $gallery->title }}" />
+    <meta property="og:description" content="Nézd meg képgalériánkat!" />
+    <meta property="og:image" content="{{ $gallery->url('fbShareImage') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Az L.V. Hang képgalériáiból: {{ $gallery->title }}">
+    <meta name="keywords" content="{{ $gallery->keywords }}">
   @endsection
 
   @section('content')
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v7.0" nonce="duHJ3405"></script>
   <div class="body-overlay hidden"></div>
 	<div class="main-content d-flex flex-column justify-content-start">
 
@@ -36,13 +48,15 @@
 
           {{-- @include('galleries._gallery_cover') --}}
           <h1>{{ $gallery->title }}</h1>
+          <br>
+          <a target="_blank" class="btn btn-lg btn-normal lv-btn mb-4 fb-share" data-href="{{ Request::root() }}/galleries/{{ $gallery->id }}" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::root() }}/galleries/{{ $gallery->id }}" class="fb-xfbml-parse-ignore"><i class="fontello-facebook-squared"></i> Megosztás</a>
           <hr>
           <br>
 
           <div class="imagesPreviewContainer">
             @forelse($gallery->galleryImages as $image)
               <div class="galleryImageWrapper">
-                <img src="{{ $image->url('thumbnail') }}" alt="" height="120" class="clickableImage">
+                <img src="{{ $image->url('thumbnail') }}" alt="" height="120" class="clickableImage" alt="{{ $gallery->title }} borítókép">
                 
                 @auth
                   <form action="{{ route('gallery-images.delete', ['id' => $image->id]) }}" class="d-inline-block" method="POST">
@@ -71,18 +85,11 @@
               <div class="form-group">
                 <label>Képek</label>
                 <input type="file" class="form-control-file" id="images" name="images[]" multiple/>
+
+                @if($errors->has('images'))
+                  <span class="invalid-feedback d-block">{{ $errors->first('images') }}</span>
+                @endif
               </div>
-              
-              @if($errors->any())
-                <div>
-                  <ul>
-                    @foreach($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                    @endforeach
-                  </ul>
-                </div>
-                <br>
-              @endif
     
               <button type="submit" class="btn btn-lg btn-success lv-btn"><i class="fontello-floppy"></i></button>
 
@@ -96,7 +103,7 @@
             <div class="swiper-wrapper">
               @foreach($gallery->galleryImages as $image)
                 <div class="swiper-slide">
-                  <img data-src="{{ $image->url('image') }}" class="swiper-lazy">
+                  <img data-src="{{ $image->url('image') }}" class="swiper-lazy" alt="{{ $gallery->title }} galéria kép">
                   <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
               @endforeach

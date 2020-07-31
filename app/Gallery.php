@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Gallery extends Model
 {
-    protected $fillable = ['title', 'foot', 'ref', 'thumbnail'];
+    protected $fillable = ['title', 'foot', 'ref', 'thumbnail', 'fbShareImage', 'keywords'];
 
     public function url($type) {
         return Storage::url($this->$type);
@@ -24,6 +24,7 @@ class Gallery extends Model
 
         static::deleting(function(Gallery $gallery) {
             Storage::delete($gallery->thumbnail);
+            Storage::delete($gallery->fbShareImage);
             
             $gallery->galleryImages()->delete();
         });

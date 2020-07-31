@@ -2,6 +2,16 @@
 
   @section('head')
     <title>LV Hang - Contact</title>
+    <meta name="description" content="L.V. Hang Bt. elérhetőségei">
+    <meta name="keywords" content="rendezvényszervezés, hangtechnika, stúdió, fénytechnika">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="L.V. Hang - Kapcsolat" />
+    <meta property="og:description" content="L.V. Hang Bt. elérhetőségei" />
+    <meta property="og:image" content="{{ Request::root() }}/images/contact.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow">
   @endsection
 
   @section('content')
@@ -13,7 +23,7 @@
     <main>
       <section class="section feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="image" src="./static-images/lv_telefon1.png" alt="">
+          <img class="image" src="./static-images/lv_telefon1.png" alt="régi telefon">
           <div class="text1">
             
             <br>

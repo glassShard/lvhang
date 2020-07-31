@@ -2,6 +2,7 @@
 
   @section('head')
     <title>L.V. Hang - Eszköz rögzítése</title>
+    <meta name="robots" content="noindex, nofollow">
   @endsection
 
   @section('content')
@@ -23,7 +24,11 @@
             @csrf
             @method('PUT')
 
-            <input type="text" class="form-control lv-form lv-inline mb-1" id="name" name="name" placeholder="Eszköz vagy kategória neve..." value="{{ old('name', $device->name ?? null) }}">
+            <input type="text" class="form-control lv-form lv-inline mb-1{{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" name="name" placeholder="Eszköz vagy kategória neve..." value="{{ old('name', $device->name ?? null) }}">
+
+            @if($errors->has('name'))
+              <span class="invalid-feedback d-block">{{ $errors->first('name') }}</span>
+            @endif
 
             @if (isset($device->image))
               <div class="form-group mt-4">
@@ -40,6 +45,10 @@
               <div class="form-group">
                 <label>Csíkkép</label>
                 <input type="file" class="form-control-file" id="image" name="image"/>
+
+                @if($errors->has('image'))
+                  <span class="invalid-feedback d-block">{{ $errors->first('imgae') }}</span>
+                @endif
               </div>
             @endif
           

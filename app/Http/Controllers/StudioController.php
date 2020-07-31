@@ -15,13 +15,25 @@ class StudioController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::where('foot', 'studio')->inRandomOrder()->limit(4)->get();
-
         $parentDevices = Device::where('id', 2)->with('subDevice')->get();
+
+        $galleries = Gallery::where([
+            ['foot', '=', 'studio'],
+            ['ref', '=', 0]
+        ])->inRandomOrder()->limit(4)->get();
+        //dd($galleries);
+
+        $referenceGalleries = Gallery::where([
+            ['foot', '=', 'studio'],
+            ['ref', '=', 1]
+        ])->orderBy('created_at')->get();
+
+        //dd($referenceGalleries);
 
         return view('studio', [
             'galleries' => $galleries,
-            'parentDevices' => $parentDevices
+            'parentDevices' => $parentDevices,
+            'referenceGalleries' => $referenceGalleries
         ]);
     }
 

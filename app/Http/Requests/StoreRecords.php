@@ -28,7 +28,8 @@ class StoreRecords extends FormRequest
             'performer' => 'required|string',
             'type' => 'required|string',
             'year' => 'required|numeric',
-            'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:15360'
+            'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:15360',
+            'keywords' => 'string|nullable'
         ];
     }
 }

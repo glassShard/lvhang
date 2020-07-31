@@ -45,9 +45,9 @@ class GalleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($studio=0)
     {
-        return view('galleries.create');
+        return view('galleries.create', ['studio' => $studio]);
     }
 
     /**
@@ -60,9 +60,19 @@ class GalleryController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png,gif|max:15360',
-            'foot' => 'required'
+            'image' => 'image|mimes:jpg,jpeg,png,gif|max:4000',
+            'foot' => 'required',
+            'ref' => 'string|nullable',
+            'keywords' => 'string|nullable'
         ]);
+
+        if (isset($data['ref'])) {
+            if ($data['ref'] === 'true') {
+                $data['ref'] = true;
+            }
+        } else {
+            $data['ref'] = false;
+        }
 
         $gallery = Gallery::create($data);
         
@@ -72,10 +82,14 @@ class GalleryController extends Controller
             $file = $request->file('image');
 
             $name_thumbnail = $file->store('galleries/thumbnail');
+            $name_fbShareImage = $file->store('galleries/fbShareImage');
 
             $gallery->thumbnail = $name_thumbnail;
+            $gallery->fbShareImage = $name_fbShareImage;
 
             $thumb = ImageProcess::image_process(Storage::path($gallery->thumbnail), $file->getClientOriginalExtension(), 300, 300);
+
+            $fbShare = ImageProcess::image_process(Storage::path($gallery->fbShareImage), $file->getClientOriginalExtension(), 1200, 630);
         }
 
         $gallery->save();
@@ -84,8 +98,6 @@ class GalleryController extends Controller
         
         return redirect()->route('galleries.show', ['gallery' => $gallery->id]);   
     }
-
-
 
     public function saveImages(Request $request, $id) {
         
@@ -170,11 +182,23 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $data = $request->validate([
             'title' => 'required',
-            'image' => 'image|mimes:jpg,jpeg,png,gif|max:15360',
-            'foot' => 'required'
+            'image' => 'image|mimes:jpg,jpeg,png,gif|max:16384',
+            'foot' => 'required',
+            'ref' => 'string|nullable',
+            'keywords' => 'string|nullable'
         ]);
+
+        if (isset($data['ref'])) {
+            if ($data['ref'] === 'true') {
+                $data['ref'] = true;
+            }
+        } else {
+            $data['ref'] = false;
+        }
+        
 
         $gallery = Gallery::findOrfail($id);
 
@@ -186,12 +210,17 @@ class GalleryController extends Controller
             $file = $request->file('image');
 
             $name_thumbnail = $file->store('galleries/thumbnail');
+            $name_fbShareImage = $file->store('galleries/fbShareImage');
 
             Storage::delete($gallery->thumbnail);
+            Storage::delete($gallery->fbShareImage);
 
             $gallery->thumbnail = $name_thumbnail;
+            $gallery->fbShareImage = $name_fbShareImage;
 
             $thumb = ImageProcess::image_process(Storage::path($gallery->thumbnail), $file->getClientOriginalExtension(), 300, 300);
+
+            $fbShare = ImageProcess::image_process(Storage::path($gallery->fbShareImage), $file->getClientOriginalExtension(), 1200, 630);
         }
 
         $gallery->save();

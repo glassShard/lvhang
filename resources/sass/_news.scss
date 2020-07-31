@@ -1,0 +1,172 @@
+.news-header {
+  @extend %flex;
+  flex-wrap: wrap;
+
+  .news-cover {
+    height: auto;
+    
+    @include media(lg) {
+      width: 50%;
+      padding-left: 100px;     
+    }
+  
+    @include media(md) {
+      width: 50%;
+      padding-left: 50px;
+    }
+  
+    @include media(sm) {
+      width: 50%;
+      padding-left: 40px;
+    }
+  
+    @include media(xs) {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+
+  .news-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    align-self: stretch;
+
+    @include media(lg) {
+      width: 50%;
+      padding-right: 100px;
+    }
+  
+    @include media(md) {
+      width: 50%;
+      padding-right: 50px;
+    }
+  
+    @include media(sm) {
+      width: 50%;
+      padding-right: 40px;
+    }
+  
+    @include media(xs) {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 60px;
+    }
+
+    .fb-share {
+      align-self: flex-start;
+    }
+  }
+}
+
+.news-content {
+  padding: 70px 0 0 0;
+  width: 100%;
+}
+
+.news-gallery {
+  @extend %flex;
+  padding: 70px 0 0 0;
+  width: 100%;
+}
+
+.news-video {
+  @extend %flex;
+  padding: 70px 0 0 0;
+  width: 100%;
+}
+
+.borderDiv {
+  border-bottom: 1px solid grey;
+}
+
+.news-wrapper {
+  margin: 30px 0;
+
+  .news-item-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+        
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .lv-media {
+      @extend %transition;
+      border: 1px solid grey;
+      background-color: rgba(255,255,255,0.05);
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255,255,255,0.1);
+      }
+
+      @include media(lg) {
+        flex-direction: row;
+      }
+    
+      @include media(md) {
+        flex-direction: row;
+      }
+    
+      @include media(sm) {
+        flex-direction: row;
+      }
+    
+      @include media(xs) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      img {
+        @include media(lg) {
+          width: 200px;
+          margin-right: 15px;
+        }
+      
+        @include media(md) {
+          width: 200px;
+          margin-right: 15px;
+        }
+      
+        @include media(sm) {
+          width: 200px;
+          margin-right: 15px;
+        }
+      
+        @include media(xs) {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      .lv-media-body {
+        color: $text-color;
+
+        @include media(xs) {
+          margin-top: 20px;
+        }
+        
+        .xs-text-center {
+          @include media(xs) {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .adminButtons {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  
+  
+  
+}
+

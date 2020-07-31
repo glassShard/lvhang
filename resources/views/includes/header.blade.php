@@ -14,12 +14,12 @@
 
       <nav class="nav-bar closed-nav-bar">
         <ul class="nav-bar-list">
-          <li class="nav-item"><a href="{{ route('home') }}">KEZDŐLAP</a></li>
-          <li class="nav-item"><a href="{{ route('live.index') }}">ÉLŐ</a></li>
-          <li class="nav-item"><a href="{{ route('studio.index') }}">STÚDIÓ</a></li>
-          <li class="nav-item"><a href="{{ route('records.index') }}">KIADÓ</a></li>
-          <li class="nav-item"><a href="{{ route('news') }}">HÍREK</a></li>
-          <li class="nav-item"><a href="{{ route('contact') }}">KAPCSOLAT</a></li>
+          <li class="nav-item"><a href="{{ route('home') }}"><span>KEZDŐLAP</span></a></li>
+          <li class="nav-item"><a href="{{ route('live.index') }}"><span>ÉLŐ</span></a></li>
+          <li class="nav-item"><a href="{{ route('studio.index') }}"><span>STÚDIÓ</span></a></li>
+          <li class="nav-item"><a href="{{ route('records.index') }}"><span>KIADÓ</span></a></li>
+          <li class="nav-item"><a href="{{ route('news.index') }}"><span>HÍREK</span></a></li>
+          <li class="nav-item"><a href="{{ route('contact') }}"><span>KAPCSOLAT</span></a></li>
         </ul>
       </nav>
 

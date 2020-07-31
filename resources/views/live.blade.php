@@ -2,6 +2,16 @@
 
   @section('head')
     <title>L.V. Hang - Élő</title>
+    <meta name="description" content="Rendezvények szervezése, hangosítása, fénytechnika, színpadtechnika">
+    <meta name="keywords" content="hangtechnika, fénytechnika, színpadtechnika, rendezvények, rendezvények kivitelezése">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="L.V. Hang - Élő" />
+    <meta property="og:description" content="Rendezvények szervezése, hangosítása, fénytechnika, színpadtechnika." />
+    <meta property="og:image" content="{{ Request::root() }}/images/live.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow">
   @endsection
 
   @section('content')
@@ -13,8 +23,8 @@
     <main>
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="">
-          <img class="image" src="./static-images/VTX1.png" alt="">
+          <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="l.v. live logo">
+          <img class="image" src="./static-images/VTX1.png" alt="jbl line array">
           <div class="text1">
             <h1 class="lv-display-1">Rendezvények</h1>
             <p>Az L.V. Hangtechnikai Bt-t 1993-ban azzal az alapvető céllal alapítottuk, hogy rendezvényszervező ügyfeleink részére megbízható, rugalmas technikai hátteret biztosítsunk.</p>
@@ -32,7 +42,7 @@
         <div class="content">
           <h2 class="lv-display-2">Fotó, video:
             @auth
-              <a href="{{ route('galleries.create') }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-doc-new"></i></a>
+              <a href="{{ route('galleries.create', ['studio' => 0]) }}" class="btn btn-lg btn-info lv-btn"><i class="fontello-doc-new"></i></a>
             @endauth
           </h2>
           <hr>
@@ -62,7 +72,7 @@
           @forelse ($liveRefPlaces as $liveRefPlace)
             <ul>
               <li>
-                <h2>{{ $liveRefPlace->name }}<h2>
+                <h2 class="lv-display-3">{{ $liveRefPlace->name }}<h2>
                 <p>
                   @foreach($liveRefPlace->liveRefs as $liveRef)
                     <span class="liveRef">{{$liveRef->performer}}</span>

@@ -1,7 +1,17 @@
 @extends('layout')
 
   @section('head')
-    <title>L.V. Hang - Kiadványok</title>
+		<title>L.V. Hang - Kiadványok</title>
+		<meta name="description" content="Az L.V. Records kiadványai">
+    <meta name="keywords" content="kiadvány, kiadás, jazz, kortárs, progresszív, noise, CD, vinyl, experimantal">
+		<meta name="robots" content="index, follow">
+		<meta property="og:title" content="L.V. Records" />
+    <meta property="og:description" content="CD, Vinyl, DVD kiadványok." />
+    <meta property="og:image" content="{{ Request::root() }}/images/records.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="robots" content="index, follow">
   @endsection
 
   @section('content')
@@ -13,8 +23,8 @@
 		<main>
 			<section class="section light feet-intro lv-border">
 				<div class="feet-intro-bg content">
-					<img class="logo" src="./static-images/LV _REC_LOGO-01-dark.svg" alt="">
-					<img class="image" src="./static-images/lv_vinyl_piros.png" alt="">
+					<img class="logo" src="./static-images/LV _REC_LOGO-01-dark.svg" alt="l.v. records logo">
+					<img class="image" src="./static-images/lv_vinyl_piros.png" alt="vinyl hanglemez">
 					<div class="text1">
 						<h1 class="lv-display-1">L.V. Records</h1>
 						<p>Az L.V. Records tevékenységének fő célja a hazai kísérleti, progresszív, kortárs, jazz határmezsgyéjén
@@ -50,9 +60,9 @@
 									<a href="{{ route('records.show', ['record' => $record->id]) }}">
 										
 										@if ($record->thumbnail)
-											<img src="{{ $record->url('thumbnail') }}" class="card-img-top" alt="...">	
+											<img src="{{ $record->url('thumbnail') }}" class="card-img-top" alt="{{ $record->title }} borító">	
 										@else
-											<img src="./images/no_image.png" class="card-img-top" alt="...">	
+											<img src="./images/no_image.png" class="card-img-top" alt="nincs kép kép">	
 										@endif
 										
 									</a>  

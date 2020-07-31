@@ -1,19 +1,25 @@
 <footer class="footer">
   <div class="social">
     <div class="simple">
-      <a href="https://www.facebook.com/lvhangtech/">
+      <a href="https://www.facebook.com/lvhangtech/" target="_blank">
         <i class="fontello-facebook-squared"></i>
       </a>
       <p>L.V. Hang</p>
     </div>
     <div class="simple">
-      <a href="https://www.facebook.com/lvrecords1/">
+      <a href="https://www.facebook.com/LV-Hang-Studio-125218475934306/" target="_blank">
+        <i class="fontello-facebook-squared"></i>
+      </a>
+      <p>L.V. Hang Studio</p>
+    </div>
+    <div class="simple">
+      <a href="https://www.facebook.com/lvrecords1/" target="_blank">
         <i class="fontello-facebook-squared"></i>
       </a>
       <p>L.V. Records</p>
     </div>
     <div class="simple">
-      <i class="fontello-youtube-play"></i>
+      <i class="fontello-youtube-play" target="_blank"></i>
       <p>L.V. Hang</p>
     </div>
   </div>

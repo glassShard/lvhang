@@ -2,7 +2,8 @@
 
 import {renderImages} from "./renderImages";
 import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
+import {showCurrentPageOnNavbar} from "./showCurrentPageOnNavbar";
+import {openCloseRefCheckOnGalleryEdit, addEventListenerToRadios} from "./openCloseRefCheckOnGalleryEdit"
 
 const root = "http://localhost/lvhang-sitebuild/";
 
@@ -10,8 +11,12 @@ let scrollTimer;
 let lastScrollFireTime;
 
 window.onload = function () {
-
+	const body = document.querySelector('body');
+	
 	renderImages();
+	showCurrentPageOnNavbar();
+	openCloseRefCheckOnGalleryEdit();
+	addEventListenerToRadios();
 
 	// kell a scrollozáskor logo összanyomáshoz
 	const logoHolder = document.querySelector('.logo-holder');
@@ -54,7 +59,7 @@ window.onload = function () {
 					header.style.background = 'transparent';
 
 					logoHolder.style.paddingBottom = '30px';
-					logoHolder.style.paddingTop = '30px;'
+					logoHolder.style.paddingTop = '30px';
 				}
 
 				if (scrollTop >= headerOuterHeight - 60) {
@@ -75,7 +80,7 @@ window.onload = function () {
 		if (!scrollTimer) {
 			if (now - lastScrollFireTime > (minScrollTime) || !lastScrollFireTime) {
 				processScroll();
-				lastScrollFireTime = now;;
+				lastScrollFireTime = now;
 			}
 			scrollTimer = true;
 			setTimeout(() => {
@@ -89,8 +94,6 @@ window.onload = function () {
 	// hamburger menü nyitás-zárás
 
 	function openHamburger() {
-		const body = document.querySelector('body');
-		
 		const navBar = document.querySelector('.nav-bar');		
 		
 		hamburger.classList.toggle('hamburger-open');
@@ -108,10 +111,11 @@ window.onload = function () {
 	/* képgalériánál ha képre kattintok */
 	const swiperContainer = document.querySelector('.mySwiper');
 	const clickableImages = document.querySelectorAll('.clickableImage');
+	
 	clickableImages.forEach((clickableImage, index) => {
-		
 		clickableImage.addEventListener('click', (event) => {
-
+			body.classList.add('modal-open');
+			console.log(index);
 			const swiper = new Swiper('.swiper-container', {
 				// Optional parameters
 				loop: true,
@@ -131,8 +135,10 @@ window.onload = function () {
 					prevEl: '.swiper-button-prev',
 				},
 			});
+			console.log(swiper);
 
 			function initSwiper() {
+				console.log('transition ended, init begins');
 				swiper.init();
 				swiperContainer.removeEventListener('transitionend', initSwiper);
 			}
@@ -140,16 +146,17 @@ window.onload = function () {
 			swiperContainer.addEventListener('transitionend', initSwiper);
 
 			function destroySwiper() {
+				console.log('transition ended, destroy begins');
 				swiper.destroy();
 				swiperContainer.removeEventListener('transitionend', destroySwiper);
 			}
 			
 			document.querySelector('.galleryExit').addEventListener('click', () => {
+				body.classList.remove('modal-open');
 				swiperContainer.addEventListener('transitionend', destroySwiper);
 				swiperContainer.classList.remove('active');
 			});
 			swiperContainer.classList.add('active');
-
 		})
 	});
 }    

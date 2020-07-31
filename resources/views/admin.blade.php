@@ -13,10 +13,11 @@
     <main>
       <section class="section feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('records.create') }}">Új kiadvány</a>
-          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('live-ref-places.index') }}">Élő referencia helyszínek</a>
-          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('galleries.index') }}">Képgalériák</a>
-          <a class="btn btn-lg btn-primary btn-normal lv-btn" href="{{ route('devices.index') }}">Eszközlisták</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('records.create') }}">Új kiadvány</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('live-ref-places.index') }}">Élő referencia helyszínek</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('galleries.index') }}">Képgalériák</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('devices.index') }}">Eszközlisták</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('news.index') }}">Hírek</a>
         </div>
       </section>
     </main>

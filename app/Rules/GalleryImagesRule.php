@@ -39,7 +39,8 @@ class GalleryImagesRule implements Rule
                 break;
             }
             $size += $image->getSize();
-            if ($size >= 16777216) {
+
+            if ($size >= 104857600) {
                 
                 $this->sizeOk = false;    
                 break;
@@ -58,7 +59,7 @@ class GalleryImagesRule implements Rule
         $message = '';
 
         if ($this->sizeOk === false) {
-            $message = 'A feltöltendő fájlok mérete meghaladja a maximális 16MB-ot.';
+            $message = 'A feltöltendő fájlok mérete meghaladja a maximális 100MB-ot.';
         }
 
         if ($this->mimeOk === false) {

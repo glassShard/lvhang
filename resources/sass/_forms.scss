@@ -55,3 +55,14 @@
   flex-flow: row wrap;
   align-items: center;
 }
+
+.lv-select {
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+} 
+
+.st-ref {
+  @extend %transition;
+  height: 0;
+  overflow: hidden;
+}

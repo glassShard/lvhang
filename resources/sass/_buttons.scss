@@ -60,6 +60,15 @@
     left: 0;
 }
 
+.navButtonActive {
+    color: white !important;
+
+    span {
+        @extend %transition;
+        border-bottom: 1px solid white;
+    }    
+}
+
 
 
 

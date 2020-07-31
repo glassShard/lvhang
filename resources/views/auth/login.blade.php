@@ -2,6 +2,7 @@
 
   @section('head')
     <title>LV Hang - Login</title>
+    <meta name="robots" content="noindex, nofollow">
   @endsection
 
   @section('content')
@@ -37,11 +38,12 @@
             </div>
 
             <div class="form-group">
-              <div class="form-check">
+              <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" name="remember" value="{{ old('remember' ? 'checked' : '') }}">
 
                 <label for="remember" class="form-check-label">Emlékezz rám</label>
               </div>
+            </div>
 
             <br>
             <br>

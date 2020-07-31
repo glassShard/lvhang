@@ -1,7 +1,8 @@
 @extends('layout')
 
   @section('head')
-    <title name="L.V. Hang - Új kiadvány hozzáadása"></title>
+    <title name="L.V. Hang - {{ $record->title }} módosítása"></title>
+    <meta name="robots" content="noindex, nofollow">
     @trixassets
   @endsection
 

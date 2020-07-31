@@ -2,6 +2,7 @@
 
   @section('head')
     <title name="L.V. Hang - Új galéria hozzáadása"></title>
+    <meta name="robots" content="noindex, nofollow">
 
   @endsection
 

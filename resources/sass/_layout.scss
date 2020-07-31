@@ -79,20 +79,20 @@
     };
 
     @include media(md) {
-      font-size: 44px;
-      line-height: 54px;
+/*       font-size: 44px;
+      line-height: 54px; */
       min-height: $intro-md-min-height;
     };
 
     @include media(sm) {
-      font-size: 34px;
-      line-height: 44px;
+/*       font-size: 34px;
+      line-height: 44px; */
       min-height: $intro-sm-min-height;
     };
 
     @include media(xs) {
-      font-size: 24px;
-      line-height: 34px;
+/*       font-size: 24px;
+      line-height: 34px; */
       min-height: $intro-xs-min-height;
     };
 
@@ -101,8 +101,8 @@
     .intro {
       @extend %flex;
       font-family: $gothic-bold;
-      background-image: url('../img/main-image.jpg');
-      /* background-image: url('http://lvhang.hu/test/images/main-image.jpg'); */
+      /* background-image: url('../img/main-image.jpg'); */
+      background-image: url('http://lvhang.hu/images/main-image.jpg');
       @extend %background;
       flex-grow: 1;
       width: 100%;
@@ -146,8 +146,8 @@
           left: -20px;
           right: -20px;
           border: 1px solid red;
-          background-image: url('../img/main-image.jpg');
-          /* background-image: url('http://lvhang.hu/test/images/main-image.jpg'); */
+          /* background-image: url('../img/main-image.jpg'); */
+          background-image: url('http://lvhang.hu/images/main-image.jpg');
           @extend %background;
           background-attachment: fixed;
           filter: blur(4px);
@@ -277,26 +277,26 @@
     width: 100%;
     
     @include media(lg) {
-      background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('../img/speaker-grid.jpg');
-      /* background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
+      /* background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('../img/speaker-grid.jpg'); */
+      background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('http://lvhang.hu/images/speaker-grid.jpg');
       height: $header-lg-height;
     };
     
     @include media(md) {
-      background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('../img/speaker-grid.jpg');
-      /* background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
+      /* background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('../img/speaker-grid.jpg'); */
+      background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('http://lvhang.hu/images/speaker-grid.jpg');
       height: $header-md-height;
     };
 
     @include media(sm) {
-      background-image: url('../img/speaker-grid.jpg');
-      /* background-image: url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
+      /* background-image: url('../img/speaker-grid.jpg'); */
+      background-image: url('http://lvhang.hu/images/speaker-grid.jpg');
       height: $header-sm-height;
     };
 
     @include media(xs) {
-      background-image: url('../img/speaker-grid.jpg');
-      /* background-image: url('http://lvhang.hu/test/images/speaker-grid.jpg'); */
+      /* background-image: url('../img/speaker-grid.jpg'); */
+      background-image: url('http://lvhang.hu/images/speaker-grid.jpg');
       height: $header-xs-height;
     };
   }
@@ -368,6 +368,28 @@
     &::after {
       content: ',';
     }
+  }
+}
+
+iframe {
+  @include media(lg) {
+    width: 1020px;
+    height: 574px;
+  }
+
+  @include media(md) {
+    width: 630px;
+    height: 355px;
+  }
+
+  @include media(sm) {
+    width: 476px;
+    height: 268px;
+  }
+
+  @include media(xs) {
+    width: 300px;
+    height: 169px;
   }
 }
 
