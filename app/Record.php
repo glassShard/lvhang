@@ -28,6 +28,11 @@ class Record extends Model
                 Storage::delete($record->image);
                 Storage::delete($record->fbShareImage);
             }
+            if ($record->trixRichText) {
+                foreach($record->trixRichText as $text) {
+                    $text->delete();
+                }
+            }
         });
     }
 }

@@ -393,6 +393,68 @@ iframe {
   }
 }
 
+.p404 {
+  @extend %flex;
+  flex-direction: column;
+}
+
+.cookie-wrapper {
+  @extend %flex;
+  padding: 12px 30px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(123,30,27,0.8);
+}
+
+.lv-modal-content {
+  background-color: rgba(0,0,0,0.5);
+  padding: 40px;
+  border: 1px solid grey;
+}
+
+.modal-backdrop.show {
+  opacity: 0.8;
+}
+
+.lv-modal-header, .lv-modal-body {
+  border-bottom: 0;
+}
+
+.search-field.lv-form {
+  padding: 12px 20px;
+  background-color: black;
+  font-size: 1.4rem;
+
+  &:focus {
+    background-color: black;
+  }
+}
+
+#results hr {
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+#searchModal {
+
+  .close {
+    font-weight: normal;
+    color: rgba(255,255,255,.5);
+    text-shadow: none;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+      text-shadow: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+}
+
+
 
 
 

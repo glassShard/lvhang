@@ -1,9 +1,17 @@
-export function renderImages() {
+export function renderImages(timeouts) {
   const container = document.querySelector('.imagesPreviewContainer');
   if (!container) {
     return;
   }
+  timeouts.map((timeout) => {
+    clearTimeout(timeout)
+  });
   const images = Array.from(container.children);
+  images.forEach((image) => {
+    image.children[0].height = '120';
+    image.children[0].style.width = 'auto';
+    image.style.opacity = 0;
+  });
 
   const reducedContainer = images.reduce((acc, curr) => {
     if (acc.length === 0) {
@@ -29,18 +37,17 @@ export function renderImages() {
     let widthSum = 0;
     const modArray = array.map((imageWrapper, index) => {
       const imageWrapperHeight = (growRatio * imageWrapper.offsetHeight);
-      
       const img = imageWrapper.children[0];
       img.height = imageWrapperHeight;
       if (index % 2 === 0) {
-        img.width = Math.ceil(img.height / img.naturalHeight * img.naturalWidth);
+        img.style.width = Math.ceil(img.height / img.naturalHeight * img.naturalWidth) + 'px';
       } else {
-        img.width = Math.floor(img.height / img.naturalHeight * img.naturalWidth);
+        img.style.width = Math.floor(img.height / img.naturalHeight * img.naturalWidth) + 'px';
       }
       widthSum += img.width;
 
       if (index === array.length - 1) {
-        img.width += container.clientWidth-widthSum;
+        img.style.width = img.width + container.getBoundingClientRect().width-widthSum + 'px';
       }
       return imageWrapper;
     });
@@ -54,8 +61,8 @@ export function renderImages() {
         } else {
           img.height = 120;
         }
-        img.width = Math.ceil(img.height / img.naturalHeight * img.naturalWidth);
-      });
+        img.style.width = Math.ceil(img.height / img.naturalHeight * img.naturalWidth) + 'px';
+      }) + 'px';
     } else {
       modArray[modArray.length - 1].width = container.clientWidth - (modArray.reduce((acc, curr) => {
         return acc + curr.width;
@@ -63,4 +70,15 @@ export function renderImages() {
     }
   });
 
+  for (let i = 0; i < images.length; i++) {
+    const timeout = (images.length - 1 - i) * 20;
+    images[i].style.transform = 'translateY(-200px)';
+    timeouts.push(setTimeout(() => {
+      images[i].style.opacity = '1';
+      images[i].style.transform = 'translateY(0)';
+      images[i].style.transition = 'all 0.3s';
+    }, timeout));
+  }
+
 }
+

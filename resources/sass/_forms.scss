@@ -5,14 +5,20 @@
 
   &:focus {
     background-color: rgba(255,255,255,0.1);
-    border: 1px solid $purple;
-    box-shadow: 0 0 0 0.2rem $purple-fade;
+    border: 1px solid $orange;
+    box-shadow: 0 0 0 0.2rem $orange-fade;
     color: $text-color;
   }
 }
 
-.light .lv-form {
-  color: $dark-text-color;
+.light {
+  .lv-form {
+    color: $dark-text-color;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $dark-text-color !important;
+  } 
 }
 
 
@@ -65,4 +71,16 @@
   @extend %transition;
   height: 0;
   overflow: hidden;
-}
+} 
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+      transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+  }
+

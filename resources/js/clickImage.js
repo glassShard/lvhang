@@ -1,5 +1,5 @@
 export function clickImage(clickableImage, index) {
-console.log(clickableImage);
+
   clickableImage.addEventListener('click', (event) => {
 
     const swiper = new Swiper('.swiper-container', {

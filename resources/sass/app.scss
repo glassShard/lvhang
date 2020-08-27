@@ -1,4 +1,13 @@
-@import 'variables.scss';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//@import 'variables.scss';
 @import 'mixins.scss';
 @import 'typo.scss';
 @import 'fontello.scss';
@@ -15,3 +24,4 @@
 @import 'swiper.scss';
 @import 'device.scss';
 @import 'news.scss';
+

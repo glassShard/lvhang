@@ -15,4 +15,18 @@ class News extends Model
     public function url($type) {
         return Storage::url($this->$type);
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function(News $news) {
+
+            if ($news->trixRichText) {
+                foreach($news->trixRichText as $text) {
+                    $text->delete();
+                }
+            }
+        });
+    }
 }

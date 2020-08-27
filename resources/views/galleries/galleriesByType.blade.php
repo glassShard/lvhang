@@ -20,7 +20,7 @@
 
           <h1>Képgalériák - {{ $type }}
             @auth
-              <a href="{{ route('galleries.create') }}" class="btn btn-lg btn-info lv-btn ml-4"><i class="fontello-doc-new"></i></a>
+              <a href="{{ route('galleries.create', ['studio' => 0]) }}" class="btn btn-lg btn-info lv-btn ml-4"><i class="fontello-doc-new"></i></a>
             @endauth
           </h1>
           <hr>

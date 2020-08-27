@@ -24,13 +24,13 @@
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
           <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="l.v. live logo">
-          <img class="image" src="./static-images/VTX1.png" alt="jbl line array">
+          <img class="image" src="./static-images/jbl_uj_piros.png" alt="jbl line array">
           <div class="text1">
             <h1 class="lv-display-1">Rendezvények</h1>
-            <p>Az L.V. Hangtechnikai Bt-t 1993-ban azzal az alapvető céllal alapítottuk, hogy rendezvényszervező ügyfeleink részére megbízható, rugalmas technikai hátteret biztosítsunk.</p>
+            <p>Az L.V. Hang Bt-t 1993-ban azzal az alapvető céllal alapítottuk, hogy rendezvényszervező ügyfeleink részére megbízható, rugalmas technikai hátteret biztosítsunk.</p>
             <p>Professzionális hangtechnikai eszközparkkal rendelkezünk, így fő tevékenységünk a különféle rendezvények teljes körű technikai lebonyolítása (hang-,
               fény-, vizuál-, színpadtechnika). Ez vonatkozhat akár az 50 fős, akár a 6-7000 embert kiszolgáló eseményekre – sportesemények, céges rendezvények, színházi előadások, kisebb - nagyobb koncertek. Szükség esetén fellépők / programok szervezését is vállaljuk.</p>
-            <p>Rendszeres közreműködői vagyunk a hazai nagy fesztiváloknak : a Sziget Fesztivál több helyszínének hangosítását tizennyolcadik éve látjuk el, a Magyar Dal napjának teljes hanganyagának rögzítését LV stúdió készítette! a Diósgyőri Kaláka Folkfesztivál teljes körű technikai kivitelezését tizennegyedik éve végezzük. a Paksi Gastroblues Fesztivál teljes technikai hátterének biztosítását több, mint egy évtizede, valamint a koncertek soksávos hangrögzítését és utómunkáit az LV stúdió évek óta készíti.</p>
+            <p>Rendszeres közreműködői vagyunk a hazai nagy fesztiváloknak: a Sziget Fesztivál több helyszínének hangosítását tizennyolcadik éve látjuk el, a Magyar Dal napja teljes hanganyagát is mi rögzítettük. A Diósgyőri Kaláka Folkfesztivál teljes körű technikai kivitelezését tizennegyedik éve végezzük. a Paksi Gastroblues Fesztivál teljes technikai hátterének biztosítása több, mint 25, a Lamantin fesztivál hangosítása 20 éve feladatunk, a koncertek soksávos hangrögzítését és utómunkáit az L.V. Hang Studio végzi.</p>
           </div>
         </div>
         <div class="clear"></div>

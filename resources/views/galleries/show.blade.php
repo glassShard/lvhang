@@ -55,8 +55,8 @@
 
           <div class="imagesPreviewContainer">
             @forelse($gallery->galleryImages as $image)
-              <div class="galleryImageWrapper">
-                <img src="{{ $image->url('thumbnail') }}" alt="" height="120" class="clickableImage" alt="{{ $gallery->title }} borítókép">
+              <div class="galleryImageWrapper" style='opacity:0'>
+                <img src="{{ $image->url('thumbnail') }}" height="120" class="clickableImage" alt="{{ $gallery->title }} galéria kép">
                 
                 @auth
                   <form action="{{ route('gallery-images.delete', ['id' => $image->id]) }}" class="d-inline-block" method="POST">
