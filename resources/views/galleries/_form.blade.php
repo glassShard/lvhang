@@ -44,11 +44,12 @@
   </label>
 </div>
 
+
 @if($errors->has('foot'))
   <span class="invalid-feedback d-block">{{ $errors->first('foot') }}</span>
 @endif
 
-<div class="form-group ml-4 st-ref">
+<div class="ml-4 st-ref">
   <div class="form-check form-check-inline">
     <input type="checkbox" class="form-check-input" name="ref" id="ref" value="true"
     
@@ -65,6 +66,20 @@
 
     <label for="ref" class="form-check-label">Referencia-album</label>
   </div>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="foot" id="foot3" value="news"   
+    @if (old('foot'))
+      {{ old('foot') }}
+    @elseif ($gallery ?? '' !== '')
+      @if ($gallery->foot === 'news') 
+        checked
+      @endif
+    @endif
+  >
+  <label class="form-check-label" for="foot1">
+    Hírek
+  </label>
 </div>
 <br>
 

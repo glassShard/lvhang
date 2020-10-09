@@ -287,6 +287,12 @@
       "css": "search",
       "code": 59417,
       "src": "entypo"
+    },
+    {
+      "uid": "56da5324fc5a04f131ab65668c36b931",
+      "css": "news",
+      "code": 59418,
+      "src": "typicons"
     }
   ]
 }

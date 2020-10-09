@@ -16,6 +16,8 @@
   <a href="{{ route('galleries.type', ['type' => $gallery->foot]) }}" class="btn btn-lg lv-btn footButton">
     @if ($gallery->foot === 'live')
       <i class="fontello-volume-up"></i>
+    @elseif ($gallery->foot === 'news')
+      <i class="fontello-news"></i>
     @else
       <i class="fontello-mic"></i>
     @endif

@@ -33,6 +33,11 @@ class GalleryController extends Controller
                 'galleries' => Gallery::where('foot', 'live')->get(),
                 'type' => 'élő']);
         }
+        elseif ($type === 'news') {
+            return view('galleries.galleriesByType', [
+                'galleries' => Gallery::where('foot', 'news')->get(),
+                'type' => 'hírek']);
+        }
         else {
             return view('galleries.galleriesByType', [
                 'galleries' => Gallery::where('foot', 'studio')->get(),

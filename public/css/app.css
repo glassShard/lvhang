@@ -11504,6 +11504,12 @@ nav {
 
 /* '' */
 
+.fontello-news:before {
+  content: "\E81A";
+}
+
+/* '' */
+
 .body {
   justify-content: space-between;
   width: 100%;
