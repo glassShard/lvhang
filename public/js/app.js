@@ -28327,7 +28327,7 @@ window.onload = function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
-// export const URL = 'http://lvhang.hu';
+// export const URL = 'https://lvhang.hu';
 var URL = 'http://lvhang.test';
 
 /***/ }),
@@ -28574,7 +28574,8 @@ function resizeLogoOnScroll() {
 
       if (hamburgerDisplay === 'none') {
         if (scrollTop > 0 & scrollTop < headerOuterHeight - 60) {
-          var paddingToSet = 10 + (logoHolderOrigPaddingNr - 10) * ((headerOuterHeight - 60 - scrollTop) / (headerOuterHeight - 60));
+          /*           const paddingToSet = 10 + (logoHolderOrigPaddingNr - 10) * ((headerOuterHeight - 60 - scrollTop) / (headerOuterHeight - 60)); */
+          var paddingToSet = 10;
           header.style.height = headerOuterHeight - scrollTop + 'px';
           header.style.position = 'relative';
           header.style.background = 'transparent';
@@ -28586,8 +28587,11 @@ function resizeLogoOnScroll() {
           header.style.height = '100%';
           header.style.position = 'relative';
           header.style.background = 'transparent';
-          logoHolder.style.paddingBottom = '30px';
-          logoHolder.style.paddingTop = '30px';
+          /*           logoHolder.style.paddingBottom = '30px';
+                    logoHolder.style.paddingTop = '30px'; */
+
+          logoHolder.style.paddingBottom = '10px';
+          logoHolder.style.paddingTop = '10px';
         }
 
         if (scrollTop >= headerOuterHeight - 60) {

@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+/* $logo-holder-lg-vertical-padding: 30px;
+$logo-holder-md-vertical-padding: 24px;
+$logo-holder-sm-vertical-padding: 18px;
+$logo-holder-xs-vertical-padding: 10px; */
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10982,67 +10987,72 @@ a.text-dark:focus {
 
 @font-face {
   font-family: "Gothic-Regular";
-  src: url("http://lvhang.hu/fonts/Gothic-Regular.eot");
-  src: url("http://lvhang.hu/fonts/Gothic-Regular.eot?#iefix") format("embedded-opentype"), url("http://lvhang.hu/fonts/Gothic-Regular.woff") format("woff"), url("http://lvhang.hu/fonts/Gothic-Regular.ttf") format("truetype"), url("http://lvhang.hu/fonts/Gothic-Regular.svg#Gothic-Regular") format("svg");
-  /* src: url('../fonts/Gothic-Regular.eot');
-  src: url('../fonts/Gothic-Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Gothic-Regular.woff') format('woff'),
-  url('../fonts/Gothic-Regular.ttf') format('truetype'),
-  url('../fonts/Gothic-Regular.svg#Gothic-Regular') format('svg'); */
+  /*     src: url('https://lvhang.hu/fonts/Gothic-Regular.eot');
+      src: url('https://lvhang.hu/fonts/Gothic-Regular.eot?#iefix') format('embedded-opentype'),
+      url('https://lvhang.hu/fonts/Gothic-Regular.woff') format('woff'),
+      url('https://lvhang.hu/fonts/Gothic-Regular.ttf') format('truetype'),
+      url('https://lvhang.hu/fonts/Gothic-Regular.svg#Gothic-Regular') format('svg'); */
+  src: url(/fonts/Gothic-Regular.eot?115ce501a564dd1aa4f54f725cc64177);
+  src: url(/fonts/Gothic-Regular.eot?115ce501a564dd1aa4f54f725cc64177) format("embedded-opentype"), url(/fonts/Gothic-Regular.woff?c81d9c05e87cfd3381126c8380a1be02) format("woff"), url(/fonts/Gothic-Regular.ttf?cfce6abbbff0099b15691345d8b94dcc) format("truetype"), url(/fonts/Gothic-Regular.svg?336c4f05148cdbbf395c0d4f886609d9) format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Gothic-Italic";
-  src: url("http://lvhang.hu/fonts/Gothic-Italic.eot");
-  src: url("http://lvhang.hu/fonts/Gothic-Italic.eot?#iefix") format("embedded-opentype"), url("http://lvhang.hu/fonts/Gothic-Italic.woff") format("woff"), url("http://lvhang.hu/fonts/Gothic-Italic.ttf") format("truetype"), url("http://lvhang.hu/fonts/Gothic-Italic.svg#Gothic-Italic") format("svg");
-  /* src: url('../fonts/Gothic-Italic.eot');
-  src: url('../fonts/Gothic-Italic.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Gothic-Italic.woff') format('woff'),
-  url('../fonts/Gothic-Italic.ttf') format('truetype'),
-  url('../fonts/Gothic-Italic.svg#Gothic-Italic') format('svg'); */
+  /*     src: url('https://lvhang.hu/fonts/Gothic-Italic.eot');
+      src: url('https://lvhang.hu/fonts/Gothic-Italic.eot?#iefix') format('embedded-opentype'),
+      url('https://lvhang.hu/fonts/Gothic-Italic.woff') format('woff'),
+      url('https://lvhang.hu/fonts/Gothic-Italic.ttf') format('truetype'),
+      url('https://lvhang.hu/fonts/Gothic-Italic.svg#Gothic-Italic') format('svg'); */
+  src: url(/fonts/Gothic-Italic.eot?ca6d35c1b52543d86ad0ff405d301cce);
+  src: url(/fonts/Gothic-Italic.eot?ca6d35c1b52543d86ad0ff405d301cce) format("embedded-opentype"), url(/fonts/Gothic-Italic.woff?b59836c6316919ce03a56b0c4a8cd52a) format("woff"), url(/fonts/Gothic-Italic.ttf?89d1d828dd7407e8e5ff6aa83cc5b294) format("truetype"), url(/fonts/Gothic-Italic.svg?a5ac5f20121012f2ce979e8ac1a960a7) format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Gothic-Italic-Bold";
-  src: url("http://lvhang.hu/fonts/Gothic-Italic-Bold.eot");
-  src: url("http://lvhang.hu/fonts/Gothic-Italic-Bold.eot?#iefix") format("embedded-opentype"), url("http://lvhang.hu/fonts/Gothic-Italic-Bold.woff") format("woff"), url("http://lvhang.hu/fonts/Gothic-Italic-Bold.ttf") format("truetype"), url("http://lvhang.hu/fonts/Gothic-Italic-Bold.svg#Gothic-Italic-Bold") format("svg");
-  /* src: url('../fonts/Gothic-Italic-Bold.eot');
-  src: url('../fonts/Gothic-Italic-Bold.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Gothic-Italic-Bold.woff') format('woff'),
-  url('../fonts/Gothic-Italic-Bold.ttf') format('truetype'),
-  url('../fonts/Gothic-Italic-Bold.svg#Gothic-Italic-Bold') format('svg'); */
+  /*     src: url('https://lvhang.hu/fonts/Gothic-Italic-Bold.eot');
+      src: url('https://lvhang.hu/fonts/Gothic-Italic-Bold.eot?#iefix') format('embedded-opentype'),
+      url('https://lvhang.hu/fonts/Gothic-Italic-Bold.woff') format('woff'),
+      url('https://lvhang.hu/fonts/Gothic-Italic-Bold.ttf') format('truetype'),
+      url('https://lvhang.hu/fonts/Gothic-Italic-Bold.svg#Gothic-Italic-Bold') format('svg'); */
+  src: url(/fonts/Gothic-Italic-Bold.eot?b774754285d61336bfcf67b1fc7f641e);
+  src: url(/fonts/Gothic-Italic-Bold.eot?b774754285d61336bfcf67b1fc7f641e) format("embedded-opentype"), url(/fonts/Gothic-Italic-Bold.woff?2eb293686442e8e090e63468222dcbd2) format("woff"), url(/fonts/Gothic-Italic-Bold.ttf?abd76d61050c97ab0e7bf2db2d9bd5ad) format("truetype"), url(/fonts/Gothic-Italic-Bold.svg?9559027086bf971fc01042beac26d158) format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Gothic-Bold";
-  src: url("http://lvhang.hu/fonts/Gothic-Bold.eot");
-  src: url("http://lvhang.hu/fonts/Gothic-Bold.eot?#iefix") format("embedded-opentype"), url("http://lvhang.hu/fonts/Gothic-Bold.woff") format("woff"), url("http://lvhang.hu/fonts/Gothic-Bold.ttf") format("truetype"), url("http://lvhang.hu/fonts/Gothic-Bold.svg#Gothic-Bold") format("svg");
-  /* src: url('../fonts/Gothic-Bold.eot');
-  src: url('../fonts/Gothic-Bold.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Gothic-Bold.woff') format('woff'),
-  url('../fonts/Gothic-Bold.ttf') format('truetype'),
-  url('../fonts/Gothic-Bold.svg#Gothic-Bold') format('svg'); */
+  /*     src: url('https://lvhang.hu/fonts/Gothic-Bold.eot');
+      src: url('https://lvhang.hu/fonts/Gothic-Bold.eot?#iefix') format('embedded-opentype'),
+      url('https://lvhang.hu/fonts/Gothic-Bold.woff') format('woff'),
+      url('https://lvhang.hu/fonts/Gothic-Bold.ttf') format('truetype'),
+      url('https://lvhang.hu/fonts/Gothic-Bold.svg#Gothic-Bold') format('svg'); */
+  src: url(/fonts/Gothic-Bold.eot?a046bbf96278b6e403ad14f98b32a443);
+  src: url(/fonts/Gothic-Bold.eot?a046bbf96278b6e403ad14f98b32a443) format("embedded-opentype"), url(/fonts/Gothic-Bold.woff?9dc98cc23ca40248bdee517c36ea7cf5) format("woff"), url(/fonts/Gothic-Bold.ttf?bc420c1c2b98e2ee8b2a75c1ce1fe083) format("truetype"), url(/fonts/Gothic-Bold.svg?30eec11db5716694ee1866927b7cf288) format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "fontello";
-  src: url("http://lvhang.hu/fonts/fontello.eot");
-  src: url("http://lvhang.hu/fonts/fontello.eot?#iefix") format("embedded-opentype"), url("http://lvhang.hu/fonts/fontello.woff") format("woff"), url("http://lvhang.hu/fonts/fontello.ttf") format("truetype"), url("http://lvhang.hu/fonts/fontello.svg#fontello") format("svg");
-  /* src: url('../fonts/fontello.eot');
-  src: url('../fonts/fontello.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/fontello.woff') format('woff'),
-  url('../fonts/fontello.ttf') format('truetype'),
-  url('../fonts/fontello.svg#fontello') format('svg'); */
+  /*     src: url('https://lvhang.hu/fonts/fontello.eot');
+      src: url('https://lvhang.hu/fonts/fontello.eot?#iefix') format('embedded-opentype'),
+      url('https://lvhang.hu/fonts/fontello.woff') format('woff'),
+      url('https://lvhang.hu/fonts/fontello.ttf') format('truetype'),
+      url('https://lvhang.hu/fonts/fontello.svg#fontello') format('svg'); */
+  src: url(/fonts/fontello.eot?91d2f5921fde532a3fe4836cbabc0ccd);
+  src: url(/fonts/fontello.eot?91d2f5921fde532a3fe4836cbabc0ccd) format("embedded-opentype"), url(/fonts/fontello.woff?3a9d32dc7fd7fb265a56b3c26d78c809) format("woff"), url(/fonts/fontello.ttf?8bda608cb8f66e90613e62cb46d4ebac) format("truetype"), url(/fonts/fontello.svg?030b14a8379fc872ddf0b020d05199bf) format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 h1 {
@@ -11628,7 +11638,7 @@ nav {
 .body .home-header .intro {
   font-family: "Gothic-Bold";
   /* background-image: url('../img/main-image.jpg'); */
-  background-image: url("http://lvhang.hu/images/main-image.jpg");
+  background-image: url("https://lvhang.hu/images/main-image.jpg");
   flex-grow: 1;
   width: 100%;
   background-attachment: fixed;
@@ -11675,7 +11685,7 @@ nav {
   right: -20px;
   border: 1px solid red;
   /* background-image: url('../img/main-image.jpg'); */
-  background-image: url("http://lvhang.hu/images/main-image.jpg");
+  background-image: url("https://lvhang.hu/images/main-image.jpg");
   background-attachment: fixed;
   -webkit-filter: blur(4px);
           filter: blur(4px);
@@ -11820,7 +11830,7 @@ nav {
 @media (min-width: 1200px) {
   .body .header-outer {
     /* background-image: linear-gradient( rgba(0,0,0,.3) 100px,  rgba(0,0,0,1) 140px), url('../img/speaker-grid.jpg'); */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 100px, black 140px), url("http://lvhang.hu/images/speaker-grid.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 100px, black 140px), url("https://lvhang.hu/images/speaker-grid.jpg");
     height: 200px;
   }
 }
@@ -11828,7 +11838,7 @@ nav {
 @media (min-width: 768px) and (max-width: 1199.98px) {
   .body .header-outer {
     /* background-image: linear-gradient( rgba(0,0,0,.3) 90px,  rgba(0,0,0,1) 120px), url('../img/speaker-grid.jpg'); */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 90px, black 120px), url("http://lvhang.hu/images/speaker-grid.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 90px, black 120px), url("https://lvhang.hu/images/speaker-grid.jpg");
     height: 180px;
   }
 }
@@ -11836,7 +11846,7 @@ nav {
 @media (min-width: 576px) and (max-width: 767.98px) {
   .body .header-outer {
     /* background-image: url('../img/speaker-grid.jpg'); */
-    background-image: url("http://lvhang.hu/images/speaker-grid.jpg");
+    background-image: url("https://lvhang.hu/images/speaker-grid.jpg");
     height: 150px;
   }
 }
@@ -11844,7 +11854,7 @@ nav {
 @media (max-width: 575.98px) {
   .body .header-outer {
     /* background-image: url('../img/speaker-grid.jpg'); */
-    background-image: url("http://lvhang.hu/images/speaker-grid.jpg");
+    background-image: url("https://lvhang.hu/images/speaker-grid.jpg");
     height: 100px;
   }
 }
@@ -12030,7 +12040,7 @@ nav {
   .logo-holder {
     width: 186px;
     margin-right: 50px;
-    padding: 30px 0;
+    padding: 10px 0;
   }
 }
 
@@ -12038,7 +12048,7 @@ nav {
   .logo-holder {
     width: 160px;
     margin-right: 40px;
-    padding: 24px 0;
+    padding: 10px 0;
   }
 }
 
@@ -12046,7 +12056,7 @@ nav {
   .logo-holder {
     width: 120px;
     margin-right: 30px;
-    padding: 18px 0;
+    padding: 10px 0;
   }
 }
 
@@ -12490,7 +12500,7 @@ nav {
 
 .footer {
   /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/speaker-grid.jpg'); */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://lvhang.hu/images/speaker-grid.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://lvhang.hu/images/speaker-grid.jpg");
   padding: 50px 80px;
 }
 

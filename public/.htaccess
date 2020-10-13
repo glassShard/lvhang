@@ -2,8 +2,12 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
+	
     RewriteEngine On
+
+	RewriteCond %{HTTP_HOST} ^www\. [NC]
+	RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+	RewriteRule ^ http://%1%{REQUEST_URI} [L,NE,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -19,3 +23,4 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+

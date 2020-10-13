@@ -15,6 +15,9 @@
 	<!-- my css -->
 
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+{{-- 	<link rel="preload" as="font" href="{{ mix('fonts/fontello.woff') }}">
+	<link rel="preload" as="font" href="{{ mix('fonts/Gothic-Bold.woff') }}">
+	<link rel="preload" as="font" href="{{ mix('fonts/Gothic-Regular.woff') }}"> --}}
 
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ Request::root() }}/favi/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ Request::root() }}/favi/favicon-32x32.png">
