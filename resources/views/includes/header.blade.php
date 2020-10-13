@@ -37,6 +37,8 @@
         </div>
 
       @endguest
+
+      <button type="button" class="search-opener btn btn-lg lv-btn" data-toggle="modal" data-target="#searchModal"><i class="fontello-search"></i></button>
     </div>
   </div>
 </header>

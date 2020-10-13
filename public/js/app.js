@@ -28243,7 +28243,8 @@ __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap
 
 window.onload = function () {
   var timeouts = [];
-  var body = document.querySelector('body'); //cloneImages();
+  var body = document.querySelector('body');
+  var scrollButton = document.querySelector('.topScroller'); //cloneImages();
 
   Object(_renderImages__WEBPACK_IMPORTED_MODULE_0__["renderImages"])(timeouts);
   Object(_showCurrentPageOnNavbar__WEBPACK_IMPORTED_MODULE_2__["showCurrentPageOnNavbar"])();
@@ -28252,7 +28253,14 @@ window.onload = function () {
   Object(_openCloseRefCheckOnGalleryEdit__WEBPACK_IMPORTED_MODULE_3__["addEventListenerToRadios"])();
   Object(_search__WEBPACK_IMPORTED_MODULE_5__["openCloseSearch"])();
   Object(_resizeLogoOnScroll__WEBPACK_IMPORTED_MODULE_6__["resizeLogoOnScroll"])();
-  Object(_rerenderOnResize__WEBPACK_IMPORTED_MODULE_7__["rerenderOnResize"])(timeouts); // hamburger menü nyitás-zárás
+  Object(_rerenderOnResize__WEBPACK_IMPORTED_MODULE_7__["rerenderOnResize"])(timeouts); // scrollToTop
+
+  scrollButton.addEventListener('click', function () {
+    return window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }); // hamburger menü nyitás-zárás
 
   function openHamburger() {
     var navBar = document.querySelector('.nav-bar');
@@ -28327,8 +28335,7 @@ window.onload = function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
-// export const URL = 'https://lvhang.hu';
-var URL = 'http://lvhang.test';
+var URL = 'https://lvhang.hu'; // export const URL = 'http://lvhang.test';
 
 /***/ }),
 
@@ -28553,12 +28560,13 @@ function resizeLogoOnScroll() {
 
   var logoHolder = document.querySelector('.logo-holder');
   var logoHolderOrigPadding = getComputedStyle(logoHolder).paddingBottom;
-  var logoHolderOrigPaddingNr = +logoHolderOrigPadding.substring(0, logoHolderOrigPadding.length - 2); // scrollozáskor meghívja a szükséges függvényeket
+  var logoHolderOrigPaddingNr = +logoHolderOrigPadding.substring(0, logoHolderOrigPadding.length - 2);
+  var scrollButton = document.querySelector('.topScroller'); // scrollozáskor meghívja a szükséges függvényeket
 
   document.addEventListener('scroll', function () {
     return push();
   });
-  push(); // scrollozáskor átméretezi a logót
+  push(); // scrollozáskor átméretezi a logót, megjeleníti a felscrollozó gombot
 
   function push() {
     var minScrollTime = 20;
@@ -28571,6 +28579,24 @@ function resizeLogoOnScroll() {
       var hamburgerElement = document.querySelector('.hamburger');
       var hamburgerDisplay = getComputedStyle(hamburgerElement).display;
       var logoHolder = document.querySelector('.logo-holder');
+      var navbar = document.querySelector('.nav-bar');
+
+      if (scrollTop > 100) {
+        scrollButton.style.display = 'block';
+        setTimeout(function () {
+          scrollButton.style.opacity = '1';
+        }, 1);
+      } else {
+        var hideElement = function hideElement(event) {
+          if (event.propertyname === 'opacity') {
+            scrollButton.style.display = 'none';
+            scrollButton.removeEventListener('transitionend', hideElement);
+          }
+        };
+
+        scrollButton.addEventListener('transitionend', hideElement);
+        scrollButton.style.opacity = '0';
+      }
 
       if (hamburgerDisplay === 'none') {
         if (scrollTop > 0 & scrollTop < headerOuterHeight - 60) {
@@ -28579,6 +28605,13 @@ function resizeLogoOnScroll() {
           header.style.height = headerOuterHeight - scrollTop + 'px';
           header.style.position = 'relative';
           header.style.background = 'transparent';
+
+          if (scrollTop > headerOuterHeight / 3) {
+            navbar.style.transform = 'translateX(-80px)';
+          } else {
+            navbar.style.transform = 'translateX(0px)';
+          }
+
           logoHolder.style.paddingBottom = paddingToSet + 'px';
           logoHolder.style.paddingTop = paddingToSet + 'px';
         }
@@ -28587,6 +28620,7 @@ function resizeLogoOnScroll() {
           header.style.height = '100%';
           header.style.position = 'relative';
           header.style.background = 'transparent';
+          navbar.style.transform = 'translateX(0px)';
           /*           logoHolder.style.paddingBottom = '30px';
                     logoHolder.style.paddingTop = '30px'; */
 
@@ -28604,6 +28638,7 @@ function resizeLogoOnScroll() {
           header.style.zIndex = '10';
           header.style.height = '60px';
           header.style.background = 'black';
+          navbar.style.transform = 'translateX(-80px)';
           logoHolder.style.paddingBottom = '10px';
           logoHolder.style.paddingTop = '10px';
         }

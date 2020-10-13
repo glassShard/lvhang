@@ -1,3 +1,18 @@
+button {
+    border: none;
+    outline: none;
+   
+    &:focus, &:active {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+    }
+    
+    &:not(:disabled):not(.disabled):active:focus {
+        box-shadow: none;
+    }
+}
+
 .lv-btn {
     @extend %transition;
     font-family: $gothic-regular;
@@ -70,19 +85,73 @@
 }
 
 .search-opener {
-    background-color: rgba(0,0,0,0.2);
+    @extend %transition;
+    background-color: transparent;
     color: rgba(255,255,255,0.7);
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    position: absolute;
+    align-self: center;
     font-size: 32px;
-    padding: 5px 10px;
     z-index: 10;
+
 
     &:hover {
         color: rgba(255,255,255,1);
-        background-color: rgba(0,0,0,0.4);
     }
+
+    @include media(lg) {
+        right: 0;
+        padding: 0;
+      };
+    
+      @include media(md) {
+        right: 0;
+        padding: 0;
+      };
+    
+      @include media(sm) {
+        right: 60px;
+        padding: 0 20px;
+      };
+    
+      @include media(xs) {
+        right: 60px;
+        padding: 0 20px;
+      };
+}
+
+.topScroller {
+    @extend %transition;
+    background-color: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.7);
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    font-size: 32px;
+    padding: 5px 10px;
+    z-index: 10;
+    opacity: 0;
+    display: block;
+
+    &:hover {
+        color: rgba(255,255,255,1);
+        background-color: rgba(0,0,0,0.6);
+    }
+    
+    @include media(lg) {
+        display: none;
+      };
+    
+      @include media(md) {
+        display: none;
+      };
+    
+      @include media(sm) {
+        display: block;
+      };
+    
+      @include media(xs) {
+        display: block;
+      };
 }
 
 

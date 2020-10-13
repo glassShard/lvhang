@@ -15,6 +15,8 @@ window.onload = function () {
 	const timeouts = [];
 
 	const body = document.querySelector('body');
+	const scrollButton = document.querySelector('.topScroller');
+	
 	//cloneImages();
 	renderImages(timeouts);
 	showCurrentPageOnNavbar();
@@ -25,7 +27,12 @@ window.onload = function () {
 	resizeLogoOnScroll();
 	rerenderOnResize(timeouts);
 
+	// scrollToTop
 
+	scrollButton.addEventListener('click', () => window.scroll({
+		top: 0,
+		behavior: 'smooth'
+	}));
 	
 	// hamburger menü nyitás-zárás
 

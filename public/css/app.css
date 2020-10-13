@@ -10972,6 +10972,8 @@ a.text-dark:focus {
 .galleryCover .galleryCoverTitle,
 .galleryCover .galleryCoverImage,
 .st-ref,
+.topScroller,
+.search-opener,
 .navButtonActive span,
 .lv-btn,
 .lv-card-deck .lv-card .lv-card-image-link,
@@ -11574,6 +11576,7 @@ nav {
   max-width: 1920px;
   min-width: 260px;
   margin: 0 auto;
+  position: relative;
 }
 
 .body .height100 {
@@ -12240,6 +12243,7 @@ nav {
   height: 40px;
   cursor: pointer;
   z-index: 16;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 1200px) {
@@ -12413,6 +12417,21 @@ nav {
   color: #231f20;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
+button:focus,
+button:active {
+  box-shadow: none;
+  outline: none;
+}
+
+button:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+
 .lv-btn {
   font-family: "Gothic-Regular";
   font-weight: unset;
@@ -12483,19 +12502,86 @@ nav {
 }
 
 .search-opener {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
   color: rgba(255, 255, 255, 0.7);
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  position: absolute;
+  align-self: center;
   font-size: 32px;
-  padding: 5px 10px;
   z-index: 10;
 }
 
 .search-opener:hover {
   color: white;
+}
+
+@media (min-width: 1200px) {
+  .search-opener {
+    right: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .search-opener {
+    right: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .search-opener {
+    right: 60px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .search-opener {
+    right: 60px;
+    padding: 0 20px;
+  }
+}
+
+.topScroller {
   background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 32px;
+  padding: 5px 10px;
+  z-index: 10;
+  opacity: 0;
+  display: block;
+}
+
+.topScroller:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 1200px) {
+  .topScroller {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .topScroller {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .topScroller {
+    display: block;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .topScroller {
+    display: block;
+  }
 }
 
 .footer {

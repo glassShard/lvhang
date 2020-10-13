@@ -14,7 +14,7 @@
 
 	<!-- my css -->
 
-	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+	<link rel="stylesheet" href="{{ mix('css/app.css') }}?version=2">
 {{-- 	<link rel="preload" as="font" href="{{ mix('fonts/fontello.woff') }}">
 	<link rel="preload" as="font" href="{{ mix('fonts/Gothic-Bold.woff') }}">
 	<link rel="preload" as="font" href="{{ mix('fonts/Gothic-Regular.woff') }}"> --}}
@@ -47,7 +47,9 @@
 
 	@include('includes._modal')
 
-	<script src="{{ mix('js/app.js') }}"></script>
+	<button class="topScroller"><i class="fontello-up-dir"></i></button>
+
+	<script src="{{ mix('js/app.js') }}?version=2"></script>
 </body>
 
 </html>
