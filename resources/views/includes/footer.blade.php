@@ -19,7 +19,7 @@
       <p>L.V. Records</p>
     </div>
     <div class="simple">
-      <i class="fontello-youtube-play" target="_blank"></i>
+      <a href="https://www.youtube.com/channel/UCXZluLSa_-E2TQYhFXx74GQ/" target="_blank"><i class="fontello-youtube-play"></i></a>
       <p>L.V. Hang</p>
     </div>
   </div>

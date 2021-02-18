@@ -49,9 +49,9 @@ export function resizeLogoOnScroll() {
 
       if (hamburgerDisplay === 'none') {
         if (scrollTop > 0 & scrollTop < headerOuterHeight - 60) {
-/*           const paddingToSet = 10 + (logoHolderOrigPaddingNr - 10) * ((headerOuterHeight - 60 - scrollTop) / (headerOuterHeight - 60)); */
+          const paddingToSet = 10 + (logoHolderOrigPaddingNr - 10) * ((headerOuterHeight - 60 - scrollTop) / (headerOuterHeight - 60));
 
-          const paddingToSet = 10;
+          // const paddingToSet = 10;
 
           header.style.height = headerOuterHeight - scrollTop + 'px';
           header.style.position = 'relative';
@@ -73,11 +73,11 @@ export function resizeLogoOnScroll() {
           header.style.background = 'transparent';
           navbar.style.transform = 'translateX(0px)';
 
-/*           logoHolder.style.paddingBottom = '30px';
-          logoHolder.style.paddingTop = '30px'; */
+          logoHolder.style.paddingBottom = '30px';
+          logoHolder.style.paddingTop = '30px';
 
-          logoHolder.style.paddingBottom = '10px';
-          logoHolder.style.paddingTop = '10px';
+/*           logoHolder.style.paddingBottom = '10px';
+          logoHolder.style.paddingTop = '10px'; */
         }
 
         if (scrollTop >= headerOuterHeight - 60) {

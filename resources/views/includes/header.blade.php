@@ -4,7 +4,7 @@
       class="content d-flex height100 align-items-center align-items-lg-end align-items-md-end  align-items-sm-center justify-content-between">
       <a class="height100" href="{{ route('home') }}">
         <div class="logo-holder">
-        <img src="{{ Request::root() }}/static-images/LV_HANG_ALT_LOGO-02.svg" alt="">
+        <img src="{{ Request::root() }}/static-images/lvhang_LOGOK2020-hang-feher.svg" alt="">
         </div>
       </a>
 

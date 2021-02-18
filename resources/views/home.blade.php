@@ -105,7 +105,7 @@
                   rgba(0,0,0,0.7), 
                   rgba(0,0,0,0.7)),url('static-images/IMG_3886.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV LIVE_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. hang élő logo">
+                    <img src="static-images/lvhang_LOGOK2020-hang-feher-fent.svg?v=1" class="card-img-top lv-card-logo-img" alt="l.v. hang élő logo">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Élő</h5>
@@ -128,7 +128,7 @@
                 rgba(0,0,0,0.7), 
                 rgba(0,0,0,0.7)),url('static-images/IMG_20200615_165554.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV_STUDIO_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. hang studio logo">
+                    <img src="static-images/lvhang_LOGOK2020-studio-feher.svg?v=1" class="card-img-top lv-card-logo-img" alt="l.v. hang studio logo">
                   </div>
                   <div class="lv-card-title">
                     <h5 class="card-title display">Stúdió</h5>
@@ -151,7 +151,7 @@
                   rgba(0,0,0,0.7), 
                   rgba(0,0,0,0.7)),url('static-images/kiado.jpg')">
                   <div class="lv-card-logo">
-                    <img src="static-images/LV _REC_LOGO-01.svg" class="card-img-top lv-card-logo-img" alt="l.v. records logo">
+                    <img src="static-images/lvhang_LOGOK2020-records-feher.svg?v=1" class="card-img-top lv-card-logo-img" alt="l.v. records logo">
                   </div>
                   <div class="lv-card-title">
                   <h5 class="card-title display">Kiadó</h5>

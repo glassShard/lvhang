@@ -23,7 +23,7 @@
     <main>
       <section class="section light feet-intro lv-border">
         <div class="feet-intro-bg content">
-          <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="l.v. live logo">
+{{--           <img class="logo" src="./static-images/LV LIVE_LOGO-01-dark.svg" alt="l.v. live logo"> --}}
           <img class="image" src="./static-images/jbl_uj_piros.png" alt="jbl line array">
           <div class="text1">
             <h1 class="lv-display-1">Rendezvények</h1>

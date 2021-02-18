@@ -23,7 +23,7 @@
 		<main>
 			<section class="section light feet-intro lv-border">
 				<div class="feet-intro-bg content">
-					<img class="logo" src="./static-images/LV _REC_LOGO-01-dark.svg" alt="l.v. records logo">
+{{-- 					<img class="logo" src="./static-images/lvhang_LOGOK2020-records-fekete.svg" alt="l.v. records logo"> --}}
 					<img class="image" src="./static-images/lv_vinyl_piros.png" alt="vinyl hanglemez">
 					<div class="text1">
 						<h1 class="lv-display-1">L.V. Records</h1>

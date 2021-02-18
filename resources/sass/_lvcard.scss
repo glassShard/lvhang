@@ -42,7 +42,7 @@
       .lv-card-logo,
       .lv-card-title {
         width: 35%;
-        padding: 30px;
+        padding: 80px 30px;
 
         .lv-card-logo-img {
           max-height: 250px;
@@ -52,9 +52,11 @@
       .lv-card-title {
         width: 65%;
         padding: 30px 30px 30px 0;
+        margin-bottom: 0;
 
         .display {
           font-size: 40px;
+          margin-bottom: 0;
         }
       }
     }

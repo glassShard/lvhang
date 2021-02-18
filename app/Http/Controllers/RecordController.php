@@ -22,9 +22,25 @@ class RecordController extends Controller
      */
     public function index()
     {
-        return view('records.index', ['records' => Record::all()->sortByDesc('year')]);
-    }
 
+        $coll = Record::all();
+
+        return view('records.index', ['records' => $coll->sort(function($item1, $item2) {
+            
+            if ($item1['year'] === $item2['year'] && $item1['updated_at'] === $item1['updated_at']) {
+                return 0;
+            }
+            if ($item1['year'] > $item2['year']) {
+                return -1;
+            }
+            if ($item1['year'] === $item2['year']) {
+                if ($item1['updated_at'] > $item2['updated_at']) {
+                    return -1;
+                }
+            }
+            return 1;
+        })]);
+    }
     /**
      * Show the form for creating a new resource.
      *
