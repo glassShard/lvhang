@@ -11,6 +11,14 @@
   }
 }
 
+.main-category {
+  background-color: rgba(123, 30, 27, 0.3);
+}
+
+.sub-category {
+  background-color: rgba(123, 30, 27, 0.15);
+}
+
 .light {
   .lv-form {
     color: $dark-text-color;
@@ -73,14 +81,18 @@
   overflow: hidden;
 } 
 
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active  {
-      transition: background-color 5000s ease-in-out 0s;
-  }
+.full-width {
+  width: 100%;
+}
 
-  input:-webkit-autofill {
-    -webkit-text-fill-color: white !important;
-  }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
 

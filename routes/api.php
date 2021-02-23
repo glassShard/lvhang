@@ -25,4 +25,12 @@ Route::prefix('v1')->name('api.v1.')->namespace('Api\V1')->group(function() {
     })->name('status');
 
     Route::get('/search/{query}', 'SearchController@searchQuery')->name('search');
+
+    Route::apiResource('/price', 'PriceController');
 });
+
+Route::fallback(function() {
+    return response()->json([
+        'message' => 'Not found'
+    ], 404);
+})->name('api.fallback');

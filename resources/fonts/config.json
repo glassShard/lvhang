@@ -1,6 +1,6 @@
 {
   "name": "fontello",
-  "css_prefix_text": "icon-",
+  "css_prefix_text": "fontello-",
   "css_use_suffix": false,
   "hinting": true,
   "units_per_em": 1000,
@@ -293,6 +293,36 @@
       "css": "news",
       "code": 59418,
       "src": "typicons"
+    },
+    {
+      "uid": "c8585e1e5b0467f28b70bce765d5840c",
+      "css": "docs",
+      "code": 61637,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4a74a0f87d4089efe7aba1825bff4193",
+      "css": "copyright",
+      "code": 61945,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f27bba41a700af51a4dd23cf4edea61d",
+      "css": "headphones",
+      "code": 59420,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7480a298ce334eef70193895e799c3fd",
+      "css": "headphones-1",
+      "code": 59421,
+      "src": "elusive"
+    },
+    {
+      "uid": "e7ab5637425cce7dd2176302ddaf1c08",
+      "css": "music",
+      "code": 59422,
+      "src": "elusive"
     }
   ]
 }

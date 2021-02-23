@@ -4,7 +4,7 @@
     font-family: $fontello;
     font-style: normal;
     font-weight: normal;
-    speak: none;
+    //speak: none;
 
     display: inline-block;
     text-decoration: inherit;
@@ -58,7 +58,12 @@
 .fontello-picture:before { content: '\e816'; } /* '' */
 .fontello-megaphone:before { content: '\e817'; } /* '' */
 .fontello-video:before { content: '\e818'; } /* '' */
+.fontello-search:before { content: '\e819'; } /* '' */
+.fontello-news:before { content: '\e81a'; } /* '' */
 .fontello-login-2:before { content: '\e81b'; } /* '' */
+.fontello-headphones:before { content: '\e81c'; } /* '' */
+.fontello-headphones-1:before { content: '\e81d'; } /* '' */
+.fontello-music:before { content: '\e81e'; } /* '' */
 .fontello-floppy-1:before { content: '\e820'; } /* '' */
 .fontello-sound:before { content: '\e824'; } /* '' */
 .fontello-home:before { content: '\e857'; } /* '' */
@@ -76,8 +81,8 @@
 .fontello-logout:before { content: '\f02d'; } /* '' */
 .fontello-stop:before { content: '\f080'; } /* '' */
 .fontello-trash:before { content: '\f083'; } /* '' */
+.fontello-docs:before { content: '\f0c5'; } /* '' */
 .fontello-mic:before { content: '\f130'; } /* '' */
 .fontello-youtube-play:before { content: '\f16a'; } /* '' */
+.fontello-copyright:before { content: '\f1f9'; } /* '' */
 .fontello-facebook-squared:before { content: '\f30e'; } /* '' */
-.fontello-search:before { content: '\e819'; } /* '' */
-.fontello-news:before { content: '\e81a'; } /* '' */

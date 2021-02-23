@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 /* Route::get('/foo', function() {
   dump(Artisan::call('storage:link'));
   dump(Artisan::call('route:list'));
-  dump(base_path());
+  dump(base_path()); 
   dump(realpath(base_path()));
   dump(public_path('storage'));
   dump(storage_path('app/public'));
@@ -56,5 +56,7 @@ Route::get('devices/create-to-parent/{parent}', 'DeviceController@createToParent
 Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent')->name('devices.store-to-parent');
 
 Route::resource('/news', 'NewsController');
+
+Route::resource('/price', 'PriceController')->only('index');
 
 

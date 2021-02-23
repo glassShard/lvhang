@@ -11050,8 +11050,8 @@ a.text-dark:focus {
       url('https://lvhang.hu/fonts/fontello.woff') format('woff'),
       url('https://lvhang.hu/fonts/fontello.ttf') format('truetype'),
       url('https://lvhang.hu/fonts/fontello.svg#fontello') format('svg'); */
-  src: url(/fonts/fontello.eot?91d2f5921fde532a3fe4836cbabc0ccd);
-  src: url(/fonts/fontello.eot?91d2f5921fde532a3fe4836cbabc0ccd) format("embedded-opentype"), url(/fonts/fontello.woff?3a9d32dc7fd7fb265a56b3c26d78c809) format("woff"), url(/fonts/fontello.ttf?8bda608cb8f66e90613e62cb46d4ebac) format("truetype"), url(/fonts/fontello.svg?030b14a8379fc872ddf0b020d05199bf) format("svg");
+  src: url(/fonts/fontello.eot?21e7f140d9f9687f1e7307417b854ce9);
+  src: url(/fonts/fontello.eot?21e7f140d9f9687f1e7307417b854ce9) format("embedded-opentype"), url(/fonts/fontello.woff?538442f41deeecaacf0a411fca77523e) format("woff"), url(/fonts/fontello.ttf?0b8df76c8a179e2761eb6ad8285f468e) format("truetype"), url(/fonts/fontello.svg?c15cea7975657792a4cdb411d6909cf0) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11214,7 +11214,6 @@ nav {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
-  speak: none;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
@@ -11384,11 +11383,41 @@ nav {
 
 /* '' */
 
+.fontello-search:before {
+  content: "\E819";
+}
+
+/* '' */
+
+.fontello-news:before {
+  content: "\E81A";
+}
+
+/* '' */
+
 .fontello-login-2:before {
   content: "\E81B";
 }
 
 /* '' */
+
+.fontello-headphones:before {
+  content: "\E81C";
+}
+
+/* '' */
+
+.fontello-headphones-1:before {
+  content: "\E81D";
+}
+
+/* '' */
+
+.fontello-music:before {
+  content: "\E81E";
+}
+
+/* '' */
 
 .fontello-floppy-1:before {
   content: "\E820";
@@ -11492,6 +11521,12 @@ nav {
 
 /* '' */
 
+.fontello-docs:before {
+  content: "\F0C5";
+}
+
+/* '' */
+
 .fontello-mic:before {
   content: "\F130";
 }
@@ -11504,23 +11539,17 @@ nav {
 
 /* '' */
 
+.fontello-copyright:before {
+  content: "\F1F9";
+}
+
+/* '' */
+
 .fontello-facebook-squared:before {
   content: "\F30E";
 }
 
 /* '' */
-
-.fontello-search:before {
-  content: "\E819";
-}
-
-/* '' */
-
-.fontello-news:before {
-  content: "\E81A";
-}
-
-/* '' */
 
 .body {
   justify-content: space-between;
@@ -12452,6 +12481,11 @@ button:not(:disabled):not(.disabled):active:focus {
   box-shadow: none;
 }
 
+.btn-price {
+  padding: 4px 10px;
+  font-size: 22px;
+}
+
 .btn-skeleton {
   border: 1px solid #ffffff;
   background-color: transparent;
@@ -12777,6 +12811,14 @@ button:not(:disabled):not(.disabled):active:focus {
   color: #ffffff;
 }
 
+.main-category {
+  background-color: rgba(123, 30, 27, 0.3);
+}
+
+.sub-category {
+  background-color: rgba(123, 30, 27, 0.15);
+}
+
 .light .lv-form {
   color: #231f20;
 }
@@ -12843,6 +12885,10 @@ button:not(:disabled):not(.disabled):active:focus {
 .st-ref {
   height: 0;
   overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
 }
 
 input:-webkit-autofill,
