@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Price;
 use App\Record;
 
+
 class PriceController extends Controller
 {
     public function __construct()
@@ -23,7 +24,7 @@ class PriceController extends Controller
      */
     public function index()
     {
-        return Price::with('subPrice')->where('parent_id', null)->get();
+        return Price::with('subPrice')->where('parent_id', null)->orderBy('price', 'DESC')->get();
     }
 
     /**

@@ -27,7 +27,7 @@
       @else  
       
         <div class="logged-in-user">
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit()">{{ Auth::user()->name }} <i class="fontello-logout"></i></a>
+          <a href="{{ route('logout') }}" id="logoutButton" onclick="event.preventDefault();localStorage.removeItem('token');document.getElementById('logout-form').submit()">{{ Auth::user()->name }} <i class="fontello-logout"></i></a>
           
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
             @csrf

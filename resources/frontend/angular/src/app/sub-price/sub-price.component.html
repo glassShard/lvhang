@@ -1,0 +1,101 @@
+<li class="row align-items-center mb-3 mb-xl-0"
+    [@instantiate]="isExist ? 'exist' : 'void'">
+
+  <ng-container *ngIf="oldPrice.price !== null; else priceNull">
+    <div class="col-12 col-xl-3">
+      <input [(ngModel)]="price.name" class="form-control lv-form mb-1" name="name" placeholder="Megnevezés..."
+             title="Megnevezés" type="text" value="{{ price.name }}" [ngClass]="{'unsaved':
+             price.name !== oldPrice.name}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-6 col-sm-3 col-xl-1">
+      <input [(ngModel)]="price.current" class="form-control lv-form mb-1" name="name"
+             placeholder="Áramszükséglet (W)..." title="Áramszükséglet" type="number"
+             value="{{ price.current }}" [ngClass]="{'unsaved':
+             price.current !== oldPrice.current}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-6 col-sm-3 col-xl-1">
+      <input [(ngModel)]="price.people" class="form-control lv-form mb-1" name="name" placeholder="Ember (db)..."
+             title="Ember" type="number" value="{{ price.people }}" [ngClass]="{'unsaved':
+             price.people !== oldPrice.people}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-6 col-sm-3 col-xl-1">
+      <input [(ngModel)]="price.piece" class="form-control lv-form mb-1" name="name" placeholder="Darab (db)..."
+             title="Darab" type="number" value="{{ price.piece }}" [ngClass]="{'unsaved':
+             price.piece !== oldPrice.piece}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-6 col-sm-3 col-xl-1">
+      <input [(ngModel)]="price.price" class="form-control lv-form mb-1" name="name" placeholder="Ár (Ft)..."
+             title="Ár" type="number" value="{{ price.price }}" [ngClass]="{'unsaved':
+             price.price !== oldPrice.price}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-12 col-xl-3">
+      <input class="form-control lv-form mb-1" name="name" placeholder="Leírás..."
+             title="Leírás" type="text" value="{{ this.description }}"
+             (focus)="onFocus()" [ngClass]="{'unsaved':
+             price.description !== oldPrice.description}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-12 col-xl-2 d-flex justify-content-end">
+      <button *ngIf="price.id && showCopyButton" (click)="onCopy()"
+              class="btn btn-primary lv-btn btn-info btn-price copy"
+              type="button"><i class="fontello-docs"></i></button>
+
+      <button *ngIf="price.id && !showCopyButton" (click)="onCancel()"
+              class="btn btn-warning lv-btn btn-info btn-price warning"
+              type="button"><i class="fontello-cancel"></i></button>
+
+      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block save"
+              type="button"><i class="fontello-floppy"></i></button>
+
+      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price delete"
+              type="button"><i class="fontello-trash-1"></i></button>
+
+    </div>
+
+    <app-modal [id]="price.id ? price.id : -1">
+
+    </app-modal>
+  </ng-container>
+
+  <ng-template #priceNull>
+    <div class="col-12 col-sm-9 col-xl-10">
+      <input [(ngModel)]="price.name" [ngClass]="{'main-category': oldPrice.parent_id === null,
+      'sub-category': oldPrice.parent_id !== null, 'unsaved':
+             price.name !== oldPrice.name}"
+             class="form-control lv-form full-width mb-1" name="name" placeholder="Név..." type="text"
+             value="{{ price.name }}" (keyup)="checkChange()">
+    </div>
+
+    <div class="col-12 col-sm-3 col-xl-2 d-flex justify-content-end">
+      <button (click)="onAdd()" class="btn btn-primary lv-btn btn-info btn-price"><i
+        class="fontello-doc-new"></i></button>
+
+      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block save"
+              type="button"><i class="fontello-floppy"></i></button>
+
+      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price d-inline-block save"
+              type="button"><i class="fontello-trash-1"></i></button>
+    </div>
+  </ng-template>
+
+</li>
+
+
+
+<ng-container *ngIf="price.sub_price && price.sub_price.length">
+  <app-sub-price (copyPrice)="copyUp($event)"
+                 (addNew)="addNewUp($event)"
+                 (deleteNew)="deleteNewUp($event)"
+                 (newFlag)="newFlagUp($event)"
+                 (changed)="changedUp($event)"
+                 *ngFor="let subPrice of price.sub_price; let i=index"
+                 [index]="i" [price]="subPrice"></app-sub-price>
+</ng-container>
+
+
+

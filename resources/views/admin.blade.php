@@ -18,8 +18,11 @@
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('galleries.index') }}">Képgalériák</a>
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('devices.index') }}">Eszközlisták</a>
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('news.index') }}">Hírek</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('angular') }}">Árak</a>
         </div>
       </section>
+
+      <div id="token" style="display: none">{{ $user }}</div>
     </main>
 
   @endsection

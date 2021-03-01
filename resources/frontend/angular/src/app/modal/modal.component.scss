@@ -1,0 +1,52 @@
+app-modal {
+  display: none;
+
+  .lv-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow: auto;
+    border-radius: 5px;
+
+    .lv-modal-body {
+      padding: 80px;
+      margin: 150px;
+      border-radius: 5px;
+      background-color: #fcf3e6;
+
+      .ql-toolbar.ql-snow {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .ql-container.ql-snow {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #231f20;
+        background-color: hsla(0,0%,100%,.1);
+      }
+
+      .modal-text {
+        height: 150px;
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 1;
+  }
+}
+
+body.lv-modal-open {
+  overflow: hidden;
+}

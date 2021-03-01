@@ -10,17 +10,22 @@ class PriceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['index']);
+        $this->middleware('auth')->only(['edit', 'angular']);
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function edit()
     {
-        $prices = Price::with('subPrice')->where('parent_id', null)->orderBy('price', 'DESC')->get();
-
-        return view('prices.index', compact('prices'));
+/*         $prices = Price::with('subPrice')->where('parent_id', null)->orderBy('price', 'DESC')->get(); */
+return view('prices.angular');
+        /* return view('prices.index', compact('prices')); */
+    }
+    
+    public function angular()
+    {
+        return view('prices.angular');
     }
 }

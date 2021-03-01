@@ -5,16 +5,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/* Route::get('/foo', function() {
-  dump(Artisan::call('storage:link'));
-  dump(Artisan::call('route:list'));
-  dump(base_path()); 
-  dump(realpath(base_path()));
-  dump(public_path('storage'));
-  dump(storage_path('app/public'));
-
-}); */
-
 Route::get('/', 'HomeController@home')->name('home');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
@@ -29,7 +19,7 @@ Route::view('/news', 'news')->name('news');
 
 Auth::routes();
 
-Route::view('/admin', 'admin')->name('admin')->middleware('auth');
+Route::get('/admin', 'AdminController@admin')->name('admin')->middleware('auth');
 
 Route::resource('/live-ref-places', 'LiveRefPlaceController')->except('show');
 
@@ -57,6 +47,8 @@ Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent'
 
 Route::resource('/news', 'NewsController');
 
-Route::resource('/price', 'PriceController')->only('index');
+// Route::resource('/price', 'PriceController')->only('index');
+
+Route::get('/price/edit', 'PriceController@angular')->name('angular');
 
 

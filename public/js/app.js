@@ -28228,6 +28228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./search */ "./resources/js/search.js");
 /* harmony import */ var _resizeLogoOnScroll__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./resizeLogoOnScroll */ "./resources/js/resizeLogoOnScroll.js");
 /* harmony import */ var _rerenderOnResize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./rerenderOnResize */ "./resources/js/rerenderOnResize.js");
+/* harmony import */ var _token_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./token.js */ "./resources/js/token.js");
+
 
 
 
@@ -28253,7 +28255,8 @@ window.onload = function () {
   Object(_openCloseRefCheckOnGalleryEdit__WEBPACK_IMPORTED_MODULE_3__["addEventListenerToRadios"])();
   Object(_search__WEBPACK_IMPORTED_MODULE_5__["openCloseSearch"])();
   Object(_resizeLogoOnScroll__WEBPACK_IMPORTED_MODULE_6__["resizeLogoOnScroll"])();
-  Object(_rerenderOnResize__WEBPACK_IMPORTED_MODULE_7__["rerenderOnResize"])(timeouts); // scrollToTop
+  Object(_rerenderOnResize__WEBPACK_IMPORTED_MODULE_7__["rerenderOnResize"])(timeouts);
+  Object(_token_js__WEBPACK_IMPORTED_MODULE_8__["setToken"])(); // scrollToTop
 
   scrollButton.addEventListener('click', function () {
     return window.scroll({
@@ -28920,6 +28923,31 @@ function showCurrentPageOnNavbar() {
   }
 
   return;
+}
+
+/***/ }),
+
+/***/ "./resources/js/token.js":
+/*!*******************************!*\
+  !*** ./resources/js/token.js ***!
+  \*******************************/
+/*! exports provided: setToken */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToken", function() { return setToken; });
+function setToken() {
+  var element = document.querySelector('#token');
+  var token = '';
+
+  if (element) {
+    token = document.querySelector('#token').innerHTML;
+  }
+
+  if (token) {
+    localStorage.setItem('token', token);
+  }
 }
 
 /***/ }),

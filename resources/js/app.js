@@ -8,6 +8,7 @@ import { setCookie } from "./cookie";
 import { openCloseSearch } from "./search";
 import { resizeLogoOnScroll } from "./resizeLogoOnScroll";
 import { rerenderOnResize } from "./rerenderOnResize";
+import { setToken } from "./token.js"; 
 
 require('bootstrap');
 
@@ -26,6 +27,7 @@ window.onload = function () {
 	openCloseSearch();
 	resizeLogoOnScroll();
 	rerenderOnResize(timeouts);
+	setToken();
 
 	// scrollToTop
 
