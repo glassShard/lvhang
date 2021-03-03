@@ -19,6 +19,8 @@
         @endif
         
         <app-root></app-root>
+       
+        <div id="token" style="display: none">{{ $user }}</div>
         
       </section>
 

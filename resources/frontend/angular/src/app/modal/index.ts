@@ -1,2 +1,2 @@
 export * from './modal.module';
-export * from '../modal.service';
+export * from '../services/modal.service';

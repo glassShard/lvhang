@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PriceService} from '../price.service';
-import {Price} from '../models/priceModel';
+import {PriceService} from '../../services/price.service';
+import {Price} from '../../models/priceModel';
 import {ToastrService} from 'ngx-toastr';
 import {Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -56,6 +56,8 @@ export class PriceListComponent implements OnInit {
     this.subscriptions.push(this.priceService.reminder.subscribe(value => {
       if (value) {
         this.list = this.priceService.getData() as Array<Price>;
+        this.newExists = false;
+        this.changes = [];
       }
     }));
   }
@@ -116,7 +118,6 @@ export class PriceListComponent implements OnInit {
       description: price.description
     });
 
-    console.log(result);
     const targetArray = this.selectTargetArray(result);
     targetArray.splice(result[result.length - 1] + 1, 0, newItem);
   }

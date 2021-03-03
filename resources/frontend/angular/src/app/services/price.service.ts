@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {forkJoin, Observable, ReplaySubject, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Price } from './models/priceModel';
+import { Price } from '../models/priceModel';
 
 @Injectable({
   providedIn: 'root'

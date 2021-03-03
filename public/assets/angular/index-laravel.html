@@ -37,7 +37,7 @@
 <button class="topScroller"><i class="fontello-up-dir"></i></button>
 
 <script src="{{ mix('js/app.js') }}?version=2"></script>
-<script src="/assets/angular/runtime.b38d2fa118cded9851d5.js" defer></script><script src="/assets/angular/polyfills.94daefd414b8355106ab.js" defer></script><script src="/assets/angular/main.ec935a5b77fb15ada60c.js" defer></script></body>
+<script src="/assets/angular/runtime.b38d2fa118cded9851d5.js" defer></script><script src="/assets/angular/polyfills.94daefd414b8355106ab.js" defer></script><script src="/assets/angular/main.8e4d6d5ca83c51774fb6.js" defer></script></body>
 
 </html>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Price;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PriceController extends Controller
 {
@@ -19,13 +20,15 @@ class PriceController extends Controller
      */
     public function edit()
     {
-/*         $prices = Price::with('subPrice')->where('parent_id', null)->orderBy('price', 'DESC')->get(); */
-return view('prices.angular');
+        $api_token = Auth::user()->api_token;
+        
+        return view('prices.angular', ['user' => $api_token]);
         /* return view('prices.index', compact('prices')); */
     }
     
     public function angular()
     {
-        return view('prices.angular');
+        $api_token = Auth::user()->api_token;
+        return view('prices.angular', ['user' => $api_token]);
     }
 }

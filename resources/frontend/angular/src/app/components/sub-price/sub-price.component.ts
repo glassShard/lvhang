@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Price} from '../models/priceModel';
-import {PriceService} from '../price.service';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Price} from '../../models/priceModel';
+import {PriceService} from '../../services/price.service';
 import {ToastrService} from 'ngx-toastr';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {ModalService} from '../modal.service';
+import {animate, AnimationEvent, style, transition, trigger} from '@angular/animations';
+import {ModalService} from '../../services/modal.service';
 
 @Component({
   selector: 'app-sub-price',
@@ -11,20 +11,13 @@ import {ModalService} from '../modal.service';
   styleUrls: ['./sub-price.component.scss'],
   animations: [
     trigger('instantiate', [
-      // ...
-      state('void', style({
-        transform: 'translateY(-100px)',
-        opacity: 0
-      })),
-      state('exist', style({
-        transform: 'translateY(0px)',
-        opacity: 1
-      })),
-      transition('void => exist', [
-        animate('0.3s')
+      transition(':enter', [
+        style({transform: 'translateY(-100px)', opacity: 0}),
+        animate('0.3s', style({opacity: 1, transform: 'translateY(0px)'}))
       ]),
-      transition('exist => void', [
-        animate('0.3s')
+      transition(':leave', [
+        style({transform: 'translateY(0px)', opacity: 1}),
+        animate('0.3s', style({opacity: 0, transform: 'translateY(-100px)'}))
       ]),
     ]),
   ]
@@ -37,18 +30,20 @@ export class SubPriceComponent implements OnInit {
   @Output() newFlag = new EventEmitter<boolean>();
   @Output() copyPrice = new EventEmitter<Price>();
   @Output() changed = new EventEmitter<boolean>();
+  @ViewChild('element') element: ElementRef | undefined;
   isExist = false;
   oldPrice!: Price;
   error: {
     name?: string;
     price?: string;
     otherNumeric?: string;
-    description?: string;
   } = {};
   regexOpen = /<[^>]*>/;
   regexClose = /<\/[^>]*>/;
   description: any;
   showCopyButton = true;
+  itemChanged = false;
+  saved = false;
 
   constructor(private priceService: PriceService,
               private toastr: ToastrService,
@@ -59,7 +54,12 @@ export class SubPriceComponent implements OnInit {
     this.oldPrice = JSON.parse(JSON.stringify(this.price));
     this.isExist = true;
     this.description = this.price.description ? this.strip(this.price.description) : '';
-    // console.log(this.price);
+  }
+
+  captureDoneEvent(event: AnimationEvent): void {
+    if (this.element === undefined && event.toState === 'void' && event.phaseName === 'done') {
+      this.delete();
+    }
   }
 
   strip(value: string): string {
@@ -67,33 +67,48 @@ export class SubPriceComponent implements OnInit {
   }
 
   onSave(): void {
+    this.saved = true;
     if (this.validateFields()) {
       if (this.price.id) {
         this.priceService.save(this.price).subscribe(data => {
           if (data.status === 200) {
-            this.toastr.success('Adat mentve! :)');
+            this.saved = false;
+            this.toastr.success('Adat mentve!');
             this.changed.emit(false);
             this.oldPrice = JSON.parse(JSON.stringify(this.price));
             this.showCopyButton = true;
           } else {
-            this.toastr.error('Nem sikerült a mentés :(');
+            this.toastr.error('Nem sikerült a mentés');
+          }
+        }, error => {
+          if (error.error.message === 'Name already exists') {
+            this.toastr.error('Nem sikerült a mentés, mert ez a név már szerepel az adatbázisban.');
           }
         });
       } else {
         this.priceService.new(this.price).subscribe(data => {
           if (data.status === 201) {
-            this.toastr.success('Adat mentve! :)');
+            this.saved = false;
+            this.toastr.success('Adat mentve!');
             this.newFlag.emit(true);
+            this.changed.emit(false);
             this.priceService.loadData();
-          } else {
-            this.toastr.error('Nem sikerült a mentés :(');
+          }
+        }, error => {
+          if (error.error.message === 'Name already exists') {
+            this.toastr.error('Nem sikerült a mentés, mert ez a név már szerepel az adatbázisban.');
           }
         });
       }
     }
   }
 
+  /** this function just starts delete animation */
   onDelete(): void {
+    this.isExist = false;
+  }
+
+  delete(): void {
     if (this.price.id) {
       this.priceService.delete(this.price).subscribe(data => {
         this.priceService.loadData();
@@ -133,7 +148,6 @@ export class SubPriceComponent implements OnInit {
   }
 
   onAdd(): void {
-    console.log(this.price);
     this.addNew.emit(this.price);
   }
 
@@ -143,19 +157,29 @@ export class SubPriceComponent implements OnInit {
   }
 
   validateFields(): boolean {
-    if (!this.price.name || this.price.name === '') {
-      this.error.name = 'A név mezőt kötelező kitölteni!';
-    }
-    if (this.oldPrice.price !== null && (this.price.price === 0 || this.price.price === null)) {
-      this.error.price = 'Az ár mezőt kötelező kitölteni!';
-    }
-    console.log(this.error);
+    if (this.saved) {
+      if (!this.price.name || this.price.name === '') {
+        this.error.name = 'A név mezőt kötelező kitölteni!';
+      } else {
+        if (this.error.name) {
+          delete this.error.name;
+        }
+      }
+      if (this.oldPrice.price !== null && (this.price.price === 0 || this.price.price === null)) {
+        this.error.price = 'Az ár mezőt kötelező kitölteni!';
+      } else {
+        if (this.error.price) {
+          delete this.error.price;
+        }
+      }
 
-    Object.values(this.error).forEach(value => {
-      this.toastr.error(value);
-    });
+      Object.values(this.error).forEach(value => {
+        this.toastr.error(value);
+      });
 
-    return !Object.values(this.error).length;
+      return !Object.values(this.error).length;
+    }
+    return false;
   }
 
   onFocus(): void {
@@ -169,9 +193,13 @@ export class SubPriceComponent implements OnInit {
   }
 
   checkChange(): void {
+    this.validateFields();
     if (!this.checkEq()) {
-      this.changed.emit(true);
-      this.showCopyButton = false;
+      if (!this.itemChanged) {
+        this.changed.emit(true);
+        this.itemChanged = true;
+        this.showCopyButton = false;
+      }
       return;
     }
     this.changed.emit(false);

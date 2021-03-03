@@ -1,40 +1,45 @@
-<li class="row align-items-center mb-3 mb-xl-0"
-    [@instantiate]="isExist ? 'exist' : 'void'">
+<li *ngIf="isExist" class="row align-items-center mb-3 mb-xl-1" #element
+    @instantiate (@instantiate.done)=captureDoneEvent($event) [ngClass]="{'new': !price.id}">
 
   <ng-container *ngIf="oldPrice.price !== null; else priceNull">
     <div class="col-12 col-xl-3">
-      <input [(ngModel)]="price.name" class="form-control lv-form mb-1" name="name" placeholder="Megnevezés..."
+      <input [(ngModel)]="price.name" class="form-control lv-form mb-1 mb-xl-0"
+             placeholder="Megnevezés..."
              title="Megnevezés" type="text" value="{{ price.name }}" [ngClass]="{'unsaved':
-             price.name !== oldPrice.name}" (keyup)="checkChange()">
+             price.name !== oldPrice.name, 'is-invalid': error.name}"
+             (keyup)="checkChange()">
     </div>
 
     <div class="col-6 col-sm-3 col-xl-1">
-      <input [(ngModel)]="price.current" class="form-control lv-form mb-1" name="name"
+      <input [(ngModel)]="price.current" class="form-control lv-form mb-1 mb-xl-0"
              placeholder="Áramszükséglet (W)..." title="Áramszükséglet" type="number"
              value="{{ price.current }}" [ngClass]="{'unsaved':
              price.current !== oldPrice.current}" (keyup)="checkChange()">
     </div>
 
     <div class="col-6 col-sm-3 col-xl-1">
-      <input [(ngModel)]="price.people" class="form-control lv-form mb-1" name="name" placeholder="Ember (db)..."
+      <input [(ngModel)]="price.people" class="form-control lv-form mb-1 mb-xl-0"
+             placeholder="Ember (db)..."
              title="Ember" type="number" value="{{ price.people }}" [ngClass]="{'unsaved':
              price.people !== oldPrice.people}" (keyup)="checkChange()">
     </div>
 
     <div class="col-6 col-sm-3 col-xl-1">
-      <input [(ngModel)]="price.piece" class="form-control lv-form mb-1" name="name" placeholder="Darab (db)..."
+      <input [(ngModel)]="price.piece" class="form-control lv-form mb-1 mb-xl-0"
+             placeholder="Darab (db)..."
              title="Darab" type="number" value="{{ price.piece }}" [ngClass]="{'unsaved':
              price.piece !== oldPrice.piece}" (keyup)="checkChange()">
     </div>
 
     <div class="col-6 col-sm-3 col-xl-1">
-      <input [(ngModel)]="price.price" class="form-control lv-form mb-1" name="name" placeholder="Ár (Ft)..."
+      <input [(ngModel)]="price.price" class="form-control lv-form mb-1 mb-xl-0"
+             placeholder="Ár (Ft)..."
              title="Ár" type="number" value="{{ price.price }}" [ngClass]="{'unsaved':
-             price.price !== oldPrice.price}" (keyup)="checkChange()">
+             price.price !== oldPrice.price, 'is-invalid': error.price}" (keyup)="checkChange()">
     </div>
 
     <div class="col-12 col-xl-3">
-      <input class="form-control lv-form mb-1" name="name" placeholder="Leírás..."
+      <input class="form-control lv-form mb-1 mb-xl-0" placeholder="Leírás..."
              title="Leírás" type="text" value="{{ this.description }}"
              (focus)="onFocus()" [ngClass]="{'unsaved':
              price.description !== oldPrice.description}" (keyup)="checkChange()">
@@ -42,17 +47,17 @@
 
     <div class="col-12 col-xl-2 d-flex justify-content-end">
       <button *ngIf="price.id && showCopyButton" (click)="onCopy()"
-              class="btn btn-primary lv-btn btn-info btn-price copy"
+              class="btn btn-primary lv-btn btn-info btn-price mr-1"
               type="button"><i class="fontello-docs"></i></button>
 
       <button *ngIf="price.id && !showCopyButton" (click)="onCancel()"
-              class="btn btn-warning lv-btn btn-info btn-price warning"
+              class="btn btn-warning lv-btn btn-info btn-price mr-1"
               type="button"><i class="fontello-cancel"></i></button>
 
-      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block save"
+      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block mr-1"
               type="button"><i class="fontello-floppy"></i></button>
 
-      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price delete"
+      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price"
               type="button"><i class="fontello-trash-1"></i></button>
 
     </div>
@@ -63,22 +68,23 @@
   </ng-container>
 
   <ng-template #priceNull>
-    <div class="col-12 col-sm-9 col-xl-10">
+    <div class="col-12 col-sm-8 col-md-9 col-xl-10">
       <input [(ngModel)]="price.name" [ngClass]="{'main-category': oldPrice.parent_id === null,
       'sub-category': oldPrice.parent_id !== null, 'unsaved':
              price.name !== oldPrice.name}"
-             class="form-control lv-form full-width mb-1" name="name" placeholder="Név..." type="text"
+             class="form-control lv-form full-width mb-1 mb-xl-0" placeholder="Név..."
+      type="text"
              value="{{ price.name }}" (keyup)="checkChange()">
     </div>
 
-    <div class="col-12 col-sm-3 col-xl-2 d-flex justify-content-end">
-      <button (click)="onAdd()" class="btn btn-primary lv-btn btn-info btn-price"><i
+    <div class="col-12 col-sm-4 col-md-3 col-xl-2 d-flex justify-content-end">
+      <button (click)="onAdd()" class="btn btn-primary lv-btn btn-info btn-price mr-1"><i
         class="fontello-doc-new"></i></button>
 
-      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block save"
+      <button (click)="onSave()" class="btn btn-primary lv-btn btn-success btn-price d-inline-block mr-1"
               type="button"><i class="fontello-floppy"></i></button>
 
-      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price d-inline-block save"
+      <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price d-inline-block"
               type="button"><i class="fontello-trash-1"></i></button>
     </div>
   </ng-template>

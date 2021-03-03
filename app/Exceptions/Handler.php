@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($request->expectsJson() && $exception instanceof QueryException) {
+            return response()->json([
+                'message' => 'Name already exists'
+            ], 500);
+        } 
+        
         if ($request->expectsJson() && $exception instanceof ModelNotFoundException) {
             return Route::respondWithRoute('api.fallback');
         }

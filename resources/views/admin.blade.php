@@ -22,7 +22,6 @@
         </div>
       </section>
 
-      <div id="token" style="display: none">{{ $user }}</div>
     </main>
 
   @endsection

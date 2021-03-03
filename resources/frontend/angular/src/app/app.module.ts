@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PriceListComponent } from './price-list/price-list.component';
+import { PriceListComponent } from './components/price-list/price-list.component';
 import { PriceInterceptor } from './interceptor/priceInterceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SubPriceComponent } from './sub-price/sub-price.component';
+import { SubPriceComponent } from './components/sub-price/sub-price.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';

@@ -6,5 +6,7 @@ export function setToken() {
   }
   if (token) {
     localStorage.setItem('token', token);
-  }  
+    return;
+  } 
+  localStorage.removeItem('token'); 
 }

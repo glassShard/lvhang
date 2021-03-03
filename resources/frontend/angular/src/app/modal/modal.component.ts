@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {ModalService} from '../modal.service';
+import {ModalService} from '../services/modal.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {interval, Subject} from 'rxjs';
 

@@ -24,6 +24,7 @@ class PriceController extends Controller
      */
     public function index()
     {
+        //dd($api_token);
         return Price::with('subPrice')->where('parent_id', null)->orderBy('price', 'DESC')->get();
     }
 
