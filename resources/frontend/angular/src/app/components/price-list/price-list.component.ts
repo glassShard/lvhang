@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PriceService} from '../../services/price.service';
 import {Price} from '../../models/priceModel';
 import {ToastrService} from 'ngx-toastr';
@@ -42,7 +42,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
     ])
   ]
 })
-export class PriceListComponent implements OnInit {
+export class PriceListComponent implements OnInit, OnDestroy {
   list: Array<Price> = [];
   newExists = false;
   changes: Array<boolean> = [];
@@ -66,7 +66,9 @@ export class PriceListComponent implements OnInit {
     const result = this.findElementInTree(price);
     const targetArray = this.selectTargetArray(result);
     targetArray.splice(result[result.length - 1], 1);
-    this.newExists = false;
+    if (!price.id) {
+      this.newExists = false;
+    }
   }
 
   newToRoot(): void {
@@ -114,7 +116,6 @@ export class PriceListComponent implements OnInit {
       current: price.current,
       people: price.people,
       parent_id: price.parent_id,
-      piece: price.piece,
       description: price.description
     });
 
@@ -165,5 +166,9 @@ export class PriceListComponent implements OnInit {
       return;
     }
     this.changes.pop();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
   }
 }

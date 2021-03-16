@@ -7,15 +7,44 @@ app-modal {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2;
+    z-index: 18;
     overflow: auto;
     border-radius: 5px;
 
     .lv-modal-body {
-      padding: 80px;
-      margin: 150px;
       border-radius: 5px;
       background-color: #fcf3e6;
+      position: relative;
+
+      @media (max-width: 575.98px) {
+        padding: 50px 30px 30px;
+        margin: 20px;
+      }
+
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        padding: 50px 40px 40px;
+        margin: 70px;
+      }
+
+      @media (min-width: 768px) and (max-width: 1199.98px) {
+        padding: 50px;
+        margin: 100px;
+      }
+
+      @media (min-width: 1200px) {
+        padding: 80px;
+        margin: 150px;
+      }
+
+      .exitButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        background-color: transparent;
+        color: #231f20;
+        font-size: 25px;
+      }
 
       .ql-toolbar.ql-snow {
         border-top-left-radius: 5px;
@@ -43,7 +72,7 @@ app-modal {
     left: 0;
     right: 0;
     display: block;
-    z-index: 1;
+    z-index: 17;
   }
 }
 

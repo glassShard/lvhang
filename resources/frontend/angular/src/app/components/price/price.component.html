@@ -1,0 +1,17 @@
+<h1>Árak</h1>
+<hr />
+<h2>Tanítónéni vagy, vagy profi?</h2>
+<div class="row">
+  <div class="col-12 d-flex align-items-center justify-content-center">
+    <button (click)="professional = false"
+      class="btn btn-lg lv-btn btn-info btn-normal btn-huge mr-1"
+      type="button">Tanítónéni</button>
+
+    <button (click)="professional = true"
+      class="btn btn-lg lv-btn btn-info btn-normal btn-huge mr-1"
+      type="button">Profi</button>
+  </div>
+</div>
+
+<h3 *ngFor="let item of list"></h3>
+

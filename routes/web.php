@@ -47,8 +47,6 @@ Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent'
 
 Route::resource('/news', 'NewsController');
 
-// Route::resource('/price', 'PriceController')->only('index');
-
 Route::get('/price/edit', 'PriceController@angular')->name('angular');
 
 

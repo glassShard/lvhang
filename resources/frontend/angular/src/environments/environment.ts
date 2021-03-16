@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  pricesUrl: 'http://lvhang.test/api/v1/price'
+  pricesUrl: 'http://lvhang.test/api/v1/price',
+  loginUrl: 'http://lvhang.test/login'
 };
 
 /*

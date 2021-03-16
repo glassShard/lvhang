@@ -25,6 +25,7 @@ import {ModalService} from '../../services/modal.service';
 export class SubPriceComponent implements OnInit {
   @Input() price!: Price;
   @Input() index!: number;
+  @Input() show: boolean | undefined;
   @Output() addNew = new EventEmitter<Price>();
   @Output() deleteNew = new EventEmitter<Price>();
   @Output() newFlag = new EventEmitter<boolean>();
@@ -33,6 +34,8 @@ export class SubPriceComponent implements OnInit {
   @ViewChild('element') element: ElementRef | undefined;
   isExist = false;
   oldPrice!: Price;
+  showChildren = false;
+  deleted = false;
   error: {
     name?: string;
     price?: string;
@@ -58,7 +61,9 @@ export class SubPriceComponent implements OnInit {
 
   captureDoneEvent(event: AnimationEvent): void {
     if (this.element === undefined && event.toState === 'void' && event.phaseName === 'done') {
-      this.delete();
+      if (this.deleted) {
+        this.delete();
+      }
     }
   }
 
@@ -105,18 +110,26 @@ export class SubPriceComponent implements OnInit {
 
   /** this function just starts delete animation */
   onDelete(): void {
+    if (this.price.sub_price?.length > 0) {
+      if (!confirm(`A ${this.price.name} kategória, és az összes eleme törlődni fog. Biztosan ezt akarod??`)) {
+        return;
+      }
+    }
+    this.deleted = true;
     this.isExist = false;
   }
 
   delete(): void {
     if (this.price.id) {
       this.priceService.delete(this.price).subscribe(data => {
-        this.priceService.loadData();
+        this.deleteNew.emit(this.price);
+        // this.priceService.loadData();
       });
     } else {
       this.deleteNew.emit(this.price);
     }
   }
+
 
   /** sends given event one level up in recursion */
   deleteNewUp(price: Price): void {
@@ -148,6 +161,7 @@ export class SubPriceComponent implements OnInit {
   }
 
   onAdd(): void {
+    this.showChildren = true;
     this.addNew.emit(this.price);
   }
 
@@ -210,8 +224,15 @@ export class SubPriceComponent implements OnInit {
     return this.price.name === this.oldPrice.name &&
       this.price.price === this.oldPrice.price &&
       this.price.current === this.oldPrice.current &&
-      this.price.piece === this.oldPrice.piece &&
       this.price.people === this.oldPrice.people &&
       this.price.description === this.oldPrice.description;
+  }
+
+  onShow(): void {
+    if (this.showChildren) {
+      this.showChildren = false;
+      return;
+    }
+    this.showChildren = true;
   }
 }

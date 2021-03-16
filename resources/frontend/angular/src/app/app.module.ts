@@ -13,12 +13,14 @@ import {ToastrModule} from 'ngx-toastr';
 import { ModalComponent } from './modal/modal.component';
 import {ModalModule} from './modal';
 import {QuillModule} from 'ngx-quill';
+import { PriceComponent } from './components/price/price.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PriceListComponent,
-    SubPriceComponent
+    SubPriceComponent,
+    PriceComponent
   ],
   imports: [
     BrowserModule,

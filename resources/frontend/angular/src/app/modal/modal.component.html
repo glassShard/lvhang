@@ -1,5 +1,6 @@
 <div class="lv-modal">
   <div class="lv-modal-body" [@instantiate]="overlay ? 'exist' : 'void'">
+    <button class="exitButton" (click)="onExit()"><i class="fontello-logout-1"></i></button>
     <quill-editor  *ngIf="overlay" [styles]="{height: '200px'}"
                    (onEditorCreated)="created($event)" [(ngModel)]="editorValue"
                    placeholder="leírás"></quill-editor>

@@ -7,7 +7,6 @@ export class Price {
   current?: number;
   people?: number;
   parent_id?: number;
-  piece?: number;
   description?: string;
   sub_price: Price[] = [];
 

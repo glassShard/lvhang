@@ -104,4 +104,8 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.editorCreated = true;
     this.editor = event;
   }
+
+  onExit(): void {
+    this.close();
+  }
 }
