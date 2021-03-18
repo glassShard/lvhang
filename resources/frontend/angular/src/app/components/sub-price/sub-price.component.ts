@@ -4,23 +4,13 @@ import {PriceService} from '../../services/price.service';
 import {ToastrService} from 'ngx-toastr';
 import {animate, AnimationEvent, style, transition, trigger} from '@angular/animations';
 import {ModalService} from '../../services/modal.service';
+import {SlideInOutAnimation} from '../../animations/slide-in-animation';
 
 @Component({
   selector: 'app-sub-price',
   templateUrl: './sub-price.component.html',
   styleUrls: ['./sub-price.component.scss'],
-  animations: [
-    trigger('instantiate', [
-      transition(':enter', [
-        style({transform: 'translateY(-100px)', opacity: 0}),
-        animate('0.3s', style({opacity: 1, transform: 'translateY(0px)'}))
-      ]),
-      transition(':leave', [
-        style({transform: 'translateY(0px)', opacity: 1}),
-        animate('0.3s', style({opacity: 0, transform: 'translateY(-100px)'}))
-      ]),
-    ]),
-  ]
+  animations: [SlideInOutAnimation]
 })
 export class SubPriceComponent implements OnInit {
   @Input() price!: Price;
@@ -57,6 +47,7 @@ export class SubPriceComponent implements OnInit {
     this.oldPrice = JSON.parse(JSON.stringify(this.price));
     this.isExist = true;
     this.description = this.price.description ? this.strip(this.price.description) : '';
+    this.showChildren = this.priceService.getIsShowing(this.price.name);
   }
 
   captureDoneEvent(event: AnimationEvent): void {
@@ -231,8 +222,10 @@ export class SubPriceComponent implements OnInit {
   onShow(): void {
     if (this.showChildren) {
       this.showChildren = false;
+      this.priceService.removeFromOpen(this.price.name);
       return;
     }
     this.showChildren = true;
+    this.priceService.addToOpen(this.price.name);
   }
 }

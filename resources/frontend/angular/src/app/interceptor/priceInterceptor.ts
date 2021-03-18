@@ -21,7 +21,6 @@ export class PriceInterceptor implements HttpInterceptor {
 
     return next.handle(cloned).pipe( tap(() => {},
       (err: any) => {
-        console.log('error happened');
         if (err instanceof HttpErrorResponse) {
           if (err.status !== 401) {
             return;

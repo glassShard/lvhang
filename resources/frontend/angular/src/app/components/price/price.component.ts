@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs';
 export class PriceComponent implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   list: Array<Price> | undefined;
-  professional: boolean | undefined;
+  sum: number | undefined;
 
   constructor(private priceService: PriceService) { }
 
@@ -19,13 +19,14 @@ export class PriceComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.priceService.reminder.subscribe(value => {
       if (value) {
         this.list = this.priceService.getData() as Array<Price>;
-        console.log(this.list);
       }
+    }));
+    this.subscriptions.push(this.priceService.sum.subscribe((value: any) => {
+      this.sum = value;
     }));
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
   }
-
 }

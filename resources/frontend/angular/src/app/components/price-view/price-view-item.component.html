@@ -1,0 +1,58 @@
+<li *ngIf="show" @slide>
+
+  <ng-container *ngIf="!item?.price; else noSub">
+    <button (click)="onShow()" [ngClass]="{'main': !item?.parent_id, 'sub': item?.parent_id}"
+            class="lv-btn choose-button d-flex justify-content-between">
+      <span>{{ item?.name }}</span>
+      <span class="badge" *ngIf="item.badge && item.badge > 0">{{ item.badge }}</span>
+    </button>
+  </ng-container>
+
+  <div *ngIf="item?.sub_price?.length" class="ml-5">
+    <app-price-view-item *ngFor="let subPrice of item?.sub_price; let i=index"
+                         [item]="subPrice" [show]="showChildren"
+                         (addToParentBadge)="badgeAdded($event)"></app-price-view-item>
+  </div>
+
+  <ng-template #noSub>
+    <div class="one-item">
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-2 col-lg-1 row-elements icon-holder">
+          <div [ngClass]="{'check-selected': item.selected}" class="checkbox">
+            <div (click)="onSelect()" class="label">
+              <div class="tick_mark"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 col-lg-10 d-flex align-items-center flex-wrap">
+          <div class="col-12 col-md-8 row-elements name-holder">{{ item?.name }}</div>
+          <div class="col-12 col-md-4 row-elements price-holder">{{ item.price }} Ft<span
+            *ngIf="item.unit">/{{ item.unit }}</span></div>
+        </div>
+
+        <div class="col-2 col-lg-1 row-elements icon-holder d-flex justify-content-end">
+          <div *ngIf="item.description" [ngClass]="{'question-selected': details}"
+               class="question-box">
+            <div (click)="details = !details" class="question-label">?</div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="item.selected && item.unit" @slide class="row">
+        <div class="col-12 desc">
+          <div class="col-8 offset-2 col-lg-10 offset-lg-1">
+            <input (keyup)="onKeyup($event)"
+                   [placeholder]="'Hány ' + item.unit + '?'"
+                   class="form-control lv-form mb-1 mb-xl-0 short-input"
+                   type="number" [value]="item?.value">
+            {{ item.unit }}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="details" @slide class="row">
+        <div [innerHTML]="item.description" class="col-12 desc"></div>
+      </div>
+    </div>
+  </ng-template>
+
+</li>
+

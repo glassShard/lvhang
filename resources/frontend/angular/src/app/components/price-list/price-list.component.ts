@@ -4,43 +4,12 @@ import {Price} from '../../models/priceModel';
 import {ToastrService} from 'ngx-toastr';
 import {Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-price-list',
   templateUrl: './price-list.component.html',
-  styleUrls: ['./price-list.component.scss'],
-  animations: [
-    trigger('fadein', [
-      state('off', style({
-        opacity: 0
-      })),
-      state('on', style({
-        opacity: 1
-      })),
-      transition('off => on', [
-        animate('0.3s')
-      ]),
-      transition('on => off', [
-        animate('0.3s')
-      ]),
-    ]),
-    trigger('instantiate', [
-      state('void', style({
-        transform: 'translateY(-100px)',
-        opacity: 0
-      })),
-      state('exist', style({
-        transform: 'translateY(0px)',
-        opacity: 1
-      })),
-      transition('void => exist', [
-        animate('0.3s')
-      ]),
-      transition('exist => void', [
-        animate('0.3s')
-      ]),
-    ])
-  ]
+  styleUrls: ['./price-list.component.scss']
 })
 export class PriceListComponent implements OnInit, OnDestroy {
   list: Array<Price> = [];
@@ -53,6 +22,10 @@ export class PriceListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // const token = localStorage.getItem('token');
+    // if (!token) {
+    //   window.location.href = environment.loginUrl;
+    // }
     this.subscriptions.push(this.priceService.reminder.subscribe(value => {
       if (value) {
         this.list = this.priceService.getData() as Array<Price>;

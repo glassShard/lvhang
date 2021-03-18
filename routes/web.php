@@ -47,6 +47,18 @@ Route::post('devices/store-to-parent/{parent}', 'DeviceController@storeToParent'
 
 Route::resource('/news', 'NewsController');
 
-Route::get('/price/edit', 'PriceController@angular')->name('angular');
+Route::group(['prefix' => 'price'], function() {
+
+  Route::get('/{any_path?}', 'PriceController@angular')->where('any_path', '(.*)');
+  
+  Route::get('/edit', 'PriceController@nonexistingAuth')->name('angular.edit');
+  
+  Route::get('/view', 'PriceController@nonexistingNoAuth')->name('angular.view');
+
+});
+
+
+
+
 
 

@@ -12,18 +12,11 @@
     @include('includes.header')
 
     <main>
+         
+      <app-root></app-root>
       
-      <section class="section light lv-border">
-        @if(session()->has('status'))
-          <p style="color: green">{{ session()->get('status') }}</p>
-        @endif
+      <div id="token" style="display: none">{{ $user }}</div>
         
-        <app-root></app-root>
-       
-        <div id="token" style="display: none">{{ $user }}</div>
-        
-      </section>
-
     </main>
 
   @endsection

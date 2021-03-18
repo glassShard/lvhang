@@ -1,17 +1,19 @@
-<h1>Árak</h1>
-<hr />
-<h2>Tanítónéni vagy, vagy profi?</h2>
-<div class="row">
-  <div class="col-12 d-flex align-items-center justify-content-center">
-    <button (click)="professional = false"
-      class="btn btn-lg lv-btn btn-info btn-normal btn-huge mr-1"
-      type="button">Tanítónéni</button>
+<section class="section lv-border">
+  <h1>Árak</h1>
+  <hr class="hr-light"/>
 
-    <button (click)="professional = true"
-      class="btn btn-lg lv-btn btn-info btn-normal btn-huge mr-1"
-      type="button">Profi</button>
+  <ul>
+    <li *ngFor="let item of list; let i=index">
+      <app-price-view-item [item]="item" [show]="true"></app-price-view-item>
+      <hr class="hr-light"/>
+    </li>
+  </ul>
+
+  <div *ngIf="sum && sum > 0">
+    <p class="text-right">Kiválasztott szolgáltatások ára összesen:</p>
+    <h2 class="price display-4 text-right">{{ sum }} Ft</h2>
   </div>
-</div>
+</section>
 
-<h3 *ngFor="let item of list"></h3>
+
 

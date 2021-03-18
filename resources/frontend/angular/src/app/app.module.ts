@@ -10,17 +10,18 @@ import { SubPriceComponent } from './components/sub-price/sub-price.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
-import { ModalComponent } from './modal/modal.component';
 import {ModalModule} from './modal';
 import {QuillModule} from 'ngx-quill';
 import { PriceComponent } from './components/price/price.component';
+import { PriceViewItemComponent } from './components/price-view/price-view-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PriceListComponent,
     SubPriceComponent,
-    PriceComponent
+    PriceComponent,
+    PriceViewItemComponent
   ],
   imports: [
     BrowserModule,

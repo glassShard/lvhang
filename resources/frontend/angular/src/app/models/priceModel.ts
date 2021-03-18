@@ -6,9 +6,13 @@ export class Price {
   price?: number;
   current?: number;
   people?: number;
+  unit?: string;
   parent_id?: number;
   description?: string;
   sub_price: Price[] = [];
+  value?: number;
+  selected?: boolean;
+  badge?: number;
 
   constructor(object: any) {
     Object.assign(this, object);

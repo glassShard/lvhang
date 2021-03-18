@@ -6,29 +6,39 @@ use Illuminate\Http\Request;
 use App\Price;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class PriceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['edit', 'angular']);
+        $this->middleware('auth')->only(['nonexistingAuth']);
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
-        $api_token = Auth::user()->api_token;
-        
-        return view('prices.angular', ['user' => $api_token]);
-        /* return view('prices.index', compact('prices')); */
-    }
     
     public function angular()
     {
-        $api_token = Auth::user()->api_token;
+        $api_token = '';
+        if (Auth::user()) {
+            $api_token = Auth::user()->api_token;
+        }
+        
         return view('prices.angular', ['user' => $api_token]);
+    }
+
+    public function nonexistingAuth()
+    {
+        throw new Exception('Never to get here');
+
+    }
+
+    public function nonexistingNoAuth()
+    {
+        throw new Exception('Never to get here');
+
     }
 }

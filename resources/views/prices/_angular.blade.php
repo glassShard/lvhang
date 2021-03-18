@@ -19,7 +19,7 @@
 
   @yield('head')
 
-<link rel="stylesheet" href="/assets/angular/styles.3845ef130d2e0973bbbc.css"></head>
+<link rel="stylesheet" href="/assets/angular/styles.bfdff14872063f7b6305.css"></head>
 
 
 <body class="body">
@@ -37,7 +37,7 @@
 <button class="topScroller"><i class="fontello-up-dir"></i></button>
 
 <script src="{{ mix('js/app.js') }}?version=2"></script>
-<script src="/assets/angular/runtime.b38d2fa118cded9851d5.js" defer></script><script src="/assets/angular/polyfills.94daefd414b8355106ab.js" defer></script><script src="/assets/angular/main.bcee44a23de765fa8bfe.js" defer></script></body>
+<script src="/assets/angular/runtime.b38d2fa118cded9851d5.js" defer></script><script src="/assets/angular/polyfills.94daefd414b8355106ab.js" defer></script><script src="/assets/angular/main.d41986cf96becf88dadf.js" defer></script></body>
 
 </html>
 

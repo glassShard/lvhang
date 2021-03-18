@@ -1,15 +1,18 @@
-<h1>
-  Árak
-  <button class="btn btn-primary lv-btn btn-info btn-price ml-3"><i
-    class="fontello-doc-new" (click)="newToRoot()"></i></button>
-</h1>
+<section class="section light lv-border">
+    <h1>
+      Árak
+      <button class="btn btn-primary lv-btn btn-info btn-price ml-3"><i
+        class="fontello-doc-new" (click)="newToRoot()"></i></button>
+    </h1>
 
-<hr>
-<ul>
-  <li *ngFor="let price of list; let i=index">
-    <app-sub-price (addNew)="addNew($event)" (copyPrice)="copy($event)" (changed)="changed($event)"
-                   (deleteNew)="deleteNew($event)" (newFlag)="newExists = false"
-                   [index]="i" [price]="price" [show]="true"></app-sub-price>
     <hr>
-  </li>
-</ul>
+    <ul>
+      <li *ngFor="let price of list; let i=index">
+        <app-sub-price (addNew)="addNew($event)" (copyPrice)="copy($event)" (changed)="changed($event)"
+                       (deleteNew)="deleteNew($event)" (newFlag)="newExists = false"
+                       [index]="i" [price]="price" [show]="true"></app-sub-price>
+        <hr>
+      </li>
+    </ul>
+
+</section>
