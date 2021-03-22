@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {forkJoin, Observable, ReplaySubject, Subject} from 'rxjs';
-import {tap} from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { Price } from '../models/priceModel';
+import {environment} from 'src/environments/environment';
+import {Price} from '../models/priceModel';
 
 @Injectable({
   providedIn: 'root'
@@ -55,25 +54,64 @@ export class PriceService {
     return ind >= 0;
   }
 
-  private getPrice(priceArray): number {
-    return priceArray.reduce((acc: number, curr: any) => {
-      let currPrice = 0;
+  countSum(): void {
+    this.sum.next(this.getPrice(this.data));
+  }
+
+  getSelectedRows(): Array<Price> {
+    return this.setSelectedRows(this.data);
+  }
+
+  private getPrice(priceArray): { price: number, current: number, people: number } {
+    return priceArray.reduce((acc: { price: number, current: number, people: number }, curr: any) => {
+      let currResult = {price: 0, current: 0, people: 0};
       if (curr.sub_price.length) {
-        currPrice = this.getPrice(curr.sub_price);
+        currResult = this.getPrice(curr.sub_price);
       }
       if (curr.selected) {
         if (curr.unit) {
           const value = curr.value ? curr.value : 0;
-          currPrice = value * curr.price;
+          currResult.price = value * curr.price;
+          if (curr.current) {
+            currResult.current = value * curr.current;
+          }
+          if (curr.people) {
+            currResult.people = value * curr.people;
+          }
         } else {
-          currPrice = curr.price;
+          currResult.price = curr.price;
+          if (curr.current) {
+            currResult.current = curr.current;
+          }
+          if (curr.people) {
+            currResult.people = curr.people;
+          }
         }
       }
-      return acc + currPrice;
-    }, 0);
+      return {
+        price: acc.price + currResult.price,
+        current: acc.current + currResult.current,
+        people: acc.people + currResult.people
+      };
+    }, {price: 0, current: 0, people: 0});
   }
 
-  countSum(): void {
-    this.sum.next(this.getPrice(this.data));
+  private setSelectedRows(prices: Array<Price>): Array<Price> {
+    return prices.reduce((acc: Array<Price>, curr: Price) => {
+      let subPriceResult: Array<Price>;
+      if (curr.sub_price.length) {
+        subPriceResult = this.setSelectedRows(curr.sub_price);
+        if (subPriceResult.length) {
+          acc.push(curr);
+          subPriceResult.map((price: Price) => {
+            acc.push(price);
+          });
+        }
+      }
+      if (curr.selected) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
   }
 }

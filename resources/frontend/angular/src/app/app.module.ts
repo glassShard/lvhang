@@ -14,6 +14,7 @@ import {ModalModule} from './modal';
 import {QuillModule} from 'ngx-quill';
 import { PriceComponent } from './components/price/price.component';
 import { PriceViewItemComponent } from './components/price-view/price-view-item.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PriceViewItemComponent } from './components/price-view/price-view-item.
     PriceListComponent,
     SubPriceComponent,
     PriceComponent,
-    PriceViewItemComponent
+    PriceViewItemComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,

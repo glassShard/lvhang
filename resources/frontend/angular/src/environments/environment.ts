@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   pricesUrl: 'https://lvhang.hu/api/v1/price',
-  loginUrl: 'https://lvhang.hu/login'
+  loginUrl: 'https://lvhang.hu/login',
+  mailUrl: 'https://lvhang.hu/api/v1/price/sendRFOMail'
 };
 
 /*

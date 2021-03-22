@@ -5,11 +5,36 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 50px;
     font-size: 24px;
     color: white;
     margin-bottom: 10px;
     border-radius: 5px;
+
+    @media (max-width: 575.98px) {
+      padding: 10px 15px 10px 30px;
+    }
+
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      padding: 10px 15px 10px 40px;
+    }
+
+    @media (min-width: 768px) {
+      padding: 10px 15px 10px 50px;
+    }
+  }
+
+  .under-button {
+    @media (max-width: 575.98px) {
+      margin-left: 30px;
+    }
+
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      margin-left: 40px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 50px;
+    }
   }
 
   .main {

@@ -7,6 +7,10 @@ use App\Http\Requests\StorePrice;
 use Illuminate\Http\Request;
 use App\Price;
 use App\Record;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RequestForOffer;
+use App\Mail\RequestForOfferToSender;
+use Exception;
 
 
 class PriceController extends Controller
@@ -104,4 +108,22 @@ class PriceController extends Controller
             $subPrice->delete(); 
         }
     }
+
+    public function sendRFOMail(Request $request)
+    {
+        $data = $request->json()->all();
+        try {
+            Mail::to('baranyieva@uvegszilank.hu')->send(
+                new RequestForOffer($data)
+            );
+
+            Mail::to($data['email'])->send(
+                new RequestForOfferToSender($data)
+            );
+            return json_encode('Success');
+        } catch (Exception $e) {
+            return json_encode($e);
+        }
+    }
+
 }

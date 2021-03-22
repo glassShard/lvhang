@@ -20,11 +20,16 @@ class PriceController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function angular()
+    public function angular($route)
     {
         $api_token = '';
+        
         if (Auth::user()) {
             $api_token = Auth::user()->api_token;
+        } else {
+            if ($route === 'edit') {
+                return redirect()->route('login');
+            }
         }
         
         return view('prices.angular', ['user' => $api_token]);

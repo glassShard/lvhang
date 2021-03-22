@@ -1,6 +1,28 @@
 <section class="section lv-border">
-  <h1>Árak</h1>
+  <div class="d-flex align-items-center justify-content-start">
+    <h1 class="d-inline lv-display-2 mb-0">Árak</h1>
+    <div (click)="onShowInfo()" [ngClass]="{'pushed':
+    showInfo}" class="info ml-5">?
+    </div>
+  </div>
+
   <hr class="hr-light"/>
+  <div *ngIf="showInfo" @slide class="one-item">
+    <p>A felsorolt kategóriákra (és alkategóriákra) kattintva azok tartalma nyílik le. Az egyes
+      választható elemek előtti körre kattintva lehet az elemet kiválasztani. Egyes
+      elemeknél szükséges még valamilyen mennyiség (m2, darab, km, stb.) megadása is a helyes
+      számításhoz.</p>
+    <p>A kiválasztott elemek összesített ára a lista alján látható.</p>
+    <p>Ez az ár csak hozzávetőleges, és tájékoztatási célokat szolgál, mivel semmilyen mennyiségi
+      kedvezményt nem tartalmaz, és nem tartalmazza a szükséges kisegítő személyzet (színpad
+      építők, technikusok, stb.) díját sem. A lista alján lehetőség van a kiválasztott elemek
+      elküldésével árajánlat kérésére is.</p>
+    <p class="link" (click)="onShowPricingFromTop()">Részletek az árképzésről >></p>
+    <div *ngIf="top" @slide>
+      <app-pricing></app-pricing>
+      <p class="link" (click)="onShowPricingFromTop()">Bezár</p>
+    </div>
+  </div>
 
   <ul>
     <li *ngFor="let item of list; let i=index">
@@ -9,10 +31,51 @@
     </li>
   </ul>
 
-  <div *ngIf="sum && sum > 0">
-    <p class="text-right">Kiválasztott szolgáltatások ára összesen:</p>
-    <h2 class="price display-4 text-right">{{ sum }} Ft</h2>
+  <div *ngIf="sum && sum.price > 0" @slide>
+    <p>Kiválasztott eszközök kedvezmény nélküli ára összesen (Az ár munkaerő-szolgáltatást nem
+      tartalmaz!):</p>
+    <h2 class="price display-4">{{ sum.price }} Ft</h2>
+    <ng-container *ngIf="sum.current && sum.current > 0">
+      <p>Kiválasztott eszközök áramigénye összesen:</p>
+      <h2 class="price">{{ sum.current }} A</h2>
+    </ng-container>
+    <hr class="hr-light">
   </div>
+
+  <div class="pt-5">
+    <h2 class="lv-display-2 mt-5">Árajánlat kérése</h2>
+    <hr class="hr-light">
+    <p>Konkrét árajánlathoz töltse ki az alábbi mezőket. Írja le, amit tudni kell a rendezvényről:
+      helyszín (szabadtér, sportcsarnok, színházterem...), várható nézőszám, rendezvény típusa
+      (céges rendezvény, koncert, színdarab, party, konferencia...), pakolás körülményei (lépcső,
+      lift,
+      szint nélkül lehet bepakolni...). A fent kiválasztott elemek az üzenetben automatikusan
+      szerepelni fognak. Ha nem választ ki semmit, akkor is kérhet ajánlatot, ez esetben a leírás
+      alapján próbáljuk összeállítani az optimális eszközöket. Az üzenetből Önnek is küldünk egy
+      másolatot.</p>
+
+    <div class="form-group">
+      <input (keyup)="onTypeEmail()" [(ngModel)]="email"
+             [ngClass]="{'is-invalid': error}"
+             class="form-control lv-form mb-2 mb-xl-0" placeholder="E-mail cím" title="Email-cím..." type="email">
+      <div *ngIf="error" @slide [innerText]="error" class="email-error"></div>
+    </div>
+    <div class="form-group">
+      <textarea #message class="form-control lv-form" id="message" name="message"
+                placeholder="Üzenet..."
+                rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <button (click)="onSendMail()" class="btn btn-lg btn-primary btn-normal lv-btn">Elküldöm <i
+        class="fontello-mail"></i>
+      </button>
+      <div *ngIf="sendMessage?.error" @slide [innerText]="sendMessage?.error"
+           class="email-error"></div>
+      <div *ngIf="sendMessage?.success" @slide [innerText]="sendMessage?.success"
+           class="email-success"></div>
+    </div>
+  </div>
+
 </section>
 
 

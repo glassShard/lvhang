@@ -1,14 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {Price} from '../../models/priceModel';
 import {PriceService} from '../../services/price.service';
 import {SlideInOutAnimation} from '../../animations/slide-in-animation';
 import {SlideAnimation} from '../../animations/slide-animation';
+import {FadeInAnimation} from '../../animations/fade-in-animation';
 
 @Component({
   selector: 'app-price-view-item',
   templateUrl: './price-view-item.component.html',
   styleUrls: ['./price-view-item.component.scss'],
-  animations: [SlideInOutAnimation, SlideAnimation]
+  animations: [SlideAnimation, FadeInAnimation]
 })
 export class PriceViewItemComponent implements OnInit {
   @Input() item!: Price;
@@ -16,7 +17,7 @@ export class PriceViewItemComponent implements OnInit {
   @Output() addToParentBadge = new EventEmitter<number>();
   showChildren: boolean | undefined;
   details = false;
-  badge: number | undefined;
+  @ViewChild('unitField') unitField: ElementRef<HTMLInputElement> | undefined;
 
   constructor(private priceService: PriceService) { }
 
@@ -37,11 +38,12 @@ export class PriceViewItemComponent implements OnInit {
       this.addToParentBadge.emit(1);
     }
     this.priceService.countSum();
+    setTimeout(() => {
+      if (this.unitField) {
+        this.unitField.nativeElement.focus();
+      }
+    }, 300);
     return;
-  }
-
-  onDetails(): void {
-
   }
 
   badgeAdded(value): void {

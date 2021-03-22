@@ -20,4 +20,54 @@
   color: #c78885;
 }
 
+.info {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid white;
+  transition: 0.2s ease transform, 0.2s ease background-color;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor:pointer;
+  font-family: Arial, Helvetica, sans-serif;
+
+  &:hover {
+    background-color: rgba(123, 30, 27, 0.3);
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+
+  &.pushed {
+    background-color: #28465C;
+  }
+}
+
+
+
+.one-item {
+  padding: 5px 15px;
+  background-color: rgba(255,255,255,0.08);
+  margin-bottom: 10px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 5px;
+}
+
+.email-error, email-success {
+  font-size: 16px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.email-error {
+  color: red;
+}
+
+.email-success {
+  color: green;
+}
+
 
