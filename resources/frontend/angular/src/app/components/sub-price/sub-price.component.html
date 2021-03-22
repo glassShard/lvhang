@@ -3,7 +3,7 @@
       @instantiate (@instantiate.done)=captureDoneEvent($event) [ngClass]="{'new': !price.id}">
 
     <ng-container *ngIf="oldPrice.price !== null; else priceNull">
-      <div class="col-12 col-xl-4">
+      <div class="col-12 col-xl-3">
         <input [(ngModel)]="price.name" class="form-control lv-form mb-1 mb-xl-0"
                placeholder="Megnevezés"
                title="Megnevezés" type="text" value="{{ price.name }}" [ngClass]="{'unsaved':
@@ -11,21 +11,28 @@
                (keyup)="checkChange()">
       </div>
 
-      <div class="col-6 col-sm-4 col-xl-1">
+      <div class="col-6 col-sm-3 col-xl-1">
         <input [(ngModel)]="price.current" class="form-control lv-form mb-1 mb-xl-0"
                placeholder="Áram (W)" title="Áramszükséglet" type="number"
                value="{{ price.current }}" [ngClass]="{'unsaved':
              price.current !== oldPrice.current}" (keyup)="checkChange()">
       </div>
 
-      <div class="col-6 col-sm-4 col-xl-1">
+      <div class="col-6 col-sm-3 col-xl-1">
         <input [(ngModel)]="price.people" class="form-control lv-form mb-1 mb-xl-0"
                placeholder="Ember"
                title="Ember" type="number" value="{{ price.people }}" [ngClass]="{'unsaved':
              price.people !== oldPrice.people}" (keyup)="checkChange()">
       </div>
 
-      <div class="col-6 col-sm-4 col-xl-1">
+      <div class="col-6 col-sm-3 col-xl-1">
+        <input [(ngModel)]="price.unit" class="form-control lv-form mb-1 mb-xl-0"
+               placeholder="Mértékegység"
+               title="Mértékegység" type="text" value="{{ price.unit }}" [ngClass]="{'unsaved':
+             price.unit !== oldPrice.unit}" (keyup)="checkChange()">
+      </div>
+
+      <div class="col-6 col-sm-3 col-xl-1">
         <input [(ngModel)]="price.price" class="form-control lv-form mb-1 mb-xl-0"
                placeholder="Ár (Ft)"
                title="Ár" type="number" value="{{ price.price }}" [ngClass]="{'unsaved':
@@ -38,6 +45,8 @@
                (focus)="onFocus()" [ngClass]="{'unsaved':
              price.description !== oldPrice.description}" (keyup)="checkChange()">
       </div>
+
+      <!--buttons-->
 
       <div class="col-12 col-xl-2 d-flex justify-content-end">
         <button *ngIf="price.id && showCopyButton" (click)="onCopy()"
@@ -56,9 +65,7 @@
 
       </div>
 
-      <app-modal [id]="price.id ? price.id : -1">
-
-      </app-modal>
+      <app-modal [id]="price.id ? price.id : -1"></app-modal>
     </ng-container>
 
     <ng-template #priceNull>

@@ -22,15 +22,12 @@ export class PriceListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // const token = localStorage.getItem('token');
-    // if (!token) {
-    //   window.location.href = environment.loginUrl;
-    // }
     this.subscriptions.push(this.priceService.reminder.subscribe(value => {
       if (value) {
         this.list = this.priceService.getData() as Array<Price>;
         this.newExists = false;
         this.changes = [];
+        console.log(this.list);
       }
     }));
   }

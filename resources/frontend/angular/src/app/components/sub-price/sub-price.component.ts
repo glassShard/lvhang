@@ -216,6 +216,7 @@ export class SubPriceComponent implements OnInit {
       this.price.price === this.oldPrice.price &&
       this.price.current === this.oldPrice.current &&
       this.price.people === this.oldPrice.people &&
+      this.price.unit === this.oldPrice.unit &&
       this.price.description === this.oldPrice.description;
   }
 

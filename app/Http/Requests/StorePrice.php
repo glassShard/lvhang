@@ -30,7 +30,8 @@ class StorePrice extends FormRequest
             'piece' => 'numeric|nullable',
             'price' => 'numeric|nullable|required_with:current,people,piece',
             'description' => 'string|nullable',
-            'parent_id' => 'numeric|nullable'
+            'parent_id' => 'numeric|nullable',
+            'unit' => 'string|nullable'
         ];
     }
 }
