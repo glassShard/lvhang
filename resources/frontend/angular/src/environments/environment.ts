@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   pricesUrl: 'http://lvhang.test/api/v1/price',
+  samplesUrl: 'http://lvhang.test/api/v1/sample',
   loginUrl: 'http://lvhang.test/login',
   mailUrl: 'http://lvhang.test/api/v1/price/sendRFOMail'
 };

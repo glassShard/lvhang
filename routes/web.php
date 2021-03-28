@@ -57,6 +57,16 @@ Route::group(['prefix' => 'price'], function() {
 
 });
 
+Route::group(['prefix' => 'sample'], function() {
+
+  Route::get('/{any_path?}', 'PriceController@angular')->where('any_path', '(.*)');
+  
+  Route::get('/edit', 'PriceController@nonexistingAuth')->name('sample.edit');
+  
+  Route::get('/view', 'PriceController@nonexistingNoAuth')->name('sample.view');
+
+});
+
 
 
 

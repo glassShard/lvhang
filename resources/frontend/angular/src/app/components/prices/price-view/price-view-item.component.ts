@@ -1,9 +1,9 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import {Price} from '../../models/priceModel';
-import {PriceService} from '../../services/price.service';
-import {SlideInOutAnimation} from '../../animations/slide-in-animation';
-import {SlideAnimation} from '../../animations/slide-animation';
-import {FadeInAnimation} from '../../animations/fade-in-animation';
+import {Price} from '../../../models/priceModel';
+import {PriceService} from '../../../services/price.service';
+import {SlideInOutAnimation} from '../../../animations/slide-in-animation';
+import {SlideAnimation} from '../../../animations/slide-animation';
+import {FadeInAnimation} from '../../../animations/fade-in-animation';
 
 @Component({
   selector: 'app-price-view-item',

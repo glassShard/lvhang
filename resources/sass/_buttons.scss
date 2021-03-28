@@ -161,6 +161,40 @@ button {
       };
 }
 
+.btn-to-price {
+    position: fixed;
+    right: 0;
+    top: 20%;
+    background-color: rgba(123,30,27,1);
+    transform: rotate(270deg);
+    transform-origin: 100% 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 30px;
+    font-size: 22px;
+    color: white;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgb(102, 17, 14);
+    }
+
+    @include media(lg) {
+        padding: 10px 30px;
+    };
+
+    @include media(md) {
+        padding: 10px 30px;
+    };
+
+    @include media(sm) {
+        padding: 6px 24px;
+    };
+
+    @include media(xs) {
+        padding: 6px 20px;
+    };
+}
+
 
 
 

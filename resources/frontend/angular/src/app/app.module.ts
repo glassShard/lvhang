@@ -3,18 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PriceListComponent } from './components/price-list/price-list.component';
+import { PriceListComponent } from './components/prices/price-list/price-list.component';
 import { PriceInterceptor } from './interceptor/priceInterceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SubPriceComponent } from './components/sub-price/sub-price.component';
+import { SubPriceComponent } from './components/prices/sub-price/sub-price.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastrModule} from 'ngx-toastr';
-import {ModalModule} from './modal';
-import {QuillModule} from 'ngx-quill';
-import { PriceComponent } from './components/price/price.component';
-import { PriceViewItemComponent } from './components/price-view/price-view-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ModalModule } from './modal';
+import { QuillModule } from 'ngx-quill';
+import { PriceComponent } from './components/prices/price/price.component';
+import { PriceViewItemComponent } from './components/prices/price-view/price-view-item.component';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { FtPipe } from './pipes/ft-pipe';
+import { SampleViewComponent } from './components/samples/sample-view/sample-view.component';
+import { SubSampleViewComponent } from './components/samples/sub-sample-view/sub-sample-view.component';
+import { SampleEditComponent } from './components/samples/sample-edit/sample-edit.component';
+import { SubSampleEditComponent } from './components/samples/sub-sample-edit/sub-sample-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { PricingComponent } from './components/pricing/pricing.component';
     SubPriceComponent,
     PriceComponent,
     PriceViewItemComponent,
-    PricingComponent
+    PricingComponent,
+    FtPipe,
+    SampleViewComponent,
+    SubSampleViewComponent,
+    SampleEditComponent,
+    SubSampleEditComponent
   ],
   imports: [
     BrowserModule,

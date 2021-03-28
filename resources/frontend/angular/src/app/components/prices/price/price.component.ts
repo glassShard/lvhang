@@ -1,12 +1,12 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Price} from '../../models/priceModel';
-import {PriceService} from '../../services/price.service';
+import {Price} from '../../../models/priceModel';
+import {PriceService} from '../../../services/price.service';
 import {Subscription} from 'rxjs';
-import {SlideInOutAnimation} from '../../animations/slide-in-animation';
-import {SlideAnimation} from '../../animations/slide-animation';
+import {SlideInOutAnimation} from '../../../animations/slide-in-animation';
+import {SlideAnimation} from '../../../animations/slide-animation';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {ModalService} from '../../services/modal.service';
+import {environment} from '../../../../environments/environment';
+import {ModalService} from '../../../services/modal.service';
 
 @Component({
   selector: 'app-price',
@@ -22,7 +22,7 @@ export class PriceComponent implements OnInit, OnDestroy {
   error: string | undefined;
   email: string | undefined;
   sent = false;
-  top = false;
+  showModal = false;
   sendMessage = {error: '', success: ''};
   @ViewChild('message') message: ElementRef<HTMLTextAreaElement> | undefined;
 
@@ -92,14 +92,16 @@ export class PriceComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
   }
 
-  onShowPricingFromTop(): void {
-    this.top = !this.top;
+  onShowPricing(): void {
+    this.showModal = !this.showModal;
+    this.modalService.modalReadyNotifyer.subscribe(value => {
+      if (value === -10) {
+        this.modalService.open(-10);
+      }
+    });
   }
 
   onShowInfo(): void {
-    if (this.showInfo) {
-      this.top = false;
-    }
     this.showInfo = !this.showInfo;
   }
 }

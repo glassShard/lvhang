@@ -6,6 +6,9 @@ import {Subject} from 'rxjs';
 })
 export class ModalService {
   private modals: any[] = [];
+  quillNotifyer = new Subject<{open: boolean, id: number, text: string | null | undefined}>();
+  modalReadyNotifyer = new Subject<number>();
+  quillResult = new Subject<string>();
 
   constructor() {
   }
@@ -15,12 +18,15 @@ export class ModalService {
   }
 
   remove(id: number): void {
+    if (id >= -1) {
+      this.quillNotifyer.next({open: false, id, text: null});
+    }
     this.modals = this.modals.filter(x => x.id !== id);
   }
 
-  open(id: number, text: string): Subject<string> {
+  open(id: number): Subject<string> {
     const modal = this.modals.find(x => x.id === id);
-    return modal.open(text);
+    return modal.open();
   }
 
   close(id: number): void {

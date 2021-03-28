@@ -171,9 +171,7 @@
           </div>
         </div>
       </section>
-      
-      <p>
-  
-      </p>
+
+      <a href="{{ route('angular.view') }}" class="btn-to-price">Árak</a>
     </main>
   @endsection

@@ -1,0 +1,26 @@
+<section class="section light lv-border">
+  <h1>
+    Árak
+    <button class="btn btn-primary lv-btn btn-info btn-price ml-3"><i
+      (click)="newToRoot()" class="fontello-doc-new"></i></button>
+  </h1>
+
+  <hr>
+  <ul>
+    <li *ngFor="let price of list; let i=index">
+      <app-sub-price (addNew)="addNew($event)" (changed)="changed($event)"
+                     (copyPrice)="copy($event)"
+                     (deleteNew)="deleteNew($event)" (newFlag)="newExists = false"
+                     [index]="i" [price]="price" [show]="true"></app-sub-price>
+      <hr>
+    </li>
+  </ul>
+
+  <app-modal *ngIf=id [id]="id" (closeModal)="onCloseModal()">
+    <quill-editor [styles]="{height: '200px'}"
+                  [(ngModel)]="text"
+                  (onEditorCreated)="create($event)"
+                  placeholder="leírás"></quill-editor >
+  </app-modal>
+
+</section>

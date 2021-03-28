@@ -130,3 +130,12 @@ nav {
     font-size: 1rem;
 }
 
+.desc a {
+    text-decoration: underline;
+    font-style: italic;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+

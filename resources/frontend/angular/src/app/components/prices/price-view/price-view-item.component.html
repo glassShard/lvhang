@@ -26,7 +26,7 @@
         </div>
         <div class="col-8 col-lg-10 d-flex align-items-center flex-wrap">
           <div class="col-12 col-md-8 row-elements name-holder">{{ item?.name }}</div>
-          <div class="col-12 col-md-4 row-elements price-holder">{{ item.price }} Ft<span
+          <div class="col-12 col-md-4 row-elements price-holder">{{ item.price | ft }} Ft<span
             *ngIf="item.unit">/{{ item.unit }}</span></div>
         </div>
 

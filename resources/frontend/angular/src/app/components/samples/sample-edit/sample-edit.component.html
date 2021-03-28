@@ -1,0 +1,26 @@
+<section class="section light lv-border">
+  <h1>
+    Példák
+    <button class="btn btn-primary lv-btn btn-info btn-sample ml-3"><i
+      (click)="newToRoot()" class="fontello-doc-new"></i></button>
+  </h1>
+
+  <hr>
+  <ul>
+    <li *ngFor="let sample of list; let i=index">
+      <app-sub-sample-edit (changed)="changed($event)"
+                           (newFlag)="newExists = false"
+                           [index]="i" [sample]="sample" [show]="true"></app-sub-sample-edit>
+      <hr>
+    </li>
+  </ul>
+
+  <app-modal (closeModal)="onCloseModal()" *ngIf=id [id]="id">
+    <quill-editor (onEditorCreated)="create($event)"
+                  [(ngModel)]="text"
+                  [styles]="{height: '200px'}"
+                  placeholder="leírás"></quill-editor>
+  </app-modal>
+
+</section>
+

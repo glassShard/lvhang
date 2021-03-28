@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
-use Illuminate\Support\Facades\Storage;
 
 class Price extends Model
 {

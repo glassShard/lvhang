@@ -1,0 +1,32 @@
+.unsaved {
+  background-color: rgba(189,207,22,0.3);
+}
+
+.new {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.with-button {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.with-input {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  background-color: #b57c7b;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-animated {
+  transition: all .3s;
+}
+
+.showing {
+  transform: rotate(180deg);
+}
+

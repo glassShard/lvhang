@@ -1,0 +1,96 @@
+<ng-container *ngIf="show">
+  <li #element (@instantiate.done)=captureDoneEvent($event) *ngIf="isExist"
+      @instantiate [ngClass]="{'new': !sample.id}" class="row align-items-center mb-3 mb-xl-1">
+
+    <ng-container *ngIf="oldSample.price !== null || (oldSample.price === null && !oldSample.id); else
+    priceNull">
+      <div class="col-12 col-xl-3">
+        <input (keyup)="checkChange()" [(ngModel)]="sample.name"
+               [ngClass]="{'unsaved':
+             sample.name !== oldSample.name, 'is-invalid': error.name}"
+               class="form-control lv-form mb-1 mb-xl-0" placeholder="Megnevezés" title="Megnevezés" type="text"
+               value="{{ sample.name }}">
+      </div>
+
+      <div class="col-6 col-sm-3 col-xl-1">
+        <input (keyup)="checkChange()" [(ngModel)]="sample.price"
+               [ngClass]="{'unsaved':
+             sample.price !== oldSample.price, 'is-invalid': error.price}"
+               class="form-control lv-form mb-1 mb-xl-0" placeholder="Ár (Ft)" title="Ár" type="number" value="{{ sample.price }}">
+      </div>
+
+      <div class="col-12 col-xl-3">
+        <input (focus)="onFocus()" (keyup)="checkChange()"
+               [ngClass]="{'unsaved': sample.description !== oldSample.description}"
+               class="form-control lv-form mb-1 mb-xl-0"
+               placeholder="Leírás..."
+               title="Leírás"
+               type="text"
+               value="{{ this.description }}">
+      </div>
+
+      <!--buttons-->
+
+      <div class="col-12 col-xl-2 d-flex justify-content-end">
+        <button (click)="onCopy()" *ngIf="sample.id && showCopyButton"
+                class="btn btn-primary lv-btn btn-info btn-price mr-1"
+                type="button"><i class="fontello-docs"></i></button>
+
+        <button (click)="onCancel()" *ngIf="sample.id && !showCopyButton"
+                class="btn btn-warning lv-btn btn-info btn-price mr-1"
+                type="button"><i class="fontello-cancel"></i></button>
+
+        <button (click)="onSave()"
+                class="btn btn-primary lv-btn btn-success btn-price d-inline-block mr-1"
+                type="button"><i class="fontello-floppy"></i></button>
+
+        <button (click)="onDelete()" class="btn btn-primary lv-btn btn-danger btn-price"
+                type="button"><i class="fontello-trash-1"></i></button>
+
+      </div>
+
+    </ng-container>
+
+    <ng-template #priceNull>
+      <div class="col-12 col-sm-8 col-md-9 col-xl-10 d-flex">
+        <input (keyup)="checkChange()" [(ngModel)]="sample.name"
+               [ngClass]="{'main-category': oldSample.parent_id === null,
+      'sub-category': oldSample.parent_id !== null, 'unsaved': sample.name !== oldSample.name,
+      'with-button': sample.sub_sample && sample.sub_sample.length > 0}" class="form-control lv-form full-width mb-1 mb-xl-0"
+               placeholder="Név..."
+               type="text" value="{{ sample.name }}">
+        <button (click)="onShow()"
+                *ngIf="sample.sub_sample && sample.sub_sample.length > 0"
+                class="mb-1 mb-xl-0 with-input">
+          <div [ngClass]="{'showing':
+                showChildren}" class="icon-animated"><i class="fontello-down-open"></i></div>
+        </button>
+      </div>
+
+      <div class="col-12 col-sm-4 col-md-3 col-xl-2 d-flex justify-content-end">
+        <button (click)="onAdd()" class="btn btn-primary lv-btn btn-info btn-price mr-1"><i
+          class="fontello-doc-new"></i></button>
+
+        <button (click)="onSave()"
+                class="btn btn-primary lv-btn btn-success btn-price d-inline-block mr-1"
+                type="button"><i class="fontello-floppy"></i></button>
+
+        <button (click)="onDelete()"
+                class="btn btn-primary lv-btn btn-danger btn-price d-inline-block"
+                type="button"><i class="fontello-trash-1"></i></button>
+      </div>
+    </ng-template>
+
+  </li>
+
+  <ng-container *ngIf="sample.sub_sample && sample.sub_sample.length">
+    <app-sub-sample-edit (changed)="changedUp($event)"
+                         (newFlag)="newFlagUp($event)"
+                         *ngFor="let subPrice of sample.sub_sample; let i=index"
+                         [index]="i" [sample]="subPrice"
+                         [show]="showChildren"></app-sub-sample-edit>
+  </ng-container>
+</ng-container>
+
+
+

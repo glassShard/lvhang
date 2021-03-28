@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePrice;
 use Illuminate\Http\Request;
 use App\Price;
-use App\Record;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestForOffer;
 use App\Mail\RequestForOfferToSender;

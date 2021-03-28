@@ -1,10 +1,12 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {Price} from '../../models/priceModel';
-import {PriceService} from '../../services/price.service';
+import {Price} from '../../../models/priceModel';
+import {PriceService} from '../../../services/price.service';
 import {ToastrService} from 'ngx-toastr';
 import {animate, AnimationEvent, style, transition, trigger} from '@angular/animations';
-import {ModalService} from '../../services/modal.service';
-import {SlideInOutAnimation} from '../../animations/slide-in-animation';
+import {ModalService} from '../../../services/modal.service';
+import {SlideInOutAnimation} from '../../../animations/slide-in-animation';
+import {take} from 'rxjs/operators';
+import {removeHtmlTags} from '../../../methods/removeHtmlTags';
 
 @Component({
   selector: 'app-sub-price',
@@ -31,8 +33,6 @@ export class SubPriceComponent implements OnInit {
     price?: string;
     otherNumeric?: string;
   } = {};
-  regexOpen = /<[^>]*>/;
-  regexClose = /<\/[^>]*>/;
   description: any;
   showCopyButton = true;
   itemChanged = false;
@@ -44,9 +44,10 @@ export class SubPriceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(JSON.parse(JSON.stringify(this.price)));
     this.oldPrice = JSON.parse(JSON.stringify(this.price));
     this.isExist = true;
-    this.description = this.price.description ? this.strip(this.price.description) : '';
+    this.description = this.price.description ? removeHtmlTags(this.price.description) : '';
     this.showChildren = this.priceService.getIsShowing(this.price.name);
   }
 
@@ -56,10 +57,6 @@ export class SubPriceComponent implements OnInit {
         this.delete();
       }
     }
-  }
-
-  strip(value: string): string {
-    return value.replace(this.regexOpen, '')?.replace(this.regexClose, '');
   }
 
   onSave(): void {
@@ -73,14 +70,8 @@ export class SubPriceComponent implements OnInit {
             this.changed.emit(false);
             this.oldPrice = JSON.parse(JSON.stringify(this.price));
             this.showCopyButton = true;
-          } else {
-            this.toastr.error('Nem sikerült a mentés');
           }
-        }, error => {
-          if (error.error.message === 'Name already exists') {
-            this.toastr.error('Nem sikerült a mentés, mert ez a név már szerepel az adatbázisban.');
-          }
-        });
+        }, error => this.handleError(error));
       } else {
         this.priceService.new(this.price).subscribe(data => {
           if (data.status === 201) {
@@ -90,12 +81,18 @@ export class SubPriceComponent implements OnInit {
             this.changed.emit(false);
             this.priceService.loadData();
           }
-        }, error => {
-          if (error.error.message === 'Name already exists') {
-            this.toastr.error('Nem sikerült a mentés, mert ez a név már szerepel az adatbázisban.');
-          }
-        });
+        }, error => this.handleError(error));
       }
+    }
+  }
+
+  handleError(error): void {
+    if (error.error.message === 'Name already exists') {
+      this.toastr.error('Nem sikerült a mentés, mert ez a név már szerepel az adatbázisban.');
+    }
+    if (error.error.message === 'The given data was invalid.') {
+      this.toastr.error('Nem sikerült a mentés, vélhetően azért mert nem adtál meg árat, amikor viszont kitöltötted az áram, az' +
+        ' ember, vagy a mértékegység mezőt');
     }
   }
 
@@ -112,9 +109,8 @@ export class SubPriceComponent implements OnInit {
 
   delete(): void {
     if (this.price.id) {
-      this.priceService.delete(this.price).subscribe(data => {
+      this.priceService.delete(this.price).subscribe(() => {
         this.deleteNew.emit(this.price);
-        // this.priceService.loadData();
       });
     } else {
       this.deleteNew.emit(this.price);
@@ -190,12 +186,28 @@ export class SubPriceComponent implements OnInit {
   onFocus(): void {
     const id = this.price.id ? this.price.id : -1;
     const text = this.price.description ? this.price.description : '';
-    const subscription = this.modalService.open(id, text).subscribe(data => {
-      this.price.description = data;
-      this.description = this.strip(this.price.description);
-      subscription.unsubscribe();
+    this.modalService.quillNotifyer.next({open: true, id, text});
+    this.modalService.modalReadyNotifyer.pipe(take(1)).subscribe(value => {
+      if (value === this.price.id || (this.price.id === undefined && value === -1)) {
+        this.modalService.open(id);
+        this.modalService.quillResult.pipe(take(1)).subscribe(data => {
+          this.price.description = data;
+          this.checkChange();
+          this.description = this.price.description ? removeHtmlTags(this.price.description) : '';
+        });
+      }
     });
   }
+
+  // onFocus(): void {
+  //   const id = this.price.id ? this.price.id : -1;
+  //   const text = this.price.description ? this.price.description : '';
+  //   const subscription = this.modalService.open(id, text).subscribe(data => {
+  //     this.price.description = data;
+  //     this.description = this.strip(this.price.description);
+  //     subscription.unsubscribe();
+  //   });
+  // }
 
   checkChange(): void {
     this.validateFields();
@@ -212,6 +224,8 @@ export class SubPriceComponent implements OnInit {
   }
 
   checkEq(): boolean {
+    console.log('price ', this.price);
+    console.log('oldPrice', this.oldPrice);
     return this.price.name === this.oldPrice.name &&
       this.price.price === this.oldPrice.price &&
       this.price.current === this.oldPrice.current &&

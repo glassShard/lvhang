@@ -46,6 +46,8 @@
           </div>
         </div>
         <div class="clear"></div>
+
+        <a href="{{ route('angular.view') }}" class="btn-to-price">Árak</a>
       </section>
     </main>
 

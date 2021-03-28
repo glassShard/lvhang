@@ -1,10 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {PriceService} from '../../services/price.service';
-import {Price} from '../../models/priceModel';
+import {Component, ElementRef, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {PriceService} from '../../../services/price.service';
+import {Price} from '../../../models/priceModel';
 import {ToastrService} from 'ngx-toastr';
-import {Subscription} from 'rxjs';
+import {interval, Subscription} from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
+import {ModalService} from '../../../services/modal.service';
 
 @Component({
   selector: 'app-price-list',
@@ -16,9 +17,14 @@ export class PriceListComponent implements OnInit, OnDestroy {
   newExists = false;
   changes: Array<boolean> = [];
   subscriptions: Array<Subscription> = [];
+  id: number | undefined;
+  text: string | undefined;
+  editorValue: string | undefined;
+  editor: any;
 
   constructor(private priceService: PriceService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private modalService: ModalService) {
   }
 
   ngOnInit(): void {
@@ -30,6 +36,34 @@ export class PriceListComponent implements OnInit, OnDestroy {
         console.log(this.list);
       }
     }));
+    this.subscriptions.push(this.modalService.quillNotifyer.subscribe((value: any) => {
+      if (value.open) {
+        this.id = value.id;
+        this.text = value.text;
+        this.editorValue = this.text;
+        const subscription = interval(50).subscribe(() => {
+          if (this.editor) {
+            subscription.unsubscribe();
+            this.editor.focus();
+          }
+        });
+      } else {
+        if (value.id === this.id) {
+          this.modalService.quillResult.next(this.editorValue);
+          delete this.id;
+          delete this.text;
+          delete this.editor;
+        }
+      }
+    }));
+  }
+
+  create(event): void {
+    this.editor = event;
+  }
+
+  onCloseModal(): void {
+    this.editorValue = this.text;
   }
 
   deleteNew(price: Price): void {
@@ -56,7 +90,13 @@ export class PriceListComponent implements OnInit, OnDestroy {
     }
 
     const newPrice = new Price({
-      parent_id: price.id
+      parent_id: price.id,
+      name: '',
+      price: null,
+      current: null,
+      people: null,
+      description: '',
+      unit: ''
     });
     const result = this.findElementInTree(price);
     const targetArray = this.selectTargetArray(result);

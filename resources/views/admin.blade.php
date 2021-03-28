@@ -19,6 +19,7 @@
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('devices.index') }}">Eszközlisták</a>
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('news.index') }}">Hírek</a>
           <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('angular.edit') }}">Árak</a>
+          <a class="btn btn-lg btn-primary btn-normal lv-btn mb-1" href="{{ route('sample.edit') }}">Példák</a>
         </div>
       </section>
 

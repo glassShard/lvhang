@@ -13,16 +13,17 @@
       elemeknél szükséges még valamilyen mennyiség (m2, darab, km, stb.) megadása is a helyes
       számításhoz.</p>
     <p>A kiválasztott elemek összesített ára a lista alján látható.</p>
+    <p>Az ár nettó, egy (maximum egynapos) rendezvényre szól.</p>
     <p>Ez az ár csak hozzávetőleges, és tájékoztatási célokat szolgál, mivel semmilyen mennyiségi
       kedvezményt nem tartalmaz, és nem tartalmazza a szükséges kisegítő személyzet (színpad
       építők, technikusok, stb.) díját sem. A lista alján lehetőség van a kiválasztott elemek
       elküldésével árajánlat kérésére is.</p>
-    <p class="link" (click)="onShowPricingFromTop()">Részletek az árképzésről >></p>
-    <div *ngIf="top" @slide>
-      <app-pricing></app-pricing>
-      <p class="link" (click)="onShowPricingFromTop()">Bezár</p>
-    </div>
+    <p class="link" (click)="onShowPricing()">Részletek az árképzésről >></p>
   </div>
+
+  <app-modal *ngIf="showModal" [id]="-10" [dark]="true" (closeModal)="showModal = false">
+    <app-pricing></app-pricing>
+  </app-modal>
 
   <ul>
     <li *ngFor="let item of list; let i=index">
@@ -34,10 +35,11 @@
   <div *ngIf="sum && sum.price > 0" @slide>
     <p>Kiválasztott eszközök kedvezmény nélküli ára összesen (Az ár munkaerő-szolgáltatást nem
       tartalmaz!):</p>
-    <h2 class="price display-4">{{ sum.price }} Ft</h2>
+    <p class="link" (click)="onShowPricing()">Részletek az árképzésről >></p>
+    <h2 class="price lv-display-2">{{ sum.price | ft }} Ft (nettó)</h2>
     <ng-container *ngIf="sum.current && sum.current > 0">
       <p>Kiválasztott eszközök áramigénye összesen:</p>
-      <h2 class="price">{{ sum.current }} A</h2>
+      <h2 class="price">{{ sum.current | ft }} A</h2>
     </ng-container>
     <hr class="hr-light">
   </div>

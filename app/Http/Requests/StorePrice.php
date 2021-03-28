@@ -27,8 +27,7 @@ class StorePrice extends FormRequest
             'name' => 'required|string',
             'current' => 'numeric|nullable',
             'people' => 'numeric|nullable',
-            'piece' => 'numeric|nullable',
-            'price' => 'numeric|nullable|required_with:current,people,piece',
+            'price' => 'numeric|nullable|required_with:current,people,piece,unit,description',
             'description' => 'string|nullable',
             'parent_id' => 'numeric|nullable',
             'unit' => 'string|nullable'

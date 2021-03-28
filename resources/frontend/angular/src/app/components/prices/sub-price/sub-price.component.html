@@ -2,7 +2,8 @@
   <li *ngIf="isExist" class="row align-items-center mb-3 mb-xl-1" #element
       @instantiate (@instantiate.done)=captureDoneEvent($event) [ngClass]="{'new': !price.id}">
 
-    <ng-container *ngIf="oldPrice.price !== null; else priceNull">
+    <ng-container *ngIf="oldPrice.price !== null || (oldPrice.price === null && !oldPrice.id); else
+    priceNull">
       <div class="col-12 col-xl-3">
         <input [(ngModel)]="price.name" class="form-control lv-form mb-1 mb-xl-0"
                placeholder="Megnevezés"
@@ -65,7 +66,6 @@
 
       </div>
 
-      <app-modal [id]="price.id ? price.id : -1"></app-modal>
     </ng-container>
 
     <ng-template #priceNull>

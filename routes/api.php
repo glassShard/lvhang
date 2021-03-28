@@ -29,6 +29,8 @@ Route::prefix('v1')->name('api.v1.')->namespace('Api\V1')->group(function() {
     Route::post('price/sendRFOMail', 'PriceController@sendRFOMail')->name('sendRFOMail');
 
     Route::apiResource('/price', 'PriceController');
+
+    Route::apiResource('/sample', 'SampleController');
 });
 
 Route::fallback(function() {

@@ -40,6 +40,8 @@
               <p>Még nincsenek hírek</p>
             @endforelse  
         </div>
+
+        <a href="{{ route('angular.view') }}" class="btn-to-price">Árak</a>
       </section>
     </main>
     
